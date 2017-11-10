@@ -30,14 +30,13 @@
     categoryId: "category_basic-needs-assistance",
     name: "VA",
     formalName: "VA Homeless Prevention Program and Walk-In Clinic",
-    avatarImgURL: "https://blah"
+    avatarImgURL: "https://blah",
     shortDesc: "housing, medical",
     purpose: "The Ralph H. Johnson Veterans Affairs Medical Center offers a walk-in clinic for veterans searching for re-housing assistance and means to prevent homelessness. In addition to referral services, the walk-in clinic offers basic outpatient medical care.",
     website: "http://www.charleston.va.gov/services/homeless/index.asp",
     contacts: [
       {name: "Linda Williams", office: null, title: "", phone: "843-577-5011", email: null, isPrimary: true}
     ],
-
     addresses: [
       {
         isPrimary: true,
@@ -47,9 +46,10 @@
         state: "SC",
         zip: "29401"
       }],
-
-    rank: 10
-
+    rank: 10,
+    faq: [
+      {question: "What are you office hours?", answer: "M-F 9 a.m. to 4 p.m. except federal holidays.", sort: 10},
+      {question: "What forms of payment do you accept?", answer: "cash, debit, credit", sort: 20},
+    ]
   }
-
   ```
