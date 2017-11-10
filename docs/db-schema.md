@@ -1,6 +1,6 @@
 # Database
 
-[home](./readme.md)
+[home](../readme.md)
 
 ## Categories
 
@@ -56,4 +56,4 @@
   }
   ```
 
-  [home](./readme.md)
+[home](../readme.md)
