@@ -153,7 +153,7 @@ GET /categories
 
 ## POST /resources
 
-Adds a resource to the collection of resources.  When adding a resource the `name`, `short desc`, and `desc` are required fields.
+Adds a resource to the collection of resources.  When adding a resource the `categoryId`, `name`, `formalName`, `short desc`, `purpose`, `website` and `desc` are required fields.
 
 ** Sample Request **
 
@@ -272,7 +272,7 @@ GET /resources
 ]
 ```
 
-## GET /resources/:id
+## GET /resources/{id}
 
 Retrieves a specific resources.
 
@@ -318,7 +318,7 @@ GET /resources/resource_va
 
 ## SEARCH /resources
 
-Searches a specific resource name.
+Returns a listing of resources by filtering on the resource `name` property.
 
 ** Sample Request **
 
@@ -361,7 +361,7 @@ GET /resources?filter=name:VA
 ```
 
 
-## UPDATE /resources/:id
+## UPDATE /resources/{id}
 
 Updates an existing specific resource.
 
@@ -372,6 +372,7 @@ PUT /resources/:id
 
 {
   _id: "resource_TAP",
+  _rev: "1-A6157A5EA545C99B00FF904EEF094035U",
   type: "resource",
   categoryId: "category_community-resources",
   name: "TAP",
@@ -407,14 +408,14 @@ _rev: "2-A6157A5EA545C99B00FF904EEF094035U"
 }
 ```
 
-## DELETE /resources/:id
+## DELETE /resources/{id}
 
 Deletes the provided resource from the resource list.
 
 ** Sample Request **
 
 ```
-DELETE /resources/:id
+DELETE /resources/va
 ```
 
 ** Sample 200 Response **
