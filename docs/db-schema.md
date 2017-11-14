@@ -16,7 +16,8 @@
     type: "category",
     name: "Basic Needs Assistance",
     shortDesc: "shelter, food, emergency"
-    desc: "Basic Needs Assistance includes organizations that provide one or more of the following services: shelter facilities for the homeless and for those escaping situations of domestic violence, food/supplemental nutrition resources, and single-transaction emergency financial assistance in cases of involuntary hardship."
+    desc: "Basic Needs Assistance includes organizations that provide one or more of the following services: shelter facilities for the homeless and for those escaping situations of domestic violence, food/supplemental nutrition resources, and single-transaction emergency financial assistance in cases of involuntary hardship.",
+    icon: "fa-whatevs"
   }
   ```
 
