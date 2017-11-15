@@ -94,7 +94,6 @@ app.put("/categories/:id", (req, res, next) => {
 });
 
 app.delete("/categories/:id", (req, res, next) => {
-  console.log("req.params.id", req.params.id);
   deleteCategory(req.params.id)
     .then(result => res.send(result))
     .catch(next(new HTTPError(err.status, err.message)));
@@ -103,10 +102,9 @@ app.delete("/categories/:id", (req, res, next) => {
 app.get("/categories", (req, res, next) => {
   getAllCategories()
     .then(docs => {
-      console.log("app level: ", docs);
       res.send(docs);
     })
-    .catch(next(new HTTPError(err.status, err.message)));
+    .catch(err => next(new HTTPError(err.status, err.message)));
 });
 
 app.use((err, req, res, next) => {
