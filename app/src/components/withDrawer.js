@@ -5,16 +5,19 @@ import Divider from 'material-ui/Divider'
 import InboxIcon from 'material-ui-icons/Inbox'
 import DraftsIcon from 'material-ui-icons/Drafts'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const sideList = (
   <div>
     <List>
-      <ListItem button>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="Resources" />
-      </ListItem>
+      <Link to="/resources">
+        <ListItem button>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary="Resources" />
+        </ListItem>
+      </Link>
       <ListItem button>
         <ListItemIcon>
           <DraftsIcon />
@@ -39,7 +42,7 @@ const withDrawer = function(PageComponent) {
     return (
       <div>
         <PageComponent />
-        <Drawer open={props.open}>
+        <Drawer open={props.open} onRequestClose={props.toggleDrawer}>
           <div
             tabIndex={0}
             role="button"
