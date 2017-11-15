@@ -15,6 +15,7 @@ const allDocs = options =>
   options ? db.allDocs(options).then(docs => pluck('doc', docs.rows)) : []
 
 const findDocs = query => (query ? db.find(query).then(res => res.docs) : [])
+//db.createIndex({index:{fields:[]}})
 
 const dalHelper = {
   get,
