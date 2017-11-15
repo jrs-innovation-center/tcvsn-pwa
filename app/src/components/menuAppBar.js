@@ -6,6 +6,7 @@ import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
+import SearchIcon from 'material-ui-icons/Search'
 import { connect } from 'react-redux'
 
 const styles = theme => ({
@@ -22,6 +23,7 @@ const styles = theme => ({
   }
 })
 
+//  <Button color="contrast">Search</Button>
 const MenuAppBar = props => {
   const { classes } = props
 
@@ -40,7 +42,13 @@ const MenuAppBar = props => {
           <Typography type="title" color="inherit" className={classes.flex}>
             {props.title}
           </Typography>
-          <Button color="contrast">Search</Button>
+          <IconButton
+            color="contrast"
+            aria-label="Search"
+            onClick={props.toggleDrawer}
+          >
+            <SearchIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
