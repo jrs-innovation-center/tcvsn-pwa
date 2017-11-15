@@ -3,6 +3,7 @@ import { Drawer } from 'material-ui'
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
 import Divider from 'material-ui/Divider'
 import InboxIcon from 'material-ui-icons/Inbox'
+import HomeIcon from 'material-ui-icons/Home'
 import DraftsIcon from 'material-ui-icons/Drafts'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -10,6 +11,14 @@ import { Link } from 'react-router-dom'
 const sideList = (
   <div>
     <List>
+      <Link to="/">
+        <ListItem button>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItem>
+      </Link>
       <Link to="/resources">
         <ListItem button>
           <ListItemIcon>

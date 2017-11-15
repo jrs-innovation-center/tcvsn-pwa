@@ -2,17 +2,13 @@ import React from 'react'
 import { Button } from 'material-ui'
 import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
+import MenuAppBar from '../components/menuAppBar'
 import { connect } from 'react-redux'
 
 const Home = props => {
   return (
     <div>
-      <Button raised color="primary" onClick={props.toggleDrawer}>
-        Open Drawer
-      </Button>
-      <Button raised color="accent">
-        I am the home page
-      </Button>
+      <MenuAppBar title="Home" />
     </div>
   )
 }

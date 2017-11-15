@@ -7,7 +7,7 @@ import { Typography } from 'material-ui'
 const Resources = props => {
   return (
     <div>
-      <MenuAppBar title="resources" />
+      <MenuAppBar title="Resources" />
       <Typography>Resources</Typography>
     </div>
   )
