@@ -100,7 +100,12 @@ app.delete("/categories/:id", (req, res, next) => {
 });
 
 app.get("/categories", (req, res, next) => {
-  getAllCategories()
+  getAllCategories({
+    include_docs: true,
+    inclusive_end: true,
+    start_key: "category_",
+    end_key: "category_\ufff0"
+  })
     .then(docs => {
       res.send(docs);
     })
