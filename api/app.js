@@ -183,13 +183,21 @@ app.post("/categories", (req, res, next) => {
       )
     );
   }
-  const missingFields = categoryRequiredFieldCheck(prop("body", req));
+
+  const body = compose(
+    omit(["_id", "_rev"]),
+    merge(__, { type: "category" }),
+    prop("body")
+  )(req);
+
+  const missingFields = categoryRequiredFieldCheck(body);
   if (not(isEmpty(missingFields))) {
     return next(
       new HTTPError(400, `Missing required fields: ${join(" ", missingFields)}`)
     );
   }
-  createCategory(req.body)
+
+  createCategory(body)
     .then(result => {
       console.log("in then: ", result);
       res.send(result);
@@ -198,9 +206,9 @@ app.post("/categories", (req, res, next) => {
 });
 
 app.get("/categories/:id", (req, res, next) => {
-  getCategory(req.body)
+  getCategory(req.params.id)
     .then(result => res.send(result))
-    .catch(err => next(new HTTPError(err.status, err.message)));
+    .catch(err => next(err => new HTTPError(err.status, err.message)));
 });
 
 app.put("/categories/:id", (req, res, next) => {
@@ -225,11 +233,8 @@ app.put("/categories/:id", (req, res, next) => {
 });
 
 app.delete("/categories/:id", (req, res, next) => {
-  deleteCategory(req.params.id)
-    .then(result => {
-      console.log("delete api:", result);
-      res.send(result);
-    })
+  deleteResource(path(["params", "id"], req))
+    .then(result => res.status(200).send(result))
     .catch(err => next(new HTTPError(err.status, err.message)));
 });
 
