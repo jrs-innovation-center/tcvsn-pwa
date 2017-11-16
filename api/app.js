@@ -67,7 +67,7 @@ app.post("/categories", (req, res, next) => {
 });
 
 app.get("/categories/:id", (req, res, next) => {
-  getCategory("category_" + req.params.id)
+  getCategory(req.params.id)
     .then(result => res.send(result))
     .catch(err => next(new HTTPError(err.status, err.message)));
 });
@@ -94,7 +94,7 @@ app.put("/categories/:id", (req, res, next) => {
 });
 
 app.delete("/categories/:id", (req, res, next) => {
-  deleteCategory("category_" + req.params.id)
+  deleteCategory(req.params.id)
     .then(result => {
       console.log("delete api:", result);
       res.send(result);
