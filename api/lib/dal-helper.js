@@ -12,11 +12,12 @@ const update = doc => {
 }
 const deleteDoc = id => db.get(id).then(doc => db.remove(doc))
 
-const allDocs = options =>
-  db
+const allDocs = options => {
+  console.log('options - alldocs', options)
+  return db
     .allDocs(options || { include_docs: true })
     .then(docs => pluck('doc', docs.rows))
-
+}
 //   return options
 //     ? db.allDocs(options).then(docs => pluck("doc", docs.rows))
 //     : Promise.resolve([]);

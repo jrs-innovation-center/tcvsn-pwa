@@ -43,7 +43,7 @@ const postResourceRequiredFieldCheck = checkRequiredFields([
   'name',
   'formalName',
   'shortDesc',
-  'desc',
+  'purpose',
   'website'
 ])
 const putResourceRequiredFieldCheck = checkRequiredFields([
@@ -54,7 +54,7 @@ const putResourceRequiredFieldCheck = checkRequiredFields([
   'name',
   'formalName',
   'shortDesc',
-  'desc',
+  'purpose',
   'website'
 ])
 const categoryRequiredFieldCheck = checkRequiredFields([
@@ -128,7 +128,7 @@ app.put('/resources/:id', (req, res, next) => {
   const missingFields = putResourceRequiredFieldCheck(prop('body', req))
   if (not(isEmpty(missingFields))) {
     return next(
-      new HTTPError(401, `Missing required fields: ${join(' ', missingFields)}`)
+      new HTTPError(400, `Missing required fields: ${join(' ', missingFields)}`)
     )
   }
 
@@ -145,12 +145,24 @@ app.delete('/resources/:id', (req, res, next) => {
 
 app.get('/resources', (req, res, next) => {
   let searchStr = compose(split(':'), pathOr('', ['query', 'filter']))(req)
-
-  listResource({
-    include_docs: true,
-    startkey: searchStr[1],
-    endkey: searchStr[1] + '\ufff0'
-  })
+  console.log('searchStr', searchStr)
+  const filter = pathOr(null, ['query', 'filter'])(req)
+  console.log('filter is this:', filter)
+  var options = {}
+  if (filter) {
+    options = {
+      include_docs: true,
+      startkey: 'resource_' + last(searchStr),
+      endkey: 'resource_' + last(searchStr) + '\ufff0'
+    }
+  } else {
+    options = {
+      include_docs: true,
+      startkey: 'resource_',
+      endkey: 'resource_\ufff0'
+    }
+  }
+  listResource(options)
     .then(results => res.status(200).send(results))
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
@@ -171,7 +183,7 @@ app.post('/categories', (req, res, next) => {
   const missingFields = categoryRequiredFieldCheck(prop('body', req))
   if (not(isEmpty(missingFields))) {
     return next(
-      new HTTPError(401, `Missing required fields: ${join(' ', missingFields)}`)
+      new HTTPError(400, `Missing required fields: ${join(' ', missingFields)}`)
     )
   }
   createCategory(req.body)
