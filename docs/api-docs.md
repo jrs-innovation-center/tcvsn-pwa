@@ -279,7 +279,7 @@ Retrieves a specific resources.
 ** Sample Request **
 
 ```
-GET /resources/resource_va
+GET /resources/va
 ```
 
 ** Sample 200 Response **
