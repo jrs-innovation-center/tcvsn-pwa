@@ -110,6 +110,7 @@ app.post('/resources', (req, res, next) => {
 })
 
 app.get('/resources/:id', (req, res, next) => {
+  console.log('/resources/:id', req.params.id)
   getResource(path(['params', 'id'], req))
     .then(doc => res.status(200).send(doc))
     .catch(err => next(new HTTPError(err.status, err.message)))
