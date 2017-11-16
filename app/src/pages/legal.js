@@ -5,6 +5,7 @@ import withDrawer from "../components/withDrawer";
 import MenuAppBar from "../components/menuAppBar";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
+import { Link } from "react-router-dom";
 import Card, {
   CardActions,
   CardHeader,
@@ -15,6 +16,9 @@ import Avatar from "material-ui/Avatar";
 import Button from "material-ui/Button";
 import Typography from "material-ui/Typography";
 import Gavel from "material-ui-icons/Gavel";
+import Help from "material-ui-icons/Help";
+import Favorite from "material-ui-icons/Favorite";
+import Legal from "material-ui-icons/Gavel";
 const styles = {
   card: {
     align: "center",
@@ -69,12 +73,20 @@ function SimpleMediaCard(props) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button dense color="primary">
-              About
-            </Button>
-            <Button dense color="primary">
+            <Button
+              raised
+              color="primary"
+              style={{ marginTop: 24, marginLeft: 16 }}
+            >
+              <Favorite style={{ marginRight: 7, height: 16, width: 16 }} />
               In Memory
             </Button>
+            <Link to="/about">
+              <Button raised color="primary" style={{ marginTop: 24 }}>
+                <Help style={{ marginRight: 7, height: 16, width: 16 }} />
+                About
+              </Button>
+            </Link>
           </CardActions>
         </Card>
       </div>

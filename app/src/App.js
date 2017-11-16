@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Resources from "./pages/resources";
 import Legal from "./pages/legal";
+import About from "./pages/about";
 
 const App = props => {
   return (
@@ -10,7 +11,8 @@ const App = props => {
       <div>
         <Route exact path="/" component={Home} />
         <Route path="/resources" component={Resources} />
-        <Route path="/about/legal" component={Legal} />
+        <Route path="/about" component={About} />
+        <Route path="/legal" component={Legal} />
       </div>
     </BrowserRouter>
   );
