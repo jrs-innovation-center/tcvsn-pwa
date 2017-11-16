@@ -10,10 +10,7 @@ const styles = theme => ({
     paddingTop: 16,
     paddingBottom: 16,
     paddingLeft: 16,
-    paddingRight: 16,
-    width: '90%',
-    margin: '0 auto',
-    marginTop: theme.spacing.unit * 4
+    paddingRight: 16
   })
 })
 
@@ -40,7 +37,7 @@ function PaperSheet(props) {
 
   return (
     <div>
-      <Paper className={classes.root} elevation={4}>
+      <Paper className={classes.root} elevation={4} square={true}>
         {map(typographyList, data)}
       </Paper>
     </div>

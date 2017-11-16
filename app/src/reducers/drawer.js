@@ -1,6 +1,6 @@
 import { TOGGLE_DRAWER } from '../constants'
 
-export const drawer = (state = { open: true }, action) => {
+export const drawer = (state = { open: false }, action) => {
   switch (action.type) {
     case TOGGLE_DRAWER:
       return { open: !state.open }

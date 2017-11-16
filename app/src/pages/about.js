@@ -6,6 +6,8 @@ import MenuAppBar from '../components/menuAppBar'
 import { connect } from 'react-redux'
 import PaperSheet from '../components/paperSheet'
 import sig from '../sig.jpg'
+import Favorite from 'material-ui-icons/Favorite'
+import Legal from 'material-ui-icons/Gavel'
 
 const aboutText = [
   {
@@ -46,7 +48,21 @@ const About = props => {
   return (
     <div>
       <MenuAppBar title="About" />
-      <PaperSheet data={aboutText} />
+      <div className="container">
+        <PaperSheet data={aboutText} />
+        <Button raised color="primary" style={{ marginTop: 24 }}>
+          <Favorite style={{ marginRight: 7, height: 16, width: 16 }} />
+          In Memory
+        </Button>
+        <Button
+          raised
+          color="primary"
+          style={{ marginTop: 24, marginLeft: 16 }}
+        >
+          <Legal style={{ marginRight: 7, height: 16, width: 16 }} />
+          Legal
+        </Button>
+      </div>
     </div>
   )
 }

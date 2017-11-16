@@ -5,12 +5,17 @@ import withDrawer from '../components/withDrawer'
 import MenuAppBar from '../components/menuAppBar'
 import { connect } from 'react-redux'
 
-const Home = props => {
-  return (
-    <div>
-      <MenuAppBar title="Home" />
-    </div>
-  )
+class Home extends React.Component {
+  componentDidMount() {
+    this.props.toggleDrawer()
+  }
+  render() {
+    return (
+      <div>
+        <MenuAppBar title="Home" />
+      </div>
+    )
+  }
 }
 
 const connector = connect(
