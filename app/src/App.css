@@ -9,4 +9,14 @@
   position: relative;
   left: 0;
   right: 0;
+
+  padding-bottom: 30px;
+}
+.eileen {
+  max-width: inherit;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  left: 0;
+  right: 0;
 }

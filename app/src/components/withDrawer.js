@@ -1,15 +1,14 @@
-import React from "react";
-import { Drawer } from "material-ui";
-import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
-import Divider from "material-ui/Divider";
-import InboxIcon from "material-ui-icons/Inbox";
-import HomeIcon from "material-ui-icons/Home";
-import DraftsIcon from "material-ui-icons/Drafts";
-import Gavel from "material-ui-icons/Gavel";
-import Help from "material-ui-icons/Help";
-import Favorite from "material-ui-icons/Favorite";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Drawer } from 'material-ui'
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
+import Divider from 'material-ui/Divider'
+import InboxIcon from 'material-ui-icons/Inbox'
+import HomeIcon from 'material-ui-icons/Home'
+import HelpIcon from 'material-ui-icons/Help'
+import FavoriteIcon from 'material-ui-icons/Favorite'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import GavelIcon from 'material-ui-icons/Gavel'
 
 const sideList = (
   <div>
@@ -30,10 +29,13 @@ const sideList = (
           <ListItemText primary="Resources" />
         </ListItem>
       </Link>
+    </List>
+    <Divider />
+    <List>
       <Link to="/about">
         <ListItem button>
           <ListItemIcon>
-            <Help />
+            <HelpIcon />
           </ListItemIcon>
           <ListItemText primary="About" />
         </ListItem>
@@ -41,31 +43,22 @@ const sideList = (
       <Link to="/legal">
         <ListItem button>
           <ListItemIcon>
-            <Gavel />
+            <GavelIcon />
           </ListItemIcon>
           <ListItemText primary="Legal" />
         </ListItem>
       </Link>
-      <Link to="/immemory">
+      <Link to="/in-memory">
         <ListItem button>
           <ListItemIcon>
-            <Favorite />
+            <FavoriteIcon />
           </ListItemIcon>
           <ListItemText primary="In Memory" />
         </ListItem>
       </Link>
     </List>
-    <Divider />
-    <List>
-      <ListItem button>
-        <ListItemText primary="Trash" />
-      </ListItem>
-      <ListItem button component="a" href="#simple-list">
-        <ListItemText primary="Spam" />
-      </ListItem>
-    </List>
   </div>
-);
+)
 
 const withDrawer = function(PageComponent) {
   const WrapDrawerComponent = props => {
@@ -83,20 +76,20 @@ const withDrawer = function(PageComponent) {
           </div>
         </Drawer>
       </div>
-    );
-  };
+    )
+  }
   const mapStateToProps = state => {
-    return { open: state.drawer.open };
-  };
+    return { open: state.drawer.open }
+  }
   const mapActionsToProps = dispatch => {
     return {
       toggleDrawer: () => {
-        dispatch({ type: "TOGGLE_DRAWER" });
+        dispatch({ type: 'TOGGLE_DRAWER' })
       }
-    };
-  };
-  const connector = connect(mapStateToProps, mapActionsToProps);
-  return connector(WrapDrawerComponent);
-};
+    }
+  }
+  const connector = connect(mapStateToProps, mapActionsToProps)
+  return connector(WrapDrawerComponent)
+}
 
-export default withDrawer;
+export default withDrawer
