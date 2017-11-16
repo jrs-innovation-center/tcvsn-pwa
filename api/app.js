@@ -67,7 +67,7 @@ app.post("/categories", (req, res, next) => {
 });
 
 app.get("/categories/:id", (req, res, next) => {
-  getCategory(req.body)
+  getCategory(req.params.id)
     .then(result => res.send(result))
     .catch(err => next(new HTTPError(err.status, err.message)));
 });
