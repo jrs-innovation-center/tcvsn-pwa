@@ -13,9 +13,7 @@ const update = doc => {
 const deleteDoc = id => db.get(id).then(doc => db.remove(doc));
 
 const allDocs = options =>
-  db
-    .allDocs(options || { include_docs: true })
-    .then(docs => pluck("doc", docs.rows));
+  db.allDocs(options).then(docs => pluck("doc", docs.rows));
 
 //   return options
 //     ? db.allDocs(options).then(docs => pluck("doc", docs.rows))

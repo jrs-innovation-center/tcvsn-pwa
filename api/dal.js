@@ -10,7 +10,7 @@ const {
 } = require("./lib/dal-helper");
 
 const getCategory = id => get(id);
-const getAllCategories = options => allDocs(options);
+const getAllCategories = options => allDocs(options || { include_docs: true });
 const createCategory = doc => {
   const id = pkGenerator("category_", doc.name);
   return create(assoc("_id", id, doc));
