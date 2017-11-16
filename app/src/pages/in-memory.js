@@ -8,6 +8,7 @@ import PaperSheet from '../components/paperSheet'
 import Eileen from '../eileen.jpg'
 import About from 'material-ui-icons/Help'
 import Legal from 'material-ui-icons/Gavel'
+import { Link } from 'react-router-dom'
 
 const aboutText = [
   {
@@ -41,18 +42,22 @@ const InMemory = props => {
       <MenuAppBar title="In Memory" />
       <div className="container">
         <PaperSheet data={aboutText} />
-        <Button href="/about" raised color="primary" style={{ marginTop: 24 }}>
-          <About style={{ marginRight: 7, height: 16, width: 16 }} />
-          About
-        </Button>
-        <Button
-          raised
-          color="primary"
-          style={{ marginTop: 24, marginLeft: 16 }}
-        >
-          <Legal style={{ marginRight: 7, height: 16, width: 16 }} />
-          Legal
-        </Button>
+        <Link to="/about">
+          <Button raised color="primary" style={{ marginTop: 24 }}>
+            <About style={{ marginRight: 7, height: 16, width: 16 }} />
+            About
+          </Button>
+        </Link>
+        <Link to="/legal">
+          <Button
+            raised
+            color="primary"
+            style={{ marginTop: 24, marginLeft: 16 }}
+          >
+            <Legal style={{ marginRight: 7, height: 16, width: 16 }} />
+            Legal
+          </Button>
+        </Link>
       </div>
     </div>
   )

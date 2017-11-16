@@ -8,6 +8,7 @@ import HelpIcon from 'material-ui-icons/Help'
 import FavoriteIcon from 'material-ui-icons/Favorite'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import GavelIcon from 'material-ui-icons/Gavel'
 
 const sideList = (
   <div>
@@ -37,6 +38,14 @@ const sideList = (
             <HelpIcon />
           </ListItemIcon>
           <ListItemText primary="About" />
+        </ListItem>
+      </Link>
+      <Link to="/legal">
+        <ListItem button>
+          <ListItemIcon>
+            <GavelIcon />
+          </ListItemIcon>
+          <ListItemText primary="Legal" />
         </ListItem>
       </Link>
       <Link to="/in-memory">
