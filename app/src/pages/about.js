@@ -50,7 +50,12 @@ const About = props => {
       <MenuAppBar title="About" />
       <div className="container">
         <PaperSheet data={aboutText} />
-        <Button raised color="primary" style={{ marginTop: 24 }}>
+        <Button
+          href="/in-memory"
+          raised
+          color="primary"
+          style={{ marginTop: 24 }}
+        >
           <Favorite style={{ marginRight: 7, height: 16, width: 16 }} />
           In Memory
         </Button>

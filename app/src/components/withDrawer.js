@@ -4,7 +4,8 @@ import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
 import Divider from 'material-ui/Divider'
 import InboxIcon from 'material-ui-icons/Inbox'
 import HomeIcon from 'material-ui-icons/Home'
-import DraftsIcon from 'material-ui-icons/Drafts'
+import HelpIcon from 'material-ui-icons/Help'
+import FavoriteIcon from 'material-ui-icons/Favorite'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -27,23 +28,25 @@ const sideList = (
           <ListItemText primary="Resources" />
         </ListItem>
       </Link>
+    </List>
+    <Divider />
+    <List>
       <Link to="/about">
         <ListItem button>
           <ListItemIcon>
-            <DraftsIcon />
+            <HelpIcon />
           </ListItemIcon>
           <ListItemText primary="About" />
         </ListItem>
       </Link>
-    </List>
-    <Divider />
-    <List>
-      <ListItem button>
-        <ListItemText primary="Trash" />
-      </ListItem>
-      <ListItem button component="a" href="#simple-list">
-        <ListItemText primary="Spam" />
-      </ListItem>
+      <Link to="/in-memory">
+        <ListItem button>
+          <ListItemIcon>
+            <FavoriteIcon />
+          </ListItemIcon>
+          <ListItemText primary="In Memory" />
+        </ListItem>
+      </Link>
     </List>
   </div>
 )
