@@ -27,12 +27,14 @@ const sideList = (
           <ListItemText primary="Resources" />
         </ListItem>
       </Link>
-      <ListItem button>
-        <ListItemIcon>
-          <DraftsIcon />
-        </ListItemIcon>
-        <ListItemText primary="Drafts" />
-      </ListItem>
+      <Link to="/about">
+        <ListItem button>
+          <ListItemIcon>
+            <DraftsIcon />
+          </ListItemIcon>
+          <ListItemText primary="About" />
+        </ListItem>
+      </Link>
     </List>
     <Divider />
     <List>
