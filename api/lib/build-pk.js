@@ -1,4 +1,21 @@
-const { toLower, trim, replace, concat, compose } = require("ramda");
+const {
+  toLower,
+  trim,
+  replace,
+  concat,
+  compose,
+  split,
+  join,
+  reject
+} = require('ramda')
 module.exports = (prefix, value) => {
-  return compose(concat(prefix), replace(" ", "-"), trim, toLower)(value);
-};
+  valueArr = split(value)
+  return compose(
+    concat(prefix),
+    join('-'),
+    reject(s => s === ' ' || s === '–'),
+    split(' '),
+    trim,
+    toLower
+  )(value)
+}
