@@ -8,7 +8,13 @@ const {
   updateResource,
   deleteResource,
   listResource,
-  findResource
+  findResource,
+  createCategory,
+  getCategory,
+  getAllCategories,
+  updateCategory,
+  deleteCategory,
+  findCategory
 } = require('./dal')
 const port = process.env.PORT || 5000
 const HTTPError = require('node-http-error')
@@ -52,6 +58,15 @@ const putResourceRequiredFieldCheck = checkRequiredFields([
   'website'
 ])
 const categoryRequiredFieldCheck = checkRequiredFields([
+  'name',
+  'shortDesc',
+  'desc'
+])
+
+const categoryRequiredPutFieldCheck = checkRequiredFields([
+  '_id',
+  '_rev',
+  'type',
   'name',
   'shortDesc',
   'desc'
@@ -129,16 +144,87 @@ app.delete('/resources/:id', (req, res, next) => {
 })
 
 app.get('/resources', (req, res, next) => {
-  let searchStr = compose(last, split(':'), pathOr('', ['query', 'filter']))(
-    req
-  )
+  let searchStr = compose(split(':'), pathOr('', ['query', 'filter']))(req)
 
   listResource({
     include_docs: true,
-    startkey: 'resource_' + searchStr,
-    endkey: 'resource_' + searchStr + '\ufff0'
+    startkey: searchStr[1],
+    endkey: searchStr[1] + '\ufff0'
   })
     .then(results => res.status(200).send(results))
+    .catch(err => next(new HTTPError(err.status, err.message)))
+})
+
+/////////////////////
+/////// categories
+/////////////////////
+
+app.post('/categories', (req, res, next) => {
+  if (isEmpty(prop('body'), req)) {
+    return next(
+      new HTTPError(
+        400,
+        'Missing request body.  Content-Type header should be application/json.'
+      )
+    )
+  }
+  const missingFields = categoryRequiredFieldCheck(prop('body', req))
+  if (not(isEmpty(missingFields))) {
+    return next(
+      new HTTPError(401, `Missing required fields: ${join(' ', missingFields)}`)
+    )
+  }
+  createCategory(req.body)
+    .then(result => {
+      console.log('in then: ', result)
+      res.send(result)
+    })
+    .catch(err => next(new HTTPError(err.status, err.message)))
+})
+
+app.get('/categories/:id', (req, res, next) => {
+  getCategory(req.body)
+    .then(result => res.send(result))
+    .catch(err => next(new HTTPError(err.status, err.message)))
+})
+
+app.put('/categories/:id', (req, res, next) => {
+  if (isEmpty(prop('body'), req)) {
+    return next(
+      new HTTPError(
+        400,
+        'Missing request body.  Content-Type header should be application/json.'
+      )
+    )
+  }
+  const missingFields = categoryRequiredPutFieldCheck(prop('body', req))
+  if (not(isEmpty(missingFields))) {
+    return next(
+      new HTTPError(401, `Missing required fields: ${join(' ', missingFields)}`)
+    )
+  }
+
+  updateCategory(req.body)
+    .then(result => res.send(result))
+    .catch(err => next(new HTTPError(err.status, err.message)))
+})
+
+app.delete('/categories/:id', (req, res, next) => {
+  deleteCategory(req.params.id)
+    .then(result => res.send(result))
+    .catch(next(new HTTPError(err.status, err.message)))
+})
+
+app.get('/categories', (req, res, next) => {
+  getAllCategories({
+    include_docs: true,
+    inclusive_end: true,
+    start_key: 'category_',
+    end_key: 'category_\ufff0'
+  })
+    .then(docs => {
+      res.send(docs)
+    })
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
