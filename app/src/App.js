@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Home from './pages/home'
 import Resources from './pages/resources'
 import About from './pages/about'
 import InMemory from './pages/in-memory'
-import Legal from './pages/legal'
+import Legal from './pages/legal-paper'
 
 const App = props => {
   return (
