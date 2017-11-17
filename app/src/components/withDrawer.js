@@ -1,14 +1,15 @@
-import React from 'react'
-import { Drawer } from 'material-ui'
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
-import Divider from 'material-ui/Divider'
-import InboxIcon from 'material-ui-icons/Inbox'
-import HomeIcon from 'material-ui-icons/Home'
-import HelpIcon from 'material-ui-icons/Help'
-import FavoriteIcon from 'material-ui-icons/Favorite'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import GavelIcon from 'material-ui-icons/Gavel'
+import React from "react";
+import { Drawer } from "material-ui";
+import List, { ListItem, ListItemIcon, ListItemText } from "material-ui/List";
+import Divider from "material-ui/Divider";
+import InboxIcon from "material-ui-icons/Inbox";
+import HomeIcon from "material-ui-icons/Home";
+import HelpIcon from "material-ui-icons/Help";
+import ViewList from "material-ui-icons/ViewList";
+import FavoriteIcon from "material-ui-icons/Favorite";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import GavelIcon from "material-ui-icons/Gavel";
 
 const sideList = (
   <div>
@@ -27,6 +28,14 @@ const sideList = (
             <InboxIcon />
           </ListItemIcon>
           <ListItemText primary="Resources" />
+        </ListItem>
+      </Link>
+      <Link to="/categories">
+        <ListItem button>
+          <ListItemIcon>
+            <ViewList />
+          </ListItemIcon>
+          <ListItemText primary="Categories" />
         </ListItem>
       </Link>
     </List>
@@ -58,7 +67,7 @@ const sideList = (
       </Link>
     </List>
   </div>
-)
+);
 
 const withDrawer = function(PageComponent) {
   const WrapDrawerComponent = props => {
@@ -76,20 +85,20 @@ const withDrawer = function(PageComponent) {
           </div>
         </Drawer>
       </div>
-    )
-  }
+    );
+  };
   const mapStateToProps = state => {
-    return { open: state.drawer.open }
-  }
+    return { open: state.drawer.open };
+  };
   const mapActionsToProps = dispatch => {
     return {
       toggleDrawer: () => {
-        dispatch({ type: 'TOGGLE_DRAWER' })
+        dispatch({ type: "TOGGLE_DRAWER" });
       }
-    }
-  }
-  const connector = connect(mapStateToProps, mapActionsToProps)
-  return connector(WrapDrawerComponent)
-}
+    };
+  };
+  const connector = connect(mapStateToProps, mapActionsToProps);
+  return connector(WrapDrawerComponent);
+};
 
-export default withDrawer
+export default withDrawer;
