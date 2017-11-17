@@ -7,6 +7,7 @@ import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
 import SearchIcon from 'material-ui-icons/Search'
 import { connect } from 'react-redux'
+import SimpleMenu from './simple-menu'
 
 const styles = theme => ({
   root: {
@@ -41,9 +42,10 @@ const MenuAppBar = props => {
           <Typography type="title" color="inherit" className={classes.flex}>
             {props.title}
           </Typography>
+
           <IconButton
             color="contrast"
-            aria-label="SearchZ"
+            aria-label="Search"
             onClick={props.toggleDrawer}
           >
             <SearchIcon />
