@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 import './App.css'
 
-// import {setResources} from './action-creators/resources'
+import { setResources } from './action-creators/resources'
 // import {setCategories} from './action-creators/categores'
 // import {setResourceFilters} from './action-creators/resourceFilters'
 
@@ -17,7 +17,7 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-//store.dispatch(setResources)
+store.dispatch(setResources)
 //store.dispatch(setCategories)
 //store.dispatch(setResourceFilters)
 
