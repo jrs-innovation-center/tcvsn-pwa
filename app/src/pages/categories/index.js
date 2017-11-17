@@ -1,34 +1,31 @@
-import React from "react";
-import withRoot from "../../components/withRoot";
-import withDrawer from "../../components/withDrawer";
-import MenuAppBar from "../../components/menuAppBar";
-import { Typography } from "material-ui";
-import { connect } from "react-redux";
-import { map } from "ramda";
+import React from 'react'
+import withRoot from '../../components/withRoot'
+import withDrawer from '../../components/withDrawer'
+import MenuAppBar from '../../components/menuAppBar'
+import { Typography, List } from 'material-ui'
+import { connect } from 'react-redux'
+import { map } from 'ramda'
+import CategoryItem from '../../components/category-item'
 
-const li = categories => {
-  return (
-    <li key={categories._id}>
-      <Typography type="title">{categories.name}</Typography>
-    </li>
-  );
-};
+const li = category => {
+  return <CategoryItem data={category} />
+}
 
 // props.resources === []
 const Categories = props => {
   return (
     <div>
       <MenuAppBar title="Categories" search={true} />
-      <Typography>Categories</Typography>
-      <ul>{map(li, props.categories)}</ul>
+      <Typography />
+      <List style={{ marginTop: 8 }}>{map(li, props.categories)}</List>
     </div>
-  );
-};
+  )
+}
 
 const mapStateToProps = state => {
-  return { categories: state.categories };
-};
+  return { categories: state.categories }
+}
 
-const connector = connect(mapStateToProps);
+const connector = connect(mapStateToProps)
 
-export default withRoot(withDrawer(connector(Categories)));
+export default withRoot(withDrawer(connector(Categories)))
