@@ -4,7 +4,7 @@ import Home from './pages/home'
 import Resources from './pages/resources'
 import About from './pages/about'
 import InMemory from './pages/in-memory'
-import Legal from './pages/legal-paper'
+import Legal from './pages/legal'
 
 const App = props => {
   return (
