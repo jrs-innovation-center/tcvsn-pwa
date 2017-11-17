@@ -12,7 +12,15 @@ import { Link } from 'react-router-dom'
 
 const aboutText = [
   {
-    text: <img src={Eileen} className="eileen" width="250" height="auto" />,
+    text: (
+      <img
+        alt="eileen"
+        src={Eileen}
+        className="eileen"
+        width="250"
+        height="auto"
+      />
+    ),
     style: 'paragraph',
     bottomMargin: true
   },
@@ -42,13 +50,13 @@ const InMemory = props => {
       <MenuAppBar title="In Memory" />
       <div className="container">
         <PaperSheet data={aboutText} />
-        <Link to="/about">
+        <Link to="/about" style={{ textDecoration: 'none' }}>
           <Button raised color="primary" style={{ marginTop: 24 }}>
             <About style={{ marginRight: 7, height: 16, width: 16 }} />
             About
           </Button>
         </Link>
-        <Link to="/legal">
+        <Link to="/legal" style={{ textDecoration: 'none' }}>
           <Button
             raised
             color="primary"
