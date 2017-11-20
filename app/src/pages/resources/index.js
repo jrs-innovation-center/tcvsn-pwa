@@ -10,10 +10,11 @@ import ResourceItem from '../../components/resource-item'
 
 // props.resources === []
 const Resources = props => {
+  console.log(props)
   return (
     <div>
       <MenuAppBar title="Resources" search={true} />
-      <List style={{ marginTop: 8 }}>{map(ResourceItem, props.resources)}</List>
+      <List style={{ marginTop: 4 }}>{map(ResourceItem, props.resources)}</List>
     </div>
   )
 }
