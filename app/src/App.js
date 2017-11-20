@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Resources from "./pages/resources";
+import ShowResource from "./pages/resources/show";
 import About from "./pages/about";
 import InMemory from "./pages/in-memory";
 import Legal from "./pages/legal-paper";
@@ -15,6 +16,7 @@ const App = props => {
       <div>
         <Route exact path="/" component={Home} />
         <Route exact path="/categories/:id" component={ShowCategory} />
+        <Route path="/resources/:id" component={ShowResource} />
         <Route exact path="/resources" component={Resources} />
         <Route exact path="/categories" component={Categories} />
         <Route exact path="/about" component={About} />

@@ -1,15 +1,15 @@
-import React from 'react'
-import withRoot from '../../components/withRoot'
-import withDrawer from '../../components/withDrawer'
-import MenuAppBar from '../../components/menuAppBar'
-import { Typography, List } from 'material-ui'
-import { connect } from 'react-redux'
-import { map } from 'ramda'
-import CategoryItem from '../../components/category-item'
+import React from "react";
+import withRoot from "../../components/withRoot";
+import withDrawer from "../../components/withDrawer";
+import MenuAppBar from "../../components/menuAppBar";
+import { Typography, List } from "material-ui";
+import { connect } from "react-redux";
+import { map } from "ramda";
+import CategoryItem from "../../components/category-item";
 
 const li = category => {
-  return <CategoryItem data={category} />
-}
+  return <CategoryItem data={category} />;
+};
 
 // props.resources === []
 const Categories = props => {
@@ -19,13 +19,13 @@ const Categories = props => {
       <Typography />
       <List style={{ marginTop: 8 }}>{map(li, props.categories)}</List>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = state => {
-  return { categories: state.categories }
-}
+  return { categories: state.categories };
+};
 
-const connector = connect(mapStateToProps)
+const connector = connect(mapStateToProps);
 
-export default withRoot(withDrawer(connector(Categories)))
+export default withRoot(withDrawer(connector(Categories)));

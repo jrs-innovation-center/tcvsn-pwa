@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
-import Paper from 'material-ui/Paper'
-import Typography from 'material-ui/Typography'
-import { map } from 'ramda'
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "material-ui/styles";
+import Paper from "material-ui/Paper";
+import Typography from "material-ui/Typography";
+import { map } from "ramda";
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -12,12 +12,12 @@ const styles = theme => ({
     paddingLeft: 16,
     paddingRight: 16
   })
-})
+});
 
 function typographyList(data) {
-  let style = ''
-  if (data.style === 'italic') {
-    style = data.style
+  let style = "";
+  if (data.style === "italic") {
+    style = data.style;
   }
 
   return (
@@ -29,11 +29,11 @@ function typographyList(data) {
     >
       {data.text}
     </Typography>
-  )
+  );
 }
 
 function PaperSheet(props) {
-  const { classes, data } = props
+  const { classes, data } = props;
 
   return (
     <div>
@@ -41,11 +41,11 @@ function PaperSheet(props) {
         {map(typographyList, data)}
       </Paper>
     </div>
-  )
+  );
 }
 
 PaperSheet.propTypes = {
   classes: PropTypes.object.isRequired
-}
+};
 
-export default withStyles(styles)(PaperSheet)
+export default withStyles(styles)(PaperSheet);
