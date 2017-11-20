@@ -5,6 +5,7 @@ import MenuAppBar from '../../components/menuAppBar'
 import { connect } from 'react-redux'
 import { map, pathOr } from 'ramda'
 import { setCurrentResource } from '../../action-creators/resources'
+import ResourceCard from '../../components/resource-card'
 
 // props.resources === []
 class ShowResource extends React.Component {
@@ -23,7 +24,7 @@ class ShowResource extends React.Component {
       return (
         <div>
           <MenuAppBar title="Resource" search={true} />
-          <typography>{JSON.stringify(this.props.currentResource)}</typography>
+          <ResourceCard data={this.props.currentResource} />
         </div>
       )
     } else {
