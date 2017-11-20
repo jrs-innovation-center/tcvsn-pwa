@@ -16,7 +16,7 @@ import Typography from "material-ui/Typography";
 import red from "material-ui/colors/red";
 import FavoriteIcon from "material-ui-icons/Favorite";
 import ShareIcon from "material-ui-icons/Share";
-import Chevron from " material-ui-icons/Chevron_left";
+//import Chevron from " material-ui-icons/Chevron_left";
 import ExpandMoreIcon from "material-ui-icons/ExpandMore";
 import withRoot from "../../components/withRoot";
 import withDrawer from "../../components/withDrawer";
