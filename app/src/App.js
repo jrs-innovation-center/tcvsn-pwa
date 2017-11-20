@@ -6,17 +6,20 @@ import About from "./pages/about";
 import InMemory from "./pages/in-memory";
 import Legal from "./pages/legal-paper";
 import Categories from "./pages/categories";
+import ShowCategory from "./pages/categories/show";
+//import RecipeReviewCard from "./pages/categories/show";
 
 const App = props => {
   return (
     <BrowserRouter>
       <div>
         <Route exact path="/" component={Home} />
-        <Route path="/resources" component={Resources} />
-        <Route path="/categories" component={Categories} />
-        <Route path="/about" component={About} />
-        <Route path="/in-memory" component={InMemory} />
-        <Route path="/legal" component={Legal} />
+        <Route exact path="/categories/:id" component={ShowCategory} />
+        <Route exact path="/resources" component={Resources} />
+        <Route exact path="/categories" component={Categories} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/in-memory" component={InMemory} />
+        <Route exact path="/legal" component={Legal} />
       </div>
     </BrowserRouter>
   );

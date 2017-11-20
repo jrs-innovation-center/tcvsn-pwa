@@ -1,5 +1,5 @@
 import fetch from "isomorphic-fetch";
-import { SET_CATEGORIES } from "../constants";
+import { SET_CATEGORIES, SET_CURRENT_CATEGORY } from "../constants";
 
 export const setCategories = async (dispatch, getState) => {
   const response = await fetch("http://localhost:5000/categories").then(res =>
@@ -7,4 +7,12 @@ export const setCategories = async (dispatch, getState) => {
   );
   console.log("fetch response", response);
   dispatch({ type: SET_CATEGORIES, payload: response });
+};
+
+export const setCurrentCategory = id => async (dispatch, getState) => {
+  const response = await fetch(`http://localhost:5000/categories/${id}`).then(
+    res => res.json()
+  );
+  console.log("fetch response of GET :id", response);
+  dispatch({ type: SET_CURRENT_CATEGORY, payload: response });
 };

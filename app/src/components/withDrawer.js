@@ -73,7 +73,7 @@ const withDrawer = function(PageComponent) {
   const WrapDrawerComponent = props => {
     return (
       <div>
-        <PageComponent />
+        <PageComponent {...props} />
         <Drawer open={props.open} onRequestClose={props.toggleDrawer}>
           <div
             tabIndex={0}
