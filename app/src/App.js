@@ -5,7 +5,7 @@ import Resources from "./pages/resources";
 import ShowResource from "./pages/resources/show";
 import About from "./pages/about";
 import InMemory from "./pages/in-memory";
-import Legal from "./pages/legal-paper";
+import Legal from "./pages/legal";
 import Categories from "./pages/categories";
 import ShowCategory from "./pages/categories/show";
 //import RecipeReviewCard from "./pages/categories/show";

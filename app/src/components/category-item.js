@@ -17,7 +17,11 @@ import Icon from "material-ui/Icon";
 const CategoryItem = props => {
   return (
     <div>
-      <Link to={`/categories/${props.data._id}`} className="link">
+      <Link
+        to={`/categories/${props.data._id}`}
+        style={{ textDecoration: "none" }}
+        className="link"
+      >
         <ListItem button>
           <ListItemAvatar>
             <Icon>{props.data.icon ? props.data.icon : "add_circle"}</Icon>

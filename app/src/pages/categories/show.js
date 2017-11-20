@@ -71,7 +71,12 @@ class ShowCategory extends React.Component {
     console.log("ShowCategory props category:", category);
     return (
       <div>
-        <MenuAppBar title="Resource" search={true} goBack={true} />
+        <MenuAppBar
+          title="Resource"
+          search={true}
+          goBack={true}
+          {...this.props}
+        />
         <Card>
           <CardHeader
             avatar={
@@ -82,10 +87,7 @@ class ShowCategory extends React.Component {
             title={`${category.name}`}
             subheader={`${category.shortDesc}`}
           />
-          <CardMedia
-            image="/static/images/cards/paella.jpg"
-            title="Contemplative Reptile"
-          />
+
           <CardContent>
             <Typography component="p">{`${category.desc}`}</Typography>
           </CardContent>
