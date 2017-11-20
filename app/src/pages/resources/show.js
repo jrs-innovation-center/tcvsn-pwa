@@ -24,7 +24,7 @@ class ShowResource extends React.Component {
       return (
         <div>
           <MenuAppBar
-            title="Category"
+            title="Resource"
             search={true}
             goBack={true}
             {...this.props}
