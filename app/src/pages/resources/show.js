@@ -16,14 +16,19 @@ class ShowResource extends React.Component {
   }
   render() {
     const currentID = pathOr('', ['currentResource', '_id'], this.props)
-    console.log('this.props.match.params.id', this.props.match.params.id)
-    console.log('currentID', currentID)
-    console.log('do they match?', this.props.match.params.id === currentID)
+    // console.log('this.props.match.params.id', this.props.match.params.id)
+    // console.log('currentID', currentID)
+    // console.log('do they match?', this.props.match.params.id === currentID)
 
     if (this.props.match.params.id === currentID) {
       return (
         <div>
-          <MenuAppBar title="Resource" search={true} />
+          <MenuAppBar
+            title="Resource"
+            search={true}
+            goBack={true}
+            {...this.props}
+          />
           <ResourceCard data={this.props.currentResource} />
         </div>
       )
@@ -38,7 +43,7 @@ class ShowResource extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('this is STATE', state)
+  //console.log('this is STATE', state)
   return { currentResource: state.currentResource }
 }
 

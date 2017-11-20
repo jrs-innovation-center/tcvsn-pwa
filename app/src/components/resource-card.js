@@ -10,7 +10,7 @@ import Card, {
 import Avatar from 'material-ui/Avatar'
 import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
-
+import FolderIcon from 'material-ui-icons/Folder'
 import MenuAppBar from '../components/menuAppBar'
 import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
@@ -19,6 +19,9 @@ import { connect } from 'react-redux'
 const styles = {
   card: {
     maxWidth: '100%'
+  },
+  cardHeader: {
+    fontSize: '16px'
   },
   media: {
     height: '40vh'
@@ -36,7 +39,14 @@ function SimpleMediaCard(props) {
           title="Contemplative Reptile"
         />
         <CardHeader
-          avatar={<Avatar aria-label="Recipe">R</Avatar>}
+          classes={{
+            title: classes.cardHeader
+          }}
+          avatar={
+            <Avatar aria-label="Resource">
+              <FolderIcon />
+            </Avatar>
+          }
           title={props.data.formalName}
           subheader={props.data.shortDesc}
         />
