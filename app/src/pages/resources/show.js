@@ -3,27 +3,41 @@ import withRoot from '../../components/withRoot'
 import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import { connect } from 'react-redux'
-import { map } from 'ramda'
+import { map, pathOr } from 'ramda'
 import { setCurrentResource } from '../../action-creators/resources'
 
 // props.resources === []
 class ShowResource extends React.Component {
   componentDidMount() {
+    const id = this.props.match.params.id
+    this.props.setCurrentResource(id)
     console.log('this.props', this.props)
-    // const id = this.props.match.params.id
-    // this.props.setCurrentResource(id)
-    //console.log('id', id)
   }
   render() {
-    return (
-      <div>
-        <MenuAppBar title="Resource" search={true} />
-      </div>
-    )
+    const currentID = pathOr('', ['currentResource', '_id'], this.props)
+    console.log('this.props.match.params.id', this.props.match.params.id)
+    console.log('currentID', currentID)
+    console.log('do they match?', this.props.match.params.id === currentID)
+
+    if (this.props.match.params.id === currentID) {
+      return (
+        <div>
+          <MenuAppBar title="Resource" search={true} />
+          <typography>{JSON.stringify(this.props.currentResource)}</typography>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <p>Loading...</p>
+        </div>
+      )
+    }
   }
 }
 
 const mapStateToProps = state => {
+  // console.log('this is STATE', state)
   return { currentResource: state.currentResource }
 }
 
