@@ -71,7 +71,12 @@ class ShowCategory extends React.Component {
     console.log("ShowCategory props category:", category);
     return (
       <div>
-        <MenuAppBar title="Resource" search={true} goBack={true} />
+        <MenuAppBar
+          title="Resource"
+          search={true}
+          goBack={true}
+          {...this.props}
+        />
         <Card>
           <CardHeader
             avatar={
