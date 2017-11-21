@@ -14,11 +14,11 @@ const aboutText = [
   {
     text: (
       <img
-        alt="eileen"
+        alt='eileen'
         src={Eileen}
-        className="eileen"
-        width="250"
-        height="auto"
+        className='eileen'
+        width='250'
+        height='auto'
       />
     ),
     style: 'paragraph',
@@ -47,19 +47,19 @@ const aboutText = [
 const InMemory = props => {
   return (
     <div>
-      <MenuAppBar title="In Memory" />
-      <div className="container">
+      <MenuAppBar title='In Memory' />
+      <div className='container'>
         <PaperSheet data={aboutText} />
-        <Link to="/about" style={{ textDecoration: 'none' }}>
-          <Button raised color="primary" style={{ marginTop: 24 }}>
+        <Link to='/about' style={{ textDecoration: 'none' }}>
+          <Button raised color='primary' style={{ marginTop: 24 }}>
             <About style={{ marginRight: 7, height: 16, width: 16 }} />
             About
           </Button>
         </Link>
-        <Link to="/legal" style={{ textDecoration: 'none' }}>
+        <Link to='/legal' style={{ textDecoration: 'none' }}>
           <Button
             raised
-            color="primary"
+            color='primary'
             style={{ marginTop: 24, marginLeft: 16 }}
           >
             <Legal style={{ marginRight: 7, height: 16, width: 16 }} />

@@ -21,6 +21,6 @@ ReactDOM.render(
 
 store.dispatch(setResources)
 store.dispatch(setCategories)
-//store.dispatch(setResourceFilters)
+// store.dispatch(setResourceFilters)
 
 registerServiceWorker()

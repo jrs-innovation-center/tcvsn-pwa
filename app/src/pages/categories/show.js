@@ -11,7 +11,7 @@ import { connect } from "react-redux";
 import { setCurrentCategory } from "../../action-creators/categories";
 import { prop, pathOr, path, split, compose, last } from "ramda";
 import CategoryCard from "../../components/category-card";
-
+import { getURLPathID } from "../../lib/url-path-helper";
 const styles = theme => ({
   card: {
     maxWidth: 400
@@ -52,9 +52,10 @@ class ShowCategory extends React.Component {
 
   render() {
     console.log("props", this.props);
-    const currentID = pathOr("", ["currentCategory", "_id"], this.props);
+    const currentID = getURLPathID(this.props);
     const { category } = this.props;
-    if (this.props.match.params.id === currentID) {
+
+    if (path(["currentCategory", "_id"], this.props) === currentID) {
       return (
         <div>
           <MenuAppBar

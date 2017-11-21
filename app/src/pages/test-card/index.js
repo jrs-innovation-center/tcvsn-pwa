@@ -19,31 +19,31 @@ const styles = {
   }
 }
 
-function SimpleMediaCard(props) {
+function SimpleMediaCard (props) {
   const { classes } = props
   return (
     <div>
-      <MenuAppBar title="Lizard" search={true} />
+      <MenuAppBar title='Lizard' search />
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="https://static.pexels.com/photos/20861/pexels-photo.jpg"
-          title="Contemplative Reptile"
+          image='https://static.pexels.com/photos/20861/pexels-photo.jpg'
+          title='Contemplative Reptile'
         />
         <CardContent>
-          <Typography type="headline" component="h2">
+          <Typography type='headline' component='h2'>
             Lizard
           </Typography>
-          <Typography component="p">
+          <Typography component='p'>
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
         <CardActions>
-          <Button dense color="primary">
+          <Button dense color='primary'>
             Share
           </Button>
-          <Button dense color="primary">
+          <Button dense color='primary'>
             Learn More
           </Button>
         </CardActions>
@@ -56,5 +56,5 @@ SimpleMediaCard.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-//export default withStyles(styles)(SimpleMediaCard);
+// export default withStyles(styles)(SimpleMediaCard);
 export default withRoot(withDrawer(withStyles(styles)(SimpleMediaCard)))

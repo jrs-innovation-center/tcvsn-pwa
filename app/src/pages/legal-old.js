@@ -1,43 +1,43 @@
-import React from "react";
-import AppBar from "material-ui/AppBar";
-import withRoot from "../components/withRoot";
-import withDrawer from "../components/withDrawer";
-import MenuAppBar from "../components/menuAppBar";
-import PropTypes from "prop-types";
-import { withStyles } from "material-ui/styles";
-import { Link } from "react-router-dom";
+import React from 'react'
+import AppBar from 'material-ui/AppBar'
+import withRoot from '../components/withRoot'
+import withDrawer from '../components/withDrawer'
+import MenuAppBar from '../components/menuAppBar'
+import PropTypes from 'prop-types'
+import { withStyles } from 'material-ui/styles'
+import { Link } from 'react-router-dom'
 import Card, {
   CardActions,
   CardHeader,
   CardContent,
   CardMedia
-} from "material-ui/Card";
-import Avatar from "material-ui/Avatar";
-import Button from "material-ui/Button";
-import Typography from "material-ui/Typography";
-import Gavel from "material-ui-icons/Gavel";
-import Help from "material-ui-icons/Help";
-import Favorite from "material-ui-icons/Favorite";
-import Legal from "material-ui-icons/Gavel";
+} from 'material-ui/Card'
+import Avatar from 'material-ui/Avatar'
+import Button from 'material-ui/Button'
+import Typography from 'material-ui/Typography'
+import Gavel from 'material-ui-icons/Gavel'
+import Help from 'material-ui-icons/Help'
+import Favorite from 'material-ui-icons/Favorite'
+import Legal from 'material-ui-icons/Gavel'
 const styles = {
   card: {
-    align: "center",
+    align: 'center',
     maxWidth: 345,
     flex: 1,
-    width: "100%",
-    position: "relative"
+    width: '100%',
+    position: 'relative'
   },
   media: {
     height: 200
   }
-};
+}
 
-function SimpleMediaCard(props) {
-  const { classes } = props;
+function SimpleMediaCard (props) {
+  const { classes } = props
   return (
     <div>
-      <MenuAppBar title="Legal" />
-      <div style={{ width: "95%", margin: "0 auto" }}>
+      <MenuAppBar title='Legal' />
+      <div style={{ width: '95%', margin: '0 auto' }}>
         <Card className={classes.card}>
           <CardHeader
             avatar={
@@ -45,11 +45,11 @@ function SimpleMediaCard(props) {
                 <Gavel />
               </Avatar>
             }
-            title="Legal"
-            subheader="Disclaimer"
+            title='Legal'
+            subheader='Disclaimer'
           />
           <CardContent>
-            <Typography component="p">
+            <Typography component='p'>
               The organizations and individuals listed in this directory cannot
               and do not guarantee that they can provide assistance, but each of
               us are “committed” to doing everything within our charters and
@@ -73,18 +73,18 @@ function SimpleMediaCard(props) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Link to="/in-memory">
+            <Link to='/in-memory'>
               <Button
                 raised
-                color="primary"
+                color='primary'
                 style={{ marginTop: 24, marginLeft: 16 }}
               >
                 <Favorite style={{ marginRight: 7, height: 16, width: 16 }} />
                 In Memory
               </Button>
             </Link>
-            <Link to="/about">
-              <Button raised color="primary" style={{ marginTop: 24 }}>
+            <Link to='/about'>
+              <Button raised color='primary' style={{ marginTop: 24 }}>
                 <Help style={{ marginRight: 7, height: 16, width: 16 }} />
                 About
               </Button>
@@ -93,6 +93,6 @@ function SimpleMediaCard(props) {
         </Card>
       </div>
     </div>
-  );
+  )
 }
-export default withRoot(withDrawer(withStyles(styles)(SimpleMediaCard)));
+export default withRoot(withDrawer(withStyles(styles)(SimpleMediaCard)))

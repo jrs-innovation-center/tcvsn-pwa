@@ -1,24 +1,24 @@
-import React from "react";
+import React from 'react'
 import List, {
   ListItem,
   ListItemAvatar,
   ListItemIcon,
   ListItemSecondaryAction,
   ListItemText
-} from "material-ui/List";
-import Avatar from "material-ui/Avatar";
-import IconButton from "material-ui/IconButton";
-import FolderIcon from "material-ui-icons/Folder";
-import EllipsisIcon from "material-ui-icons/MoreVert";
-import Divider from "material-ui/Divider";
-import { Link } from "react-router-dom";
+} from 'material-ui/List'
+import Avatar from 'material-ui/Avatar'
+import IconButton from 'material-ui/IconButton'
+import FolderIcon from 'material-ui-icons/Folder'
+import EllipsisIcon from 'material-ui-icons/MoreVert'
+import Divider from 'material-ui/Divider'
+import { Link } from 'react-router-dom'
 
 const ResourceItem = resource => {
   return (
     <div key={resource._id}>
       <Link
         to={`/resources/${resource._id}`}
-        style={{ textDecoration: "none" }}
+        style={{ textDecoration: 'none' }}
       >
         <ListItem button>
           <ListItemAvatar>
@@ -31,7 +31,7 @@ const ResourceItem = resource => {
             secondary={resource.shortDesc}
           />
           <ListItemSecondaryAction>
-            <IconButton aria-label="More">
+            <IconButton aria-label='More'>
               <EllipsisIcon />
             </IconButton>
           </ListItemSecondaryAction>
@@ -39,6 +39,6 @@ const ResourceItem = resource => {
       </Link>
       <Divider />
     </div>
-  );
-};
-export default ResourceItem;
+  )
+}
+export default ResourceItem
