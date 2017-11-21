@@ -15,6 +15,7 @@ import MenuAppBar from '../components/menuAppBar'
 import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
 import { connect } from 'react-redux'
+import { not, isNil } from 'ramda'
 
 const styles = {
   card: {
@@ -29,6 +30,11 @@ const styles = {
 }
 
 function SimpleMediaCard(props) {
+  const websiteButton = not(isNil(props.data.website)) ? (
+    <Button dense color="primary" href={props.data.website}>
+      Website
+    </Button>
+  ) : null
   const { classes } = props
   return (
     <div>
@@ -53,14 +59,7 @@ function SimpleMediaCard(props) {
         <CardContent>
           <Typography component="p">{props.data.purpose}</Typography>
         </CardContent>
-        <CardActions>
-          <Button dense color="primary">
-            Share
-          </Button>
-          <Button dense color="primary">
-            Learn More
-          </Button>
-        </CardActions>
+        <CardActions>{websiteButton}</CardActions>
       </Card>
     </div>
   )
