@@ -1,6 +1,6 @@
 # User Stories
 
-[home](../readme.md)
+[Docs](../readme.md)
 
 ## Home
 
@@ -68,4 +68,4 @@ As a veteran, when I am on the **Resource View** page, I want the ability to sel
 
 ## View Resource FAQ
 
-[home](../readme.md)
+[Docs](../readme.md)
