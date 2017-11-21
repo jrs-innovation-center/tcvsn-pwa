@@ -26,6 +26,9 @@ const styles = {
   },
   media: {
     height: '40vh'
+  },
+  avatarColor: {
+    backgroundColor: '#607d8b'
   }
 }
 
@@ -49,8 +52,10 @@ function SimpleMediaCard(props) {
             title: classes.cardHeader
           }}
           avatar={
-            <Avatar aria-label="Resource">
-              <FolderIcon />
+            <Avatar aria-label="Resource" classes={{
+              colorDefault: classes.avatarColor
+            }}>
+              A
             </Avatar>
           }
           title={props.data.formalName}

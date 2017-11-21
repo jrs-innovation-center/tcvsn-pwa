@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom'
 const ResourceItem = resource => {
   return (
     <div key={resource._id}>
-      <Link to={`/resources/${resource._id}`}>
+      <Link to={`/resources/${resource._id}`} className="router-link">
         <ListItem button>
           <ListItemAvatar>
             <Avatar>
