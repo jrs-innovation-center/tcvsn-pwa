@@ -26,7 +26,7 @@ export const currentResource = (state = {}, action) => {
   }
 }
 const newResourceDefault = {
-  category: '',
+  categoryId: '',
   formalName: '',
   name: '',
   shortDesc: '',

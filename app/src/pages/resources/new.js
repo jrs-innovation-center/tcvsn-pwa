@@ -7,7 +7,8 @@ import { connect } from 'react-redux'
 import { map, pathOr } from 'ramda'
 import {
   setCurrentResource,
-  updateNewForm
+  updateNewForm,
+  addNewResource
 } from '../../action-creators/resources'
 
 // props.resources === []
@@ -25,6 +26,10 @@ class NewResource extends React.Component {
         <ResourceForm
           onChange={this.props.onChange}
           newResource={this.props.newResource}
+          onSubmit={this.props.onSubmit(
+            this.props.newResource,
+            this.props.history
+          )}
         />
       </div>
     )
@@ -40,6 +45,9 @@ const mapActionsToProps = dispatch => {
     setCurrentResource: id => dispatch(setCurrentResource(id)),
     onChange: (field, value) => {
       dispatch(updateNewForm(field, value))
+    },
+    onSubmit: (data, history) => e => {
+      dispatch(addNewResource(data, history))
     }
   }
 }

@@ -22,16 +22,23 @@ class ResourceForm extends React.Component {
     const { classes } = this.props
 
     return (
-      <form style={{ marginTop: 8 }} autoComplete="off">
+      <form
+        style={{ marginTop: 8 }}
+        autoComplete="off"
+        onSubmit={e => {
+          e.preventDefault()
+          this.props.onSubmit()
+        }}
+      >
         <FormControl className={classes.input}>
-          <InputLabel htmlFor="category">Category</InputLabel>
+          <InputLabel htmlFor="categoryId">Category</InputLabel>
           <Select
-            name="category"
-            value={this.props.newResource.category}
+            name="categoryId"
+            value={this.props.newResource.categoryId}
             onChange={e => {
-              this.props.onChange('category', e.target.value)
+              this.props.onChange('categoryId', e.target.value)
             }}
-            input={<Input id="category" />}
+            input={<Input id="categoryId" />}
             autoWidth
           >
             <MenuItem value="">
