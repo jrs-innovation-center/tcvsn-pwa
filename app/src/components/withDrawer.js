@@ -14,7 +14,7 @@ import GavelIcon from 'material-ui-icons/Gavel'
 const sideList = (
   <div>
     <List>
-      <Link to="/">
+      <Link to="/" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <HomeIcon />
@@ -22,7 +22,7 @@ const sideList = (
           <ListItemText primary="Home" />
         </ListItem>
       </Link>
-      <Link to="/resources">
+      <Link to="/resources" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <InboxIcon />
@@ -41,7 +41,7 @@ const sideList = (
     </List>
     <Divider />
     <List>
-      <Link to="/about">
+      <Link to="/about" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <HelpIcon />
@@ -49,7 +49,7 @@ const sideList = (
           <ListItemText primary="About" />
         </ListItem>
       </Link>
-      <Link to="/legal">
+      <Link to="/legal" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <GavelIcon />
@@ -57,7 +57,7 @@ const sideList = (
           <ListItemText primary="Legal" />
         </ListItem>
       </Link>
-      <Link to="/in-memory">
+      <Link to="/in-memory" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <FavoriteIcon />

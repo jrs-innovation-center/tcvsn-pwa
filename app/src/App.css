@@ -20,3 +20,24 @@
   left: 0;
   right: 0;
 }
+.router-link {
+  text-decoration: none;
+}
+.fab-button {
+  display: inline-block;
+  position: fixed !important;
+  right: 15px !important;
+  bottom: 15px !important;
+  margin: 0;
+  padding: 0;
+}
+.admin-form-input {
+  display: block !important;
+  width: 50%;
+
+  max-width: 50%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  position: relative;
+}
