@@ -3,7 +3,7 @@ import withRoot from '../../components/withRoot'
 import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import { connect } from 'react-redux'
-import { map, pathOr } from 'ramda'
+import { pathOr } from 'ramda'
 import { setCurrentResource } from '../../action-creators/resources'
 import ResourceCard from '../../components/resource-card'
 
@@ -23,12 +23,7 @@ class ShowResource extends React.Component {
     if (this.props.match.params.id === currentID) {
       return (
         <div>
-          <MenuAppBar
-            title="Resource"
-            search={true}
-            goBack={true}
-            {...this.props}
-          />
+          <MenuAppBar title="Resource" search goBack {...this.props} />
           <ResourceCard data={this.props.currentResource} />
         </div>
       )
@@ -43,7 +38,6 @@ class ShowResource extends React.Component {
 }
 
 const mapStateToProps = state => {
-  //console.log('this is STATE', state)
   return { currentResource: state.currentResource }
 }
 
