@@ -1,22 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
-import Card, {
-  CardActions,
-  CardContent,
-  CardMedia,
-  CardHeader
-} from 'material-ui/Card'
+import Card, { CardActions, CardContent, CardHeader } from 'material-ui/Card'
 import Avatar from 'material-ui/Avatar'
 import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
-import FolderIcon from 'material-ui-icons/Folder'
+
 import InboxIcon from 'material-ui-icons/Inbox'
 import Icon from 'material-ui/Icon'
-import MenuAppBar from '../components/menuAppBar'
+
 import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
-import { connect } from 'react-redux'
 
 const styles = {
   card: {
@@ -30,14 +24,14 @@ const styles = {
   }
 }
 
-function SimpleMediaCard (props) {
+function SimpleMediaCard(props) {
   const { currentCategory } = props
   return (
     <div key={currentCategory._id}>
       <Card>
         <CardHeader
           avatar={
-            <Avatar aria-label='Recipe'>
+            <Avatar aria-label="Recipe">
               <Icon>{currentCategory.icon}</Icon>
             </Avatar>
           }
@@ -46,7 +40,7 @@ function SimpleMediaCard (props) {
         />
 
         <CardContent>
-          <Typography component='p'>{`${currentCategory.desc}`}</Typography>
+          <Typography component="p">{`${currentCategory.desc}`}</Typography>
         </CardContent>
 
         <CardActions disableActionSpacing>

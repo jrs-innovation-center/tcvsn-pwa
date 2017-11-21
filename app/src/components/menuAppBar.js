@@ -8,7 +8,6 @@ import MenuIcon from 'material-ui-icons/Menu'
 import GoBackIcon from 'material-ui-icons/KeyboardBackspace'
 import SearchIcon from 'material-ui-icons/Search'
 import { connect } from 'react-redux'
-import SimpleMenu from './simple-menu'
 
 const styles = theme => ({
   root: {
@@ -30,25 +29,25 @@ const MenuAppBar = props => {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static'>
+      <AppBar position="static">
         <Toolbar>
           <IconButton
             className={classes.menuButton}
-            color='contrast'
-            aria-label='Menu'
+            color="contrast"
+            aria-label="Menu"
             onClick={
               props.goBack ? props.lastPage(props.history) : props.toggleDrawer
             }
           >
             {props.goBack ? <GoBackIcon /> : <MenuIcon />}
           </IconButton>
-          <Typography type='title' color='inherit' className={classes.flex}>
+          <Typography type="title" color="inherit" className={classes.flex}>
             {props.title}
           </Typography>
 
           <IconButton
-            color='contrast'
-            aria-label='Search'
+            color="contrast"
+            aria-label="Search"
             onClick={props.toggleDrawer}
           >
             <SearchIcon />

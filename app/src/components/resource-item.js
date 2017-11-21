@@ -1,8 +1,7 @@
 import React from 'react'
-import List, {
+import {
   ListItem,
   ListItemAvatar,
-  ListItemIcon,
   ListItemSecondaryAction,
   ListItemText
 } from 'material-ui/List'
@@ -31,7 +30,7 @@ const ResourceItem = resource => {
             secondary={resource.shortDesc}
           />
           <ListItemSecondaryAction>
-            <IconButton aria-label='More'>
+            <IconButton aria-label="More">
               <EllipsisIcon />
             </IconButton>
           </ListItemSecondaryAction>

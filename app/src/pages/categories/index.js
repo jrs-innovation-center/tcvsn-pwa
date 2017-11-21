@@ -10,7 +10,7 @@ import CategoryItem from '../../components/category-item'
 const Categories = props => {
   return (
     <div>
-      <MenuAppBar title='Categories' search />
+      <MenuAppBar title="Categories" search />
       <Typography />
       <List style={{ marginTop: 8 }}>
         {map(CategoryItem, props.categories)}

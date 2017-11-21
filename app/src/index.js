@@ -5,7 +5,7 @@ import App from './App'
 import { Provider } from 'react-redux'
 import store from './store'
 import './App.css'
-import Icons from 'material-ui-icons'
+
 import 'typeface-roboto'
 
 import { setResources } from './action-creators/resources'

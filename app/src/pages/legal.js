@@ -21,8 +21,8 @@ const legalText = [
             <Gavel />
           </Avatar>
         }
-        title='Legal'
-        subheader='Disclaimer'
+        title="Legal"
+        subheader="Disclaimer"
       />
     ),
     style: 'paragraph',
@@ -55,19 +55,19 @@ const legalText = [
 const Legal = props => {
   return (
     <div>
-      <MenuAppBar title='Legal' />
-      <div className='container'>
+      <MenuAppBar title="Legal" />
+      <div className="container">
         <PaperSheet data={legalText} />
-        <Link to='/in-memory' style={{ textDecoration: 'none' }}>
-          <Button raised color='primary' style={{ marginTop: 24 }}>
+        <Link to="/in-memory" style={{ textDecoration: 'none' }}>
+          <Button raised color="primary" style={{ marginTop: 24 }}>
             <Favorite style={{ marginRight: 7, height: 16, width: 16 }} />
             In Memory
           </Button>
         </Link>
-        <Link to='/about' style={{ textDecoration: 'none' }}>
+        <Link to="/about" style={{ textDecoration: 'none' }}>
           <Button
             raised
-            color='primary'
+            color="primary"
             style={{ marginTop: 24, marginLeft: 16 }}
           >
             <Help style={{ marginRight: 7, height: 16, width: 16 }} />

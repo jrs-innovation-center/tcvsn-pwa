@@ -14,14 +14,14 @@ const App = props => {
   return (
     <BrowserRouter>
       <div>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/categories/:id' component={ShowCategory} />
-        <Route path='/resources/:id' component={ShowResource} />
-        <Route exact path='/resources' component={Resources} />
-        <Route exact path='/categories' component={Categories} />
-        <Route exact path='/about' component={About} />
-        <Route exact path='/in-memory' component={InMemory} />
-        <Route exact path='/legal' component={Legal} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/categories/:id" component={ShowCategory} />
+        <Route path="/resources/:id" component={ShowResource} />
+        <Route exact path="/resources" component={Resources} />
+        <Route exact path="/categories" component={Categories} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/in-memory" component={InMemory} />
+        <Route exact path="/legal" component={Legal} />
       </div>
     </BrowserRouter>
   )

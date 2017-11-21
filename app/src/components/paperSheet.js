@@ -14,7 +14,7 @@ const styles = theme => ({
   })
 })
 
-function typographyList (data) {
+function typographyList(data) {
   let style = ''
   if (data.style === 'italic') {
     style = data.style
@@ -22,8 +22,8 @@ function typographyList (data) {
 
   return (
     <Typography
-      type='body1'
-      component='p'
+      type="body1"
+      component="p"
       paragraph={data.bottomMargin}
       className={style}
     >
@@ -32,7 +32,7 @@ function typographyList (data) {
   )
 }
 
-function PaperSheet (props) {
+function PaperSheet(props) {
   const { classes, data } = props
 
   return (

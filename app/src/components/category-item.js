@@ -1,15 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import List, {
+import {
   ListItem,
   ListItemAvatar,
-  ListItemIcon,
   ListItemSecondaryAction,
   ListItemText
 } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 import IconButton from 'material-ui/IconButton'
-import FolderIcon from 'material-ui-icons/Folder'
+
 import EllipsisIcon from 'material-ui-icons/MoreVert'
 import Divider from 'material-ui/Divider'
 import Icon from 'material-ui/Icon'
@@ -20,7 +19,7 @@ const CategoryItem = props => {
       <Link
         to={`/categories/${props._id}`}
         style={{ textDecoration: 'none' }}
-        className='link'
+        className="link"
       >
         <ListItem button>
           <ListItemAvatar>
@@ -31,7 +30,7 @@ const CategoryItem = props => {
           <ListItemText primary={props.name} secondary={props.shortDesc} />
 
           <ListItemSecondaryAction>
-            <IconButton aria-label='More'>
+            <IconButton aria-label="More">
               <EllipsisIcon />
             </IconButton>
           </ListItemSecondaryAction>
