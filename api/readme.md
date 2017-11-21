@@ -1,9 +1,8 @@
-# Veteran Resource Base API
+# Veteran Support Base API
 
 [Docs](../readme.md)
 
-This API manages the representation of many resources (organizations) filled with dedicated men and women committed to serving our veterans and families. There can be no doubt that these people care a great deal
-for our warriors. We are grateful for the sacrifices of our veterans and their families. Now,
+This RESTful HTTP API manages the representation of many resources (organizations) filled with dedicated men and women committed to serving our veterans and families. There can be no doubt that these people care a great deal for our warriors. We are grateful for the sacrifices of our veterans and their families. Now,
 please receive our gratitude and our desire to serve you with that same spirit of excellence.
 
 ## Getting Started

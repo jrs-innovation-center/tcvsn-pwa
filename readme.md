@@ -1,6 +1,6 @@
-# Read Me
+# Veteran Support Base
 
-Tri-County Veteran Support Network Progressive Web App (PWA)
+Veteran Support Base Progressive Web App (PWA)
 
 - [User Stories](./docs/user-stories.md)
 - [Wireframes](./docs/wireframes.md)
