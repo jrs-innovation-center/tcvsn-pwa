@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   ListItem,
   ListItemAvatar,
@@ -7,28 +8,27 @@ import {
 } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 import IconButton from 'material-ui/IconButton'
-import FolderIcon from 'material-ui-icons/Folder'
+
 import EllipsisIcon from 'material-ui-icons/MoreVert'
 import Divider from 'material-ui/Divider'
-import { Link } from 'react-router-dom'
+import Icon from 'material-ui/Icon'
 
-const ResourceItem = resource => {
+const CategoryItem = props => {
   return (
-    <div key={resource._id}>
+    <div key={props._id}>
       <Link
-        to={`/resources/${resource._id}`}
+        to={`/categories/${props._id}`}
         style={{ textDecoration: 'none' }}
+        className="link"
       >
         <ListItem button>
           <ListItemAvatar>
             <Avatar>
-              <FolderIcon />
+              <Icon>{props.icon ? props.icon : 'add_circle'}</Icon>
             </Avatar>
           </ListItemAvatar>
-          <ListItemText
-            primary={resource.name}
-            secondary={resource.shortDesc}
-          />
+          <ListItemText primary={props.name} secondary={props.shortDesc} />
+
           <ListItemSecondaryAction>
             <IconButton aria-label="More">
               <EllipsisIcon />
@@ -40,4 +40,5 @@ const ResourceItem = resource => {
     </div>
   )
 }
-export default ResourceItem
+
+export default CategoryItem
