@@ -18,10 +18,8 @@ const createResource = resource => {
 const getResource = id => get(id);
 const updateResource = resource => update(resource);
 const deleteResource = id => deleteDoc(id);
-const listResource = options => {
-  console.log("listResource", options);
-  return allDocs(options);
-};
+const listResource = options => allDocs(options);
+
 const getCategory = id => get(id);
 const createCategory = doc => {
   const id = pkGenerator("category_", doc.name);

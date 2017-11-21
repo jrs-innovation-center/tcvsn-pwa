@@ -7,18 +7,14 @@ const { pluck, map, prop } = require("ramda");
 
 const get = id => db.get(id);
 const create = doc => db.put(doc);
-const update = doc => {
-  return db.put(doc);
-};
+const update = doc => db.put(doc);
 const deleteDoc = id => db.get(id).then(doc => db.remove(doc));
 
 const allDocs = options => {
-  console.log("options - alldocs", options);
   return db.allDocs(options).then(docs => pluck("doc", docs.rows));
 };
 
 const findDocs = query => (query ? db.find(query).then(res => res.docs) : []);
-//db.createIndex({index:{fields:[]}})
 
 const dalHelper = {
   get,

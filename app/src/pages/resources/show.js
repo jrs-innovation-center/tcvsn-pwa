@@ -43,7 +43,6 @@ class ShowResource extends React.Component {
 }
 
 const mapStateToProps = state => {
-  //console.log('this is STATE', state)
   return { currentResource: state.currentResource };
 };
 
