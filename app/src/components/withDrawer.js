@@ -30,7 +30,7 @@ const sideList = (
           <ListItemText primary="Resources" />
         </ListItem>
       </Link>
-      <Link to="/categories">
+      <Link to="/categories" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <ViewList />
