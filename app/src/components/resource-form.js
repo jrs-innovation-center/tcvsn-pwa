@@ -7,6 +7,7 @@ import { FormControl, FormHelperText } from 'material-ui/Form'
 import Select from 'material-ui/Select'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
+import SaveIcon from 'material-ui-icons/Save'
 import { assoc } from 'ramda'
 
 const styles = theme => ({
@@ -94,18 +95,15 @@ class ResourceForm extends React.Component {
           margin="normal"
           className={classes.input}
         />
+
         <Button
-          raised
+          fab
           color="primary"
           type="submit"
-          style={{
-            display: 'block',
-            textAlign: 'center',
-            margin: '0 auto',
-            marginTop: 10
-          }}
+          aria-label="add"
+          className="fab-button"
         >
-          Submit
+          <SaveIcon />
         </Button>
       </form>
     )
