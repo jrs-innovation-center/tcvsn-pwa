@@ -31,22 +31,22 @@ const styles = {
 };
 
 function SimpleMediaCard(props) {
-  const { category } = props;
+  const { currentCategory } = props;
   return (
-    <div key={category._id}>
+    <div key={currentCategory._id}>
       <Card>
         <CardHeader
           avatar={
             <Avatar aria-label="Recipe">
-              <Icon>{category.icon}</Icon>
+              <Icon>{currentCategory.icon}</Icon>
             </Avatar>
           }
-          title={`${category.name}`}
-          subheader={`${category.shortDesc}`}
+          title={`${currentCategory.name}`}
+          subheader={`${currentCategory.shortDesc}`}
         />
 
         <CardContent>
-          <Typography component="p">{`${category.desc}`}</Typography>
+          <Typography component="p">{`${currentCategory.desc}`}</Typography>
         </CardContent>
 
         <CardActions disableActionSpacing>

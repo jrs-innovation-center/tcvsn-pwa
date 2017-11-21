@@ -18,20 +18,17 @@ const CategoryItem = props => {
   return (
     <div key={props._id}>
       <Link
-        to={`/categories/${props.data._id}`}
+        to={`/categories/${props._id}`}
         style={{ textDecoration: "none" }}
         className="link"
       >
         <ListItem button>
           <ListItemAvatar>
             <Avatar>
-              <Icon>{props.data.icon ? props.data.icon : "add_circle"}</Icon>
+              <Icon>{props.icon ? props.icon : "add_circle"}</Icon>
             </Avatar>
           </ListItemAvatar>
-          <ListItemText
-            primary={props.data.name}
-            secondary={props.data.shortDesc}
-          />
+          <ListItemText primary={props.name} secondary={props.shortDesc} />
 
           <ListItemSecondaryAction>
             <IconButton aria-label="More">

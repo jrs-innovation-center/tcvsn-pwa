@@ -11,7 +11,7 @@ export const categories = (state = [], action) => {
   }
 };
 
-export const category = (state = [], action) => {
+export const currentCategory = (state = [], action) => {
   // {type: SET_RESOURCES, payload: resources??? }
 
   switch (action.type) {

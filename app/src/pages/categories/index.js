@@ -7,17 +7,14 @@ import { connect } from "react-redux";
 import { map } from "ramda";
 import CategoryItem from "../../components/category-item";
 
-const li = category => {
-  return <CategoryItem data={category} />;
-};
-
-// props.resources === []
 const Categories = props => {
   return (
     <div>
       <MenuAppBar title="Categories" search={true} />
       <Typography />
-      <List style={{ marginTop: 8 }}>{map(li, props.categories)}</List>
+      <List style={{ marginTop: 8 }}>
+        {map(CategoryItem, props.categories)}
+      </List>
     </div>
   );
 };

@@ -9,7 +9,7 @@ import withDrawer from "../../components/withDrawer";
 import MenuAppBar from "../../components/menuAppBar";
 import { connect } from "react-redux";
 import { setCurrentCategory } from "../../action-creators/categories";
-import { prop, path, split, compose, last } from "ramda";
+import { prop, pathOr, path, split, compose, last } from "ramda";
 import CategoryCard from "../../components/category-card";
 
 const styles = theme => ({
@@ -51,22 +51,32 @@ class ShowCategory extends React.Component {
   };
 
   render() {
+    console.log("props", this.props);
+    const currentID = pathOr("", ["currentCategory", "_id"], this.props);
     const { category } = this.props;
-    return (
-      <div>
-        <MenuAppBar
-          title="Category"
-          search={true}
-          goBack={true}
-          {...this.props}
-        />
-        <CategoryCard {...this.props} />
-      </div>
-    );
+    if (this.props.match.params.id === currentID) {
+      return (
+        <div>
+          <MenuAppBar
+            title="Category"
+            search={true}
+            goBack={true}
+            {...this.props}
+          />
+          <CategoryCard {...this.props} />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <p>Loading...</p>
+        </div>
+      );
+    }
   }
 }
 const mapStateToProps = state => {
-  return { category: state.category };
+  return { currentCategory: state.currentCategory };
 };
 const mapActionToProps = (dispatch, getState) => {
   return {
