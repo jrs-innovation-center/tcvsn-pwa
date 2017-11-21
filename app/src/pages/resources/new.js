@@ -5,7 +5,10 @@ import MenuAppBar from '../../components/menuAppBar'
 import ResourceForm from '../../components/resource-form'
 import { connect } from 'react-redux'
 import { map, pathOr } from 'ramda'
-import { setCurrentResource } from '../../action-creators/resources'
+import {
+  setCurrentResource,
+  updateNewForm
+} from '../../action-creators/resources'
 
 // props.resources === []
 class NewResource extends React.Component {
@@ -19,20 +22,25 @@ class NewResource extends React.Component {
           goBack={true}
           {...this.props}
         />
-        <ResourceForm />
+        <ResourceForm
+          onChange={this.props.onChange}
+          newResource={this.props.newResource}
+        />
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  //console.log('this is STATE', state)
-  return { currentResource: state.currentResource }
+  return { newResource: state.newResource }
 }
 
 const mapActionsToProps = dispatch => {
   return {
-    setCurrentResource: id => dispatch(setCurrentResource(id))
+    setCurrentResource: id => dispatch(setCurrentResource(id)),
+    onChange: (field, value) => {
+      dispatch(updateNewForm(field, value))
+    }
   }
 }
 

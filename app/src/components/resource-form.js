@@ -21,12 +21,15 @@ class ResourceForm extends React.Component {
     const { classes } = this.props
 
     return (
-      <form style={{ marginTop: 8 }}>
+      <form style={{ marginTop: 8 }} autoComplete="off">
         <FormControl className={classes.input}>
           <InputLabel htmlFor="category">Category</InputLabel>
           <Select
-            value={''}
-            onChange={''}
+            name="category"
+            value={this.props.newResource.category}
+            onChange={e => {
+              this.props.onChange('category', e.target.value)
+            }}
             input={<Input id="category" />}
             autoWidth
           >
@@ -42,42 +45,52 @@ class ResourceForm extends React.Component {
           </Select>
         </FormControl>
         <TextField
-          id="formalName"
+          name="formalName"
           label="Formal Name"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.formalName}
+          onChange={e => {
+            this.props.onChange('formalName', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
         />
         <TextField
-          id="name"
+          name="name"
           label="Name"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.name}
+          onChange={e => {
+            this.props.onChange('name', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
         />
         <TextField
-          id="shortDesc"
+          name="shortDesc"
           label="Short Description"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.shortDesc}
+          onChange={e => {
+            this.props.onChange('shortDesc', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
         />
         <TextField
-          id="purpose"
+          name="purpose"
           label="Purpose"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.purpose}
+          onChange={e => {
+            this.props.onChange('purpose', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
         />
         <TextField
-          id="website"
+          name="website"
           label="Website"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.website}
+          onChange={e => {
+            this.props.onChange('website', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
         />
