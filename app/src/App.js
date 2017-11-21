@@ -1,11 +1,15 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Switch, BrowserRouter, Route } from 'react-router-dom'
 import Home from './pages/home'
-import Resources from './pages/resources/index'
+import Resources from './pages/resources'
 import ShowResource from './pages/resources/show'
+import NewResource from './pages/resources/new'
 import About from './pages/about'
 import InMemory from './pages/in-memory'
 import Legal from './pages/legal'
+import Categories from './pages/categories'
+import ShowCategory from './pages/categories/show'
+// import RecipeReviewCard from "./pages/categories/show";
 
 const App = props => {
   return (
@@ -13,8 +17,11 @@ const App = props => {
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/resources/new" component={NewResource} />
           <Route path="/resources/:id" component={ShowResource} />
           <Route path="/resources" component={Resources} />
+          <Route path="/categories/:id" component={ShowCategory} />
+          <Route path="/categories" component={Categories} />
           <Route path="/about" component={About} />
           <Route path="/in-memory" component={InMemory} />
           <Route path="/legal" component={Legal} />

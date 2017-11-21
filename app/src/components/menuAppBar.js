@@ -8,7 +8,6 @@ import MenuIcon from 'material-ui-icons/Menu'
 import GoBackIcon from 'material-ui-icons/KeyboardArrowLeft'
 import SearchIcon from 'material-ui-icons/Search'
 import { connect } from 'react-redux'
-import SimpleMenu from './simple-menu'
 
 const styles = theme => ({
   root: {
@@ -27,7 +26,6 @@ const styles = theme => ({
 //  <Button color="contrast">Search</Button>
 const MenuAppBar = props => {
   const { classes } = props
-  console.log(props)
 
   return (
     <div className={classes.root}>

@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "load": "node load-data.js",
+    "loadIndex": "node load-indexes.js"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +22,9 @@
     "pouchdb": "^6.3.4",
     "pouchdb-find": "^6.3.4",
     "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-plugin-react": "^7.5.1"
   }
 }

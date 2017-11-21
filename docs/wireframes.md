@@ -1,6 +1,6 @@
 # Wireframes
 
-[home](../readme.md)
+[Docs](../readme.md)
 
 ## Home
 ![Home](../assets/img/wireframes/home.png)
@@ -40,4 +40,4 @@
 ## FAQ
 ![FAQ](../assets/img/wireframes/faq.png)
 
-[home](../readme.md)
+[Docs](../readme.md)
