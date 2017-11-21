@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Home from './pages/home'
 import Resources from './pages/resources'
 import ShowResource from './pages/resources/show'
+import NewResource from './pages/resources/new'
 import About from './pages/about'
 import InMemory from './pages/in-memory'
 import Legal from './pages/legal'
@@ -14,14 +15,17 @@ const App = props => {
   return (
     <BrowserRouter>
       <div>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/categories/:id" component={ShowCategory} />
-        <Route path="/resources/:id" component={ShowResource} />
-        <Route exact path="/resources" component={Resources} />
-        <Route exact path="/categories" component={Categories} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/in-memory" component={InMemory} />
-        <Route exact path="/legal" component={Legal} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/resources/new" component={NewResource} />
+          <Route path="/resources/:id" component={ShowResource} />
+          <Route path="/resources" component={Resources} />
+          <Route path="/categories/:id" component={ShowCategory} />
+          <Route path="/categories" component={Categories} />
+          <Route path="/about" component={About} />
+          <Route path="/in-memory" component={InMemory} />
+          <Route path="/legal" component={Legal} />
+        </Switch>
       </div>
     </BrowserRouter>
   )
