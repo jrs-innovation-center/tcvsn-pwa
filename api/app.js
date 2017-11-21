@@ -78,9 +78,9 @@ app.use(bodyParser.json())
 
 app.get('/', (req, res, next) => res.send('Welcom to the api.'))
 
-/////////////////
+/// //////////////
 ///  Resources
-////////////////
+/// /////////////
 
 app.post('/resources', (req, res, next) => {
   if (isEmpty(prop('body', req))) {
@@ -147,9 +147,7 @@ app.delete('/resources/:id', (req, res, next) => {
 
 app.get('/resources', (req, res, next) => {
   let searchStr = compose(split(':'), pathOr('', ['query', 'filter']))(req)
-  console.log('searchStr', searchStr)
   const filter = pathOr(null, ['query', 'filter'])(req)
-  console.log('filter is this:', filter)
   var options = {}
   if (filter) {
     options = {
@@ -165,16 +163,13 @@ app.get('/resources', (req, res, next) => {
     }
   }
   listResource(options)
-    .then(results => {
-      console.log('search GET:', results)
-      res.status(200).send(results)
-    })
+    .then(results => res.status(200).send(results))
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
-/////////////////////
-/////// categories
-/////////////////////
+/// //////////////////
+/// //// categories
+/// //////////////////
 
 app.post('/categories', (req, res, next) => {
   if (isEmpty(prop('body'), req)) {
@@ -202,14 +197,14 @@ app.post('/categories', (req, res, next) => {
   createCategory(body)
     .then(result => {
       console.log('in then: ', result)
-      res.send(result)
+      res.status(201).send(result)
     })
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
 app.get('/categories/:id', (req, res, next) => {
   getCategory(req.params.id)
-    .then(result => res.send(result))
+    .then(result => res.status(200).send(result))
     .catch(err => next(err => new HTTPError(err.status, err.message)))
 })
 
@@ -230,7 +225,7 @@ app.put('/categories/:id', (req, res, next) => {
   }
 
   updateCategory(req.body)
-    .then(result => res.send(result))
+    .then(result => res.status(200).send(result))
     .catch(err => next(err => new HTTPError(err.status, err.message)))
 })
 
@@ -248,16 +243,16 @@ app.get('/categories', (req, res, next) => {
     end_key: 'category_\ufff0'
   })
     .then(docs => {
-      res.send(docs)
+      res.status(200).send(docs)
     })
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
-/////////////////////
-///// Error Handler
-/////////////////////
+/// //////////////////
+/// // Error Handler
+/// //////////////////
 
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   console.log(req.method, ' ', req.path, ' ', 'error ', err)
   res.status(err.status || 500).send(err)
 })

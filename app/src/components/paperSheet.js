@@ -37,7 +37,7 @@ function PaperSheet(props) {
 
   return (
     <div>
-      <Paper className={classes.root} elevation={4} square={true}>
+      <Paper className={classes.root} elevation={4} square>
         {map(typographyList, data)}
       </Paper>
     </div>

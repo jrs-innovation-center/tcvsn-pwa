@@ -11,7 +11,7 @@ import Avatar from 'material-ui/Avatar'
 import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
 import FolderIcon from 'material-ui-icons/Folder'
-import MenuAppBar from '../components/menuAppBar'
+
 import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
 import { connect } from 'react-redux'
@@ -52,9 +52,12 @@ function SimpleMediaCard(props) {
             title: classes.cardHeader
           }}
           avatar={
-            <Avatar aria-label="Resource" classes={{
-              colorDefault: classes.avatarColor
-            }}>
+            <Avatar
+              aria-label="Resource"
+              classes={{
+                colorDefault: classes.avatarColor
+              }}
+            >
               A
             </Avatar>
           }
@@ -74,5 +77,5 @@ SimpleMediaCard.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-//export default withStyles(styles)(SimpleMediaCard);
+// export default withStyles(styles)(SimpleMediaCard);
 export default withRoot(withDrawer(withStyles(styles)(SimpleMediaCard)))
