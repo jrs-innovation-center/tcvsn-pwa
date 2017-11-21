@@ -167,6 +167,36 @@ app.get('/resources', (req, res, next) => {
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
+app.post('/resources', (req, res, next) => {
+  if (isEmpty(prop('body'), req)) {
+    return next(
+      new HTTPError(
+        400,
+        'Missing request body.  Content-Type header should be application/json.'
+      )
+    )
+  }
+  const body = compose(
+    omit(['_id', '_rev']),
+    merge(__, { type: 'resource' }),
+    prop('body')
+  )(req)
+
+  const missingFields = resourceRequiredFieldCheck(body)
+  if (not(isEmpty(missingFields))) {
+    return next(
+      new HTTPError(400, `Missing required fields: ${join(' ', missingFields)}`)
+    )
+  }
+
+  createResource(body)
+    .then(result => {
+      console.log('in then: ', result)
+      res.status(201).send(result)
+    })
+    .catch(err => next(new HTTPError(err.status, err.message)))
+})
+
 /// //////////////////
 /// //// categories
 /// //////////////////
@@ -252,7 +282,7 @@ app.get('/categories', (req, res, next) => {
 /// // Error Handler
 /// //////////////////
 
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
   console.log(req.method, ' ', req.path, ' ', 'error ', err)
   res.status(err.status || 500).send(err)
 })
