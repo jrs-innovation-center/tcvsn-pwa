@@ -40,6 +40,8 @@ export const newResource = (state = newResourceDefault, action) => {
       console.log('ACTION', action.payload)
       console.log('STATE', state)
       return merge(state, action.payload)
+    case SET_RESOURCES:
+      return newResourceDefault
     default:
       return state
   }
