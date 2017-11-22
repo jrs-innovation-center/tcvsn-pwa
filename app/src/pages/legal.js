@@ -59,7 +59,7 @@ const Legal = props => {
       <div className="container">
         <PaperSheet data={legalText} />
         <Link to="/in-memory" style={{ textDecoration: 'none' }}>
-          <Button raised color="primary" style={{ marginTop: 24 }}>
+          <Button raised color="primary" style={{ marginTop: 16 }}>
             <Favorite style={{ marginRight: 7, height: 16, width: 16 }} />
             In Memory
           </Button>
@@ -68,7 +68,7 @@ const Legal = props => {
           <Button
             raised
             color="primary"
-            style={{ marginTop: 24, marginLeft: 16 }}
+            style={{ marginTop: 16, marginLeft: 16 }}
           >
             <Help style={{ marginRight: 7, height: 16, width: 16 }} />
             About

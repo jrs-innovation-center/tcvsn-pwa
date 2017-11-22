@@ -51,7 +51,7 @@ const InMemory = props => {
       <div className="container">
         <PaperSheet data={aboutText} />
         <Link to="/about" style={{ textDecoration: 'none' }}>
-          <Button raised color="primary" style={{ marginTop: 24 }}>
+          <Button raised color="primary" style={{ marginTop: 16 }}>
             <About style={{ marginRight: 7, height: 16, width: 16 }} />
             About
           </Button>
@@ -60,7 +60,7 @@ const InMemory = props => {
           <Button
             raised
             color="primary"
-            style={{ marginTop: 24, marginLeft: 16 }}
+            style={{ marginTop: 16, marginLeft: 16 }}
           >
             <Legal style={{ marginRight: 7, height: 16, width: 16 }} />
             Legal
