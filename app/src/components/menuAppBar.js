@@ -39,7 +39,11 @@ const MenuAppBar = props => {
               props.goBack ? props.lastPage(props.history) : props.toggleDrawer
             }
           >
-            {props.goBack ? <GoBackIcon /> : <MenuIcon />}
+            {props.goBack ? (
+              <GoBackIcon style={{ fontSize: 32, marginTop: 0 }} />
+            ) : (
+              <MenuIcon />
+            )}
           </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
             {props.title}
