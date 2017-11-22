@@ -8,12 +8,14 @@ import Select from 'material-ui/Select'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
 import SaveIcon from 'material-ui-icons/Save'
-import { assoc } from 'ramda'
+import { assoc, isEmpty } from 'ramda'
 
 const styles = theme => ({
   input: {
     width: '50%',
-    marginLeft: '25%'
+    marginLeft: 16,
+    marginTop: 16,
+    marginBottom: 8
   }
 })
 
@@ -30,7 +32,7 @@ class ResourceForm extends React.Component {
           this.props.onSubmit()
         }}
       >
-        <FormControl className={classes.input}>
+        <FormControl className={classes.input} required>
           <InputLabel htmlFor="categoryId">Category</InputLabel>
           <Select
             name="categoryId"
@@ -38,8 +40,9 @@ class ResourceForm extends React.Component {
             onChange={e => {
               this.props.onChange('categoryId', e.target.value)
             }}
-            input={<Input id="categoryId" />}
+            input={<Input id="categoryId" required />}
             autoWidth
+            required
           >
             <MenuItem value="">
               <em>None</em>
@@ -61,6 +64,7 @@ class ResourceForm extends React.Component {
           }}
           margin="normal"
           className={classes.input}
+          required
         />
         <TextField
           name="name"
@@ -71,6 +75,7 @@ class ResourceForm extends React.Component {
           }}
           margin="normal"
           className={classes.input}
+          required
         />
         <TextField
           name="shortDesc"
@@ -81,6 +86,7 @@ class ResourceForm extends React.Component {
           }}
           margin="normal"
           className={classes.input}
+          required
         />
         <TextField
           name="purpose"
@@ -91,6 +97,7 @@ class ResourceForm extends React.Component {
           }}
           margin="normal"
           className={classes.input}
+          required
         />
         <TextField
           name="website"
@@ -109,6 +116,15 @@ class ResourceForm extends React.Component {
           type="submit"
           aria-label="add"
           className="fab-button"
+          disabled={
+            isEmpty(this.props.newResource.categoryId) ||
+            isEmpty(this.props.newResource.formalName) ||
+            isEmpty(this.props.newResource.name) ||
+            isEmpty(this.props.newResource.shortDesc) ||
+            isEmpty(this.props.newResource.purpose)
+              ? true
+              : false
+          }
         >
           <SaveIcon />
         </Button>

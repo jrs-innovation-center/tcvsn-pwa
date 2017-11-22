@@ -58,7 +58,7 @@ function SimpleMediaCard(props) {
                 colorDefault: classes.avatarColor
               }}
             >
-              A
+              {props.data.formalName.substr(0, 1).toUpperCase() || ''}
             </Avatar>
           }
           title={props.data.formalName}

@@ -25,6 +25,7 @@ export const currentResource = (state = {}, action) => {
       return state
   }
 }
+
 const newResourceDefault = {
   categoryId: '',
   formalName: '',
