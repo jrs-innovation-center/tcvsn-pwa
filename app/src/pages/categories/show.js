@@ -51,7 +51,6 @@ class ShowCategory extends React.Component {
   }
 
   render() {
-    console.log('props', this.props)
     const currentID = getURLPathID(this.props)
     const { category } = this.props
 

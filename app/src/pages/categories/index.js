@@ -5,7 +5,10 @@ import MenuAppBar from '../../components/menuAppBar'
 import { Typography, List } from 'material-ui'
 import { connect } from 'react-redux'
 import { map } from 'ramda'
+import { Button } from 'material-ui'
+import AddIcon from 'material-ui-icons/Add'
 import CategoryItem from '../../components/category-item'
+import { Link } from 'react-router-dom'
 
 const Categories = props => {
   return (
@@ -15,6 +18,11 @@ const Categories = props => {
       <List style={{ marginTop: 8 }}>
         {map(CategoryItem, props.categories)}
       </List>
+      <Link to="/categories/new">
+        <Button fab color="primary" aria-label="add" className="fab-button">
+          <AddIcon />
+        </Button>
+      </Link>
     </div>
   )
 }
