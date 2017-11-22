@@ -252,7 +252,7 @@ app.get('/categories', (req, res, next) => {
 /// // Error Handler
 /// //////////////////
 
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
   console.log(req.method, ' ', req.path, ' ', 'error ', err)
   res.status(err.status || 500).send(err)
 })
