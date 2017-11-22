@@ -7,12 +7,15 @@ import { FormControl, FormHelperText } from 'material-ui/Form'
 import Select from 'material-ui/Select'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
-import { assoc } from 'ramda'
+import SaveIcon from 'material-ui-icons/Save'
+import { assoc, isEmpty } from 'ramda'
 
 const styles = theme => ({
   input: {
     width: '50%',
-    marginLeft: '25%'
+    marginLeft: 16,
+    marginTop: 16,
+    marginBottom: 8
   }
 })
 
@@ -21,14 +24,25 @@ class ResourceForm extends React.Component {
     const { classes } = this.props
 
     return (
-      <form style={{ marginTop: 8 }}>
-        <FormControl className={classes.input}>
-          <InputLabel htmlFor="category">Category</InputLabel>
+      <form
+        style={{ marginTop: 8 }}
+        autoComplete="off"
+        onSubmit={e => {
+          e.preventDefault()
+          this.props.onSubmit()
+        }}
+      >
+        <FormControl className={classes.input} required>
+          <InputLabel htmlFor="categoryId">Category</InputLabel>
           <Select
-            value={''}
-            onChange={''}
-            input={<Input id="category" />}
+            name="categoryId"
+            value={this.props.newResource.categoryId}
+            onChange={e => {
+              this.props.onChange('categoryId', e.target.value)
+            }}
+            input={<Input id="categoryId" required />}
             autoWidth
+            required
           >
             <MenuItem value="">
               <em>None</em>
@@ -42,57 +56,77 @@ class ResourceForm extends React.Component {
           </Select>
         </FormControl>
         <TextField
-          id="formalName"
+          name="formalName"
           label="Formal Name"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.formalName}
+          onChange={e => {
+            this.props.onChange('formalName', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
+          required
         />
         <TextField
-          id="name"
+          name="name"
           label="Name"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.name}
+          onChange={e => {
+            this.props.onChange('name', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
+          required
         />
         <TextField
-          id="shortDesc"
+          name="shortDesc"
           label="Short Description"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.shortDesc}
+          onChange={e => {
+            this.props.onChange('shortDesc', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
+          required
         />
         <TextField
-          id="purpose"
+          name="purpose"
           label="Purpose"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.purpose}
+          onChange={e => {
+            this.props.onChange('purpose', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
+          required
         />
         <TextField
-          id="website"
+          name="website"
           label="Website"
-          value={''}
-          onChange={''}
+          value={this.props.newResource.website}
+          onChange={e => {
+            this.props.onChange('website', e.target.value)
+          }}
           margin="normal"
           className={classes.input}
         />
+
         <Button
-          raised
+          fab
           color="primary"
           type="submit"
-          style={{
-            display: 'block',
-            textAlign: 'center',
-            margin: '0 auto',
-            marginTop: 10
-          }}
+          aria-label="add"
+          className="fab-button"
+          disabled={
+            isEmpty(this.props.newResource.categoryId) ||
+            isEmpty(this.props.newResource.formalName) ||
+            isEmpty(this.props.newResource.name) ||
+            isEmpty(this.props.newResource.shortDesc) ||
+            isEmpty(this.props.newResource.purpose)
+              ? true
+              : false
+          }
         >
-          Submit
+          <SaveIcon />
         </Button>
       </form>
     )

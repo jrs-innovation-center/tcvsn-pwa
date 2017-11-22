@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { drawer } from './reducers/drawer'
-import { resources, currentResource } from './reducers/resources'
+import { resources, currentResource, newResource } from './reducers/resources'
 import {
   categories,
   currentCategory,
@@ -17,7 +17,8 @@ const store = createStore(
     currentCategory,
     currentResource,
     category,
-    isActive
+    isActive,
+    newResource
   }),
   applyMiddleware(thunk)
 )

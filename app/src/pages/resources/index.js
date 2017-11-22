@@ -17,7 +17,7 @@ const Resources = props => {
   return (
     <div>
       <MenuAppBar title="Resources" search />
-      <List style={{ marginTop: 4 }}>{map(ResourceItem, props.resources)}</List>
+      <List style={{ padding: 0 }}>{map(ResourceItem, props.resources)}</List>
       <Link to="/resources/new">
         <Button fab color="primary" aria-label="add" className="fab-button">
           <AddIcon />

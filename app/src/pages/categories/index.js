@@ -15,7 +15,7 @@ const Categories = props => {
     <div>
       <MenuAppBar title="Categories" search />
       <Typography />
-      <List style={{ marginTop: 8 }}>
+      <List style={{ marginTop: 4 }}>
         {map(CategoryItem, props.categories)}
       </List>
       <Link to="/categories/new">
