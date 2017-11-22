@@ -13,13 +13,13 @@ export const setCategories = async (dispatch, getState) => {
     res.json()
   )
   dispatch({ type: SET_CATEGORIES, payload: response })
-  history.push('/categories')
+  //history.push('/categories')
 }
 
 export const setCurrentCategory = id => async (dispatch, getState) => {
-  const response = await fetch(`http://localhost:5000/categories/${id}`).then(
-    res => res.json()
-  )
+  const response = await fetch(
+    `http://localhost:5000/categories/${id}`
+  ).then(res => res.json())
   dispatch({ type: SET_CURRENT_CATEGORY, payload: response })
 }
 
@@ -39,6 +39,8 @@ export const createCategory = async (dispatch, getState) => {
     return
   }
   dispatch(setCategories)
+  dispatch({ type: IS_ACTIVE, payload: true })
+  history.push('/categories')
 }
 export const isActive = async (dispatch, getState) => {
   const { name, desc, shortDesc, icon } = getState().category

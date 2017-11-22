@@ -19,7 +19,7 @@ const ResourceItem = resource => {
         <ListItem button>
           <ListItemAvatar>
             <Avatar>
-              <FolderIcon />
+              {resource.formalName.substr(0, 1).toUpperCase() || ''}
             </Avatar>
           </ListItemAvatar>
           <ListItemText

@@ -15,9 +15,7 @@ const Categories = props => {
     <div>
       <MenuAppBar title="Categories" search />
       <Typography />
-      <List style={{ marginTop: 4 }}>
-        {map(CategoryItem, props.categories)}
-      </List>
+      <List style={{ padding: 0 }}>{map(CategoryItem, props.categories)}</List>
       <Link to="/categories/new">
         <Button fab color="primary" aria-label="add" className="fab-button">
           <AddIcon />

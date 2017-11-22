@@ -33,8 +33,8 @@ const mapStateToProps = state => state
 const mapActionsToProps = dispatch => {
   return {
     onChange: (field, value) => {
-      dispatch(isActive)
       dispatch({ type: UPDATE_NEW_FORM, payload: { [field]: value } })
+      dispatch(isActive)
     },
 
     setCurrentCategory: id => {

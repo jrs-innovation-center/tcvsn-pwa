@@ -34,7 +34,7 @@ const styles = {
 
 function SimpleMediaCard(props) {
   const websiteButton = not(isNil(props.data.website)) ? (
-    <Button dense color="primary" href={props.data.website}>
+    <Button dense color="primary" href={props.data.website} target="_blank">
       Website
     </Button>
   ) : null

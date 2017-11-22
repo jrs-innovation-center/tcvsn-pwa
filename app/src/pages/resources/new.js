@@ -8,7 +8,8 @@ import { map, pathOr } from 'ramda'
 import {
   setCurrentResource,
   updateNewForm,
-  addNewResource
+  addNewResource,
+  isActive
 } from '../../action-creators/resources'
 
 // props.resources === []
@@ -30,6 +31,7 @@ class NewResource extends React.Component {
             this.props.newResource,
             this.props.history
           )}
+          isActive={this.props.isActive}
         />
       </div>
     )
@@ -37,7 +39,7 @@ class NewResource extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { newResource: state.newResource }
+  return { newResource: state.newResource, isActive: state.isActive }
 }
 
 const mapActionsToProps = dispatch => {
@@ -45,6 +47,7 @@ const mapActionsToProps = dispatch => {
     setCurrentResource: id => dispatch(setCurrentResource(id)),
     onChange: (field, value) => {
       dispatch(updateNewForm(field, value))
+      dispatch(isActive)
     },
     onSubmit: (data, history) => e => {
       dispatch(addNewResource(data, history))

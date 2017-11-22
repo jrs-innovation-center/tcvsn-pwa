@@ -19,12 +19,12 @@ const App = props => {
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/resources/new" component={NewResource} />
+          <Route exact path="/resources/new" component={NewResource} />
           <Route path="/resources/:id" component={ShowResource} />
-          <Route path="/resources" component={Resources} />
-          <Route path="/categories/new" component={NewCategory} />
+          <Route exact path="/resources" component={Resources} />
+          <Route exact path="/categories/new" component={NewCategory} />
           <Route path="/categories/:id" component={ShowCategory} />
-          <Route path="/categories" component={Categories} />
+          <Route exact path="/categories" component={Categories} />
           <Route path="/about" component={About} />
           <Route path="/in-memory" component={InMemory} />
           <Route path="/legal" component={Legal} />

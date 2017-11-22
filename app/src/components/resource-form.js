@@ -68,7 +68,7 @@ class ResourceForm extends React.Component {
         />
         <TextField
           name="name"
-          label="Name"
+          label="Short Name"
           value={this.props.newResource.name}
           onChange={e => {
             this.props.onChange('name', e.target.value)
@@ -116,15 +116,7 @@ class ResourceForm extends React.Component {
           type="submit"
           aria-label="add"
           className="fab-button"
-          disabled={
-            isEmpty(this.props.newResource.categoryId) ||
-            isEmpty(this.props.newResource.formalName) ||
-            isEmpty(this.props.newResource.name) ||
-            isEmpty(this.props.newResource.shortDesc) ||
-            isEmpty(this.props.newResource.purpose)
-              ? true
-              : false
-          }
+          disabled={this.props.isActive}
         >
           <SaveIcon />
         </Button>

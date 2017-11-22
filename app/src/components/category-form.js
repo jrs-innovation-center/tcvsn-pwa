@@ -24,12 +24,7 @@ class CategoryForm extends React.Component {
   render() {
     const { classes } = this.props
     return (
-      <form
-        style={{ marginTop: 8 }}
-        noValidate
-        autoComplete="off"
-        onSubmit={this.props.createCategory}
-      >
+      <form style={{ marginTop: 8 }} onSubmit={this.props.createCategory}>
         <TextField
           label="Name"
           value={this.props.category.name}
