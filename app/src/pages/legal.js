@@ -21,8 +21,7 @@ const legalText = [
             <Gavel />
           </Avatar>
         }
-        title="Legal"
-        subheader="Disclaimer"
+        title="Disclaimer"
       />
     ),
     style: 'paragraph',
@@ -38,15 +37,25 @@ const legalText = [
               approvals processes to help those in need. Everyone and every
               organization in this directory is devoted to trying to help our
               beloved wounded, ill, injured, and needy troops and disabled
-              veterans, veterans, and their families. Although most of the
-              services in this directory are free,some are not free. For example
-              (and just one example) there are some co-pays for medications
-              under hospice for Medicare covered hospice patients. However, all
-              the organizations and individuals listed here are committed to
-              help in every way possible and to make sure if there are any fees
-              associated with their assistance that they are fully disclosed up
-              front and before there are any charges accrued. New organizations that wish to become a member of the Tri-County Veteran Support
-              Network may submit contact information, mission statement, an website address (if applicable) via e-mail to tim@tcvsn.org.`,
+              veterans, veterans, and their families.`,
+    style: 'paragraph',
+    bottomMargin: true
+  },
+  {
+    text: `Although most of the
+            services in this directory are free, some are not free. For example
+            (and just one example) there are some co-pays for medications
+            under hospice for Medicare covered hospice patients. However, all
+            the organizations and individuals listed here are committed to
+            help in every way possible and to make sure if there are any fees
+            associated with their assistance that they are fully disclosed up
+            front and before there are any charges accrued.`,
+    style: 'paragraph',
+    bottomMargin: true
+  },
+  {
+    text: `New organizations that wish to become a member of the Tri-County Veteran Support
+            Network may submit contact information, mission statement, an website address (if applicable) via e-mail to tim@tcvsn.org.`,
     style: 'paragraph',
     bottomMargin: false
   }

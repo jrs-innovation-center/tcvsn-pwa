@@ -6,11 +6,25 @@ import MenuAppBar from '../components/menuAppBar'
 import { connect } from 'react-redux'
 import PaperSheet from '../components/paperSheet'
 import sig from '../sig.jpg'
+import banner from '../banner.png'
 import Favorite from 'material-ui-icons/Favorite'
 import Legal from 'material-ui-icons/Gavel'
 import { Link } from 'react-router-dom'
 
 const aboutText = [
+  {
+    text: (
+      <img
+        alt="tri-county veterans support network"
+        src={banner}
+        className="eileen"
+        width="250"
+        height="auto"
+      />
+    ),
+    style: 'paragraph',
+    bottomMargin: true
+  },
   {
     text:
       'This directory consists of many organizations filled with dedicated men and women committed to serving our veterans and families of the Charleston Tri-County area.',

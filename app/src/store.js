@@ -17,8 +17,8 @@ const store = createStore(
     currentCategory,
     currentResource,
     category,
-    isActive,
-    newResource
+    newResource,
+    isActive
   }),
   applyMiddleware(thunk)
 )
