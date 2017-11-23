@@ -17,7 +17,7 @@ class NewCategory extends React.Component {
     return (
       <div>
         <MenuAppBar
-          title="Add New Category"
+          title="Add Category"
           search={true}
           goBack={true}
           {...this.props}

@@ -8,7 +8,7 @@ import Select from 'material-ui/Select'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
 import SaveIcon from 'material-ui-icons/Save'
-import { assoc, isEmpty } from 'ramda'
+import { assoc, isEmpty, map } from 'ramda'
 
 const styles = theme => ({
   input: {
@@ -18,6 +18,10 @@ const styles = theme => ({
     marginBottom: 8
   }
 })
+
+const categoryMenuItem = category => {
+  return <MenuItem value={category.name}>{category.name}</MenuItem>
+}
 
 class ResourceForm extends React.Component {
   render() {
@@ -47,12 +51,7 @@ class ResourceForm extends React.Component {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value="Basics Needs Assistance">
-              Basics Needs Assistance
-            </MenuItem>
-            <MenuItem value="Benefits">Benefits</MenuItem>
-            <MenuItem value="Employment">Employment</MenuItem>
-            <MenuItem value="Government">Government</MenuItem>
+            {map(categoryMenuItem, this.props.categories)}
           </Select>
         </FormControl>
         <TextField
@@ -65,6 +64,7 @@ class ResourceForm extends React.Component {
           margin="normal"
           className={classes.input}
           required
+          multiline
         />
         <TextField
           name="name"
@@ -87,6 +87,7 @@ class ResourceForm extends React.Component {
           margin="normal"
           className={classes.input}
           required
+          multiline
         />
         <TextField
           name="purpose"
@@ -98,6 +99,7 @@ class ResourceForm extends React.Component {
           margin="normal"
           className={classes.input}
           required
+          multiline
         />
         <TextField
           name="website"

@@ -6,20 +6,22 @@ import ResourceForm from '../../components/resource-form'
 import { connect } from 'react-redux'
 import { map, pathOr } from 'ramda'
 import {
-  setCurrentResource,
   updateNewForm,
   addNewResource,
   isActive
 } from '../../action-creators/resources'
+import { setCategories } from '../../action-creators/categories'
 
 // props.resources === []
 class NewResource extends React.Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.onMount()
+  }
   render() {
     return (
       <div>
         <MenuAppBar
-          title="Add New Resource"
+          title="Add Resource"
           search={true}
           goBack={true}
           {...this.props}
@@ -32,6 +34,7 @@ class NewResource extends React.Component {
             this.props.history
           )}
           isActive={this.props.isActive}
+          categories={this.props.categories}
         />
       </div>
     )
@@ -39,18 +42,24 @@ class NewResource extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { newResource: state.newResource, isActive: state.isActive }
+  return {
+    newResource: state.newResource,
+    isActive: state.isActive,
+    categories: state.categories
+  }
 }
 
 const mapActionsToProps = dispatch => {
   return {
-    setCurrentResource: id => dispatch(setCurrentResource(id)),
     onChange: (field, value) => {
       dispatch(updateNewForm(field, value))
       dispatch(isActive)
     },
     onSubmit: (data, history) => e => {
       dispatch(addNewResource(data, history))
+    },
+    onMount: () => {
+      dispatch(setCategories)
     }
   }
 }
