@@ -18,9 +18,7 @@ const ResourceItem = resource => {
       <Link to={`/resources/${resource._id}`} className="router-link">
         <ListItem button>
           <ListItemAvatar>
-            <Avatar>
-              <FolderIcon />
-            </Avatar>
+            <Avatar>{resource.name.substr(0, 1).toUpperCase() || ''}</Avatar>
           </ListItemAvatar>
           <ListItemText
             primary={resource.name}

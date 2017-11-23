@@ -2,9 +2,11 @@ import fetch from 'isomorphic-fetch'
 import {
   SET_RESOURCES,
   SET_CURRENT_RESOURCE,
-  UPDATE_NEW_FORM,
-  ADD_NEW_RESOURCE
+  UPDATE_NEW_RES_FORM,
+  ADD_NEW_RESOURCE,
+  IS_ACTIVE
 } from '../constants'
+import { isEmpty } from 'ramda'
 
 export const setResources = async (dispatch, getState) => {
   const response = await fetch('http://localhost:5000/resources').then(res =>
@@ -21,7 +23,7 @@ export const setCurrentResource = id => async (dispatch, getState) => {
 }
 
 export const updateNewForm = (field, value) => (dispatch, getState) => {
-  dispatch({ type: UPDATE_NEW_FORM, payload: { [field]: value } })
+  dispatch({ type: UPDATE_NEW_RES_FORM, payload: { [field]: value } })
 }
 
 export const addNewResource = (data, history) => async (dispatch, getState) => {
@@ -37,8 +39,30 @@ export const addNewResource = (data, history) => async (dispatch, getState) => {
 
   if (result.ok) {
     dispatch(setResources)
+    dispatch({ type: IS_ACTIVE, payload: true })
     history.push('/resources')
   } else {
     // handle error
+  }
+}
+
+export const isActive = async (dispatch, getState) => {
+  const {
+    categoryId,
+    formalName,
+    name,
+    shortDesc,
+    purpose
+  } = getState().newResource
+  if (
+    isEmpty(categoryId) ||
+    isEmpty(formalName) ||
+    isEmpty(name) ||
+    isEmpty(shortDesc) ||
+    isEmpty(purpose)
+  ) {
+    dispatch({ type: IS_ACTIVE, payload: true })
+  } else {
+    dispatch({ type: IS_ACTIVE, payload: false })
   }
 }

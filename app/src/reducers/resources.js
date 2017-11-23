@@ -1,7 +1,8 @@
 import {
   SET_RESOURCES,
   SET_CURRENT_RESOURCE,
-  UPDATE_NEW_FORM
+  UPDATE_NEW_RES_FORM,
+  IS_ACTIVE
 } from '../constants'
 
 import { merge } from 'ramda'
@@ -36,12 +37,21 @@ const newResourceDefault = {
 }
 export const newResource = (state = newResourceDefault, action) => {
   switch (action.type) {
-    case UPDATE_NEW_FORM:
+    case UPDATE_NEW_RES_FORM:
       console.log('ACTION', action.payload)
       console.log('STATE', state)
       return merge(state, action.payload)
     case SET_RESOURCES:
       return newResourceDefault
+    default:
+      return state
+  }
+}
+
+export const isActive = (state = true, action) => {
+  switch (action.type) {
+    case IS_ACTIVE:
+      return action.payload
     default:
       return state
   }

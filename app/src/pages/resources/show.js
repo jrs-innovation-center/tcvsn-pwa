@@ -23,7 +23,12 @@ class ShowResource extends React.Component {
     if (this.props.match.params.id === currentID) {
       return (
         <div>
-          <MenuAppBar title="Resource" search goBack {...this.props} />
+          <MenuAppBar
+            title={this.props.currentResource.name}
+            search
+            goBack
+            {...this.props}
+          />
           <ResourceCard data={this.props.currentResource} />
         </div>
       )
