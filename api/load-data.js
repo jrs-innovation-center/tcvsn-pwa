@@ -5,7 +5,34 @@ const db = new PouchDB(process.env.COUCHDB_URL + process.env.COUCHDB_NAME)
 
 db
   .bulkDocs([
-//BASIC NEEDS ASSISTANCE
+
+//CATEGORIES
+{
+  "_id": "category_basic-needs-assistance",
+  "type": "category",
+  "name": "Basic Needs Assistance",
+  "shortDesc": "shelter, food, emergency",
+  "desc": "Basic Needs Assistance includes organizations that provide one or more of the following services: shelter facilities for the homeless and for those escaping situations of domestic violence, food/supplemental nutrition resources, and single-transaction emergency financial assistance in cases of involuntary hardship...",
+  "icon": "add_circle"
+},
+{
+  "_id": "category_benefits",
+  "type": "category",
+  "name": "Benefits",
+  "shortDesc": "federal, state, and local agencies",
+  "desc": "Benefits include federal, state, and local agencies that assist veterans and their families in filing for claims to receive benefits earned as a result of military service.",
+  "icon": "add_circle"
+},
+{
+  "_id": "category_employment",
+  "type": "category",
+  "name": "Employment",
+  "shortDesc": "assistance in receiving part-time or full-time employment",
+  "desc": "Employment includes programs and services to assist current and retired military members in obtaining part-time and/or full-time employment. This assistance can include cover letter and resume tips, interview tips, learning professional communication expectations and skills, and general job search advice.",
+  "icon": "add_circle"
+},
+
+//Basic Needs Assistance
     {
         "_id": "resource_va_homeless_prevention_program_and_walk_in_clinic",
         "type": "resource",
@@ -78,7 +105,7 @@ db
         "name": "Red Cross",
         "formalName": "American Red Cross of the Lowcountry - SC",
         "shortDesc": "emergency communication and transition services",
-        "purpose": "The American Red Cross provides emergency communication services to military (active duty, National Guard, Reserves, retired, and veterans) and their families, helping them locate and send messages to their loved ones across the globe. When service members return home, they have access to several programs and American Red Cross volunteers who are ready and willing to ease the transition from deployment or discharge into the civilian sector. Programs provided include, but are not limited to, emergency financial assistance referrals, disaster preparedness and response, reconnection and family mental health education, resiliency training to cope with the challenges of life in the military, and supportive transitional services for wounded soldiers and their family members. We also offer volunteer opportunities in all lines of service.To initiate an Emergency Communication Message, call 1-877-272-7337 when you need to contact a service member in the event of a family emergency. This service is available 365 days a year, 24 hours a day."
+        "purpose": "The American Red Cross provides emergency communication services to military (active duty, National Guard, Reserves, retired, and veterans) and their families, helping them locate and send messages to their loved ones across the globe. When service members return home, they have access to several programs and American Red Cross volunteers who are ready and willing to ease the transition from deployment or discharge into the civilian sector. Programs provided include, but a renot limited to, emergency financial assistance referrals, disaster preparedness and response, reconnection and family mental health education, resiliency training to cope with the challenges of life in the military, and supportive transitional services for wounded soldiers and their family members. We also offer volunteer opportunities in all lines of service.To initiate an Emergency Communication Message, call 1-877-272-7337 when you need to contact a service member in the event of a family emergency. This service is available 365 days a year, 24 hours a day.",
         "website": "http://www.redcross.org/what-we-do/support-military-families",
         "contacts": [{
             "name": "Jeanne Carmichael",
@@ -103,8 +130,7 @@ db
         }]
     },
     {
-        "_id": "resource_association_of_the_u.s._army,_charleston,_sc_sub-chapter_
-        of_the_columbia_sc_chapter",
+        "_id": "resource_association_of_the_u.s._army,_charleston,_sc_sub-chapter_of_the_columbia_sc_chapter",
         "type": "resource",
         "organization": "community resource",
         "categoryId": "category_basic-needs-assistance",
@@ -534,7 +560,7 @@ db
         }]
     },
 
-    //EMPLOYMENT
+    //Employment
     {
         "_id": "resource_vocational_rehabilitation_ralph_h._johson_va_medical_center",
         "type": "resource",
