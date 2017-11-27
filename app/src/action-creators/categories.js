@@ -60,7 +60,7 @@ export const updateCategory = data => async (dispatch, getState) => {
   const method = 'PUT'
   const body = JSON.stringify(data)
 
-  const result = await fetch('http://localhost:5000/resources', {
+  const result = await fetch('http://localhost:5000/categories/' + data._id, {
     headers,
     method,
     body
@@ -69,7 +69,7 @@ export const updateCategory = data => async (dispatch, getState) => {
   if (result.ok) {
     dispatch(setCategories)
     //dispatch({ type: IS_ACTIVE, payload: true })
-    history.push('/categories')
+    history.push('/categories/' + data._id)
   } else {
     // handle error
   }

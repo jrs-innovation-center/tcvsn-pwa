@@ -20,7 +20,7 @@ class EditResource extends React.Component {
     this.props.onMount()
     const id = this.props.match.params.id
     this.props.setEditResource(id)
-    this.props.isSubmitActive()
+    //this.props.isSubmitActive()
   }
   render() {
     return (

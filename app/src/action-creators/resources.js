@@ -69,7 +69,7 @@ export const addEditResource = (data, history) => async (
   const method = 'PUT'
   const body = JSON.stringify(data)
 
-  const result = await fetch('http://localhost:5000/resources', {
+  const result = await fetch('http://localhost:5000/resources/' + data._id, {
     headers,
     method,
     body
@@ -78,7 +78,7 @@ export const addEditResource = (data, history) => async (
   if (result.ok) {
     dispatch(setResources)
     //dispatch({ type: IS_ACTIVE, payload: true })
-    history.push('/resources')
+    history.push('/resources/' + data._id)
   } else {
     // handle error
   }
