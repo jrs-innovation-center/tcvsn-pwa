@@ -8,21 +8,44 @@ import PaperSheet from '../components/paperSheet'
 import Eileen from '../eileen.jpg'
 import About from 'material-ui-icons/Help'
 import Legal from 'material-ui-icons/Gavel'
+import Favorite from 'material-ui-icons/Favorite'
+import Avatar from 'material-ui/Avatar'
+import { CardHeader, CardMedia } from 'material-ui/Card'
 import { Link } from 'react-router-dom'
 
 const aboutText = [
   {
     text: (
-      <img
-        alt="eileen"
-        src={Eileen}
-        className="eileen"
-        width="250"
-        height="auto"
+      <CardMedia
+        style={{
+          height: '40vh',
+          maxWidth: '418px',
+          maxHeight: '353px',
+          margin: '0 auto',
+          display: 'block'
+        }}
+        image={Eileen}
+        title="Eileen S. Hadbavny"
       />
     ),
     style: 'paragraph',
-    bottomMargin: true
+    bottomMargin: false
+  },
+  {
+    text: (
+      <CardHeader
+        avatar={
+          <Avatar>
+            <Favorite />
+          </Avatar>
+        }
+        style={{ paddingBottom: 16 }}
+        title="In Loving Memory of Eileen S. Hadbavny"
+        subheader="Co-Founder of the Tri-County Veterans Support Network"
+      />
+    ),
+    style: 'paragraph',
+    bottomMargin: false
   },
   {
     text:

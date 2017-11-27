@@ -16,12 +16,13 @@ const legalText = [
   {
     text: (
       <CardHeader
+        style={{ paddingTop: 4, paddingBottom: 16 }}
         avatar={
           <Avatar>
             <Gavel />
           </Avatar>
         }
-        title="Disclaimer"
+        title="Legal Disclaimer"
       />
     ),
     style: 'paragraph',
@@ -67,20 +68,20 @@ const Legal = props => {
       <MenuAppBar title="Legal" />
       <div className="container">
         <PaperSheet data={legalText} />
-        <Link to="/in-memory" style={{ textDecoration: 'none' }}>
+        <Link to="/about" style={{ textDecoration: 'none' }}>
           <Button raised color="primary" style={{ marginTop: 16 }}>
-            <Favorite style={{ marginRight: 7, height: 16, width: 16 }} />
-            In Memory
+            <Help style={{ marginRight: 7, height: 16, width: 16 }} />
+            About
           </Button>
         </Link>
-        <Link to="/about" style={{ textDecoration: 'none' }}>
+        <Link to="/in-memory" style={{ textDecoration: 'none' }}>
           <Button
             raised
             color="primary"
-            style={{ marginTop: 16, marginLeft: 16 }}
+            style={{ marginTop: 16, marginLeft: 15 }}
           >
-            <Help style={{ marginRight: 7, height: 16, width: 16 }} />
-            About
+            <Favorite style={{ marginRight: 7, height: 16, width: 16 }} />
+            In Memory
           </Button>
         </Link>
       </div>

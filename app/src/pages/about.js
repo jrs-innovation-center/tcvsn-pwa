@@ -9,17 +9,22 @@ import sig from '../sig.jpg'
 import banner from '../banner.png'
 import Favorite from 'material-ui-icons/Favorite'
 import Legal from 'material-ui-icons/Gavel'
+import { CardMedia } from 'material-ui/Card'
 import { Link } from 'react-router-dom'
 
 const aboutText = [
   {
     text: (
-      <img
-        alt="tri-county veterans support network"
-        src={banner}
-        className="eileen"
-        width="250"
-        height="auto"
+      <CardMedia
+        style={{
+          height: '20vh',
+          maxHeight: '128px',
+          maxWidth: '357px',
+          margin: '0 auto',
+          display: 'block'
+        }}
+        image={banner}
+        title="Tri-County Veterans Support Network"
       />
     ),
     style: 'paragraph',
