@@ -12,6 +12,10 @@ import { setCurrentCategory } from '../../action-creators/categories'
 import { prop, pathOr, path, split, compose, last } from 'ramda'
 import CategoryCard from '../../components/category-card'
 import { getURLPathID } from '../../lib/url-path-helper'
+import Button from 'material-ui/Button'
+import EditIcon from 'material-ui-icons/ModeEdit'
+import { Link } from 'react-router-dom'
+
 const styles = theme => ({
   card: {
     maxWidth: 400
@@ -64,6 +68,16 @@ class ShowCategory extends React.Component {
             {...this.props}
           />
           <CategoryCard {...this.props} />
+          <Link to={`/categories/${this.props.currentCategory._id}/edit`}>
+            <Button
+              fab
+              color="secondary"
+              aria-label="edit"
+              className="fab-button"
+            >
+              <EditIcon />
+            </Button>
+          </Link>
         </div>
       )
     } else {

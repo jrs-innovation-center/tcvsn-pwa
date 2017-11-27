@@ -2,26 +2,32 @@ import React from 'react'
 import withRoot from '../../components/withRoot'
 import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
-import CategoryForm from '../../components/category-form'
+import CategoryForm from '../../components/category-edit'
 import { connect } from 'react-redux'
 import { map, pathOr } from 'ramda'
-import { createCategory, isActive } from '../../action-creators/categories'
-import { UPDATE_NEW_FORM } from '../../constants'
+import {
+  updateCategory,
+  isActive,
+  setEditCategory
+} from '../../action-creators/categories'
+import { ONCHANGE_EDIT_CAT_FORM } from '../../constants'
 
-class NewCategory extends React.Component {
+class EditCategory extends React.Component {
   componentDidMount() {
-    this.props.isSubmitActive()
+    const id = this.props.match.params.id
+    this.props.setEditCategory(id)
+    //this.props.isSubmitActive()
   }
   render() {
     return (
       <div>
         <MenuAppBar
-          title="Add Category"
+          title="Edit Category"
           search={true}
           goBack={true}
           {...this.props}
         />
-        <CategoryForm {...this.props} />
+        <CategoryForm isActive={this.props.isActive} {...this.props} />
       </div>
     )
   }
@@ -32,17 +38,18 @@ const mapStateToProps = state => state
 const mapActionsToProps = dispatch => {
   return {
     onChange: (field, value) => {
-      dispatch({ type: UPDATE_NEW_FORM, payload: { [field]: value } })
+      dispatch({ type: ONCHANGE_EDIT_CAT_FORM, payload: { [field]: value } })
       dispatch(isActive)
     },
-    createCategory: e => {
+    updateCategory: data => e => {
       e.preventDefault()
-      dispatch(createCategory)
+      dispatch(updateCategory(data))
     },
+    setEditCategory: id => dispatch(setEditCategory(id)),
     isSubmitActive: () => dispatch(isActive)
   }
 }
 
 const connector = connect(mapStateToProps, mapActionsToProps)
 
-export default withRoot(withDrawer(connector(NewCategory)))
+export default withRoot(withDrawer(connector(EditCategory)))

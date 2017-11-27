@@ -10,6 +10,7 @@ import {
   categories,
   currentCategory,
   category,
+  editCategory,
   isActive
 } from './reducers/categories'
 import thunk from 'redux-thunk'
@@ -22,6 +23,7 @@ const store = createStore(
     currentCategory,
     currentResource,
     category,
+    editCategory,
     newResource,
     editResource,
     isActive

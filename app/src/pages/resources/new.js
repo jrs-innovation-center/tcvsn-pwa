@@ -16,6 +16,7 @@ import { setCategories } from '../../action-creators/categories'
 class NewResource extends React.Component {
   componentDidMount() {
     this.props.onMount()
+    this.props.isSubmitActive()
   }
   render() {
     return (
@@ -60,7 +61,8 @@ const mapActionsToProps = dispatch => {
     },
     onMount: () => {
       dispatch(setCategories)
-    }
+    },
+    isSubmitActive: () => dispatch(isActive)
   }
 }
 

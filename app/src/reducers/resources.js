@@ -53,14 +53,14 @@ export const newResource = (state = newResourceDefault, action) => {
 export const editResource = (state = newResourceDefault, action) => {
   switch (action.type) {
     case SET_EDIT_RESOURCE:
-      console.log('SET_EDIT_RESOURCE', action.payload)
+      //console.log('SET_EDIT_RESOURCE', action.payload)
       return action.payload
     case ONCHANGE_EDIT_RES_FORM:
-      console.log('ACTION', action.payload)
-      console.log('STATE', state)
+      //console.log('ACTION', action.payload)
+      //console.log('STATE', state)
       return merge(state, action.payload)
     case SET_RESOURCES:
-      console.log('YOU SHOULD NOT BE HERE! SET_RESOURCES')
+      //console.log('YOU SHOULD NOT BE HERE! SET_RESOURCES')
       return newResourceDefault
     default:
       return state

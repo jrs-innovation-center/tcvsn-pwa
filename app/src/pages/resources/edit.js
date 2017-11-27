@@ -6,6 +6,7 @@ import ResourceForm from '../../components/resource-edit'
 import { connect } from 'react-redux'
 import { map, pathOr } from 'ramda'
 import {
+  updateEditForm,
   addEditResource,
   setEditResource,
   isActive,
@@ -19,6 +20,7 @@ class EditResource extends React.Component {
     this.props.onMount()
     const id = this.props.match.params.id
     this.props.setEditResource(id)
+    this.props.isSubmitActive()
   }
   render() {
     return (
@@ -62,7 +64,8 @@ const mapActionsToProps = dispatch => {
       dispatch(addEditResource(data, history))
     },
     onMount: () => dispatch(setCategories),
-    setEditResource: id => dispatch(setEditResource(id))
+    setEditResource: id => dispatch(setEditResource(id)),
+    isSubmitActive: () => dispatch(isActive)
   }
 }
 

@@ -11,7 +11,7 @@ import Legal from './pages/legal'
 import Categories from './pages/categories'
 import NewCategory from './pages/categories/new'
 import ShowCategory from './pages/categories/show'
-import EditCategory from './pages/resources/edit' //TODO - change res to cat!!!
+import EditCategory from './pages/categories/edit'
 // import RecipeReviewCard from "./pages/categories/show";
 import history from './history'
 
