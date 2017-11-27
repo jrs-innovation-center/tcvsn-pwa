@@ -44,6 +44,7 @@ class CategoryForm extends React.Component {
           margin="normal"
           required
           className={classes.input}
+          multiline
         />
         <TextField
           label="Description"
@@ -54,6 +55,7 @@ class CategoryForm extends React.Component {
           margin="normal"
           required
           className={classes.input}
+          multiline
         />
         <TextField
           label="Icon"

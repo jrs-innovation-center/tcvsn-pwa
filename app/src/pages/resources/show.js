@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 import { pathOr } from 'ramda'
 import { setCurrentResource } from '../../action-creators/resources'
 import ResourceCard from '../../components/resource-card'
+import Button from 'material-ui/Button'
+import PhoneIcon from 'material-ui-icons/Phone'
 
 // props.resources === []
 class ShowResource extends React.Component {
@@ -30,6 +32,14 @@ class ShowResource extends React.Component {
             {...this.props}
           />
           <ResourceCard data={this.props.currentResource} />
+          <Button
+            fab
+            color="secondary"
+            aria-label="call"
+            className="fab-button"
+          >
+            <PhoneIcon />
+          </Button>
         </div>
       )
     } else {
