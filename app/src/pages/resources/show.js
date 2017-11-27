@@ -8,6 +8,7 @@ import { setCurrentResource } from '../../action-creators/resources'
 import ResourceCard from '../../components/resource-card'
 import Button from 'material-ui/Button'
 import PhoneIcon from 'material-ui-icons/Phone'
+import { Link } from 'react-router-dom'
 
 // props.resources === []
 class ShowResource extends React.Component {
@@ -32,14 +33,16 @@ class ShowResource extends React.Component {
             {...this.props}
           />
           <ResourceCard data={this.props.currentResource} />
-          <Button
-            fab
-            color="secondary"
-            aria-label="call"
-            className="fab-button"
-          >
-            <PhoneIcon />
-          </Button>
+          <Link to={`/resources/${this.props.currentResource._id}/edit`}>
+            <Button
+              fab
+              color="secondary"
+              aria-label="call"
+              className="fab-button"
+            >
+              <PhoneIcon />
+            </Button>
+          </Link>
         </div>
       )
     } else {
