@@ -3,7 +3,9 @@ import {
   SET_CURRENT_CATEGORY,
   UPDATE_NEW_FORM,
   CLEAR_NEW_FORM,
-  IS_ACTIVE
+  IS_ACTIVE,
+  SET_EDIT_CATEGORY,
+  ONCHANGE_EDIT_CAT_FORM
 } from '../constants'
 import { merge } from 'ramda'
 export const categories = (state = [], action) => {
@@ -29,6 +31,19 @@ const setDefaultCategory = { name: '', desc: '', shortDesc: '', icon: '' }
 export const category = (state = setDefaultCategory, action) => {
   switch (action.type) {
     case UPDATE_NEW_FORM:
+      return merge(state, action.payload)
+    case SET_CATEGORIES:
+      return setDefaultCategory
+    default:
+      return state
+  }
+}
+
+export const editCategory = (state = setDefaultCategory, action) => {
+  switch (action.type) {
+    case SET_EDIT_CATEGORY:
+      return action.payload
+    case ONCHANGE_EDIT_CAT_FORM:
       return merge(state, action.payload)
     case SET_CATEGORIES:
       return setDefaultCategory

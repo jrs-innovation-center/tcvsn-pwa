@@ -8,8 +8,8 @@ import './App.css'
 
 import 'typeface-roboto'
 
-import { setResources } from './action-creators/resources'
-import { setCategories } from './action-creators/categories'
+// import { setResources } from './action-creators/resources'
+// import { setCategories } from './action-creators/categories'
 // import {setResourceFilters} from './action-creators/resourceFilters'
 
 ReactDOM.render(
@@ -19,8 +19,8 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-store.dispatch(setResources)
-store.dispatch(setCategories)
+// store.dispatch(setResources)
+// store.dispatch(setCategories)
 // store.dispatch(setResourceFilters)
 
 registerServiceWorker()
