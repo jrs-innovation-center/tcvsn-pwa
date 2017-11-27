@@ -28,8 +28,8 @@ class ShowResource extends React.Component {
         <div>
           <MenuAppBar
             title={this.props.currentResource.name}
-            search
-            goBack
+            search={true}
+            goBack={'/resources'}
             {...this.props}
           />
           <ResourceCard data={this.props.currentResource} />

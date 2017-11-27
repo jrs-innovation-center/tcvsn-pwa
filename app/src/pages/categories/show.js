@@ -64,7 +64,7 @@ class ShowCategory extends React.Component {
           <MenuAppBar
             title="Category"
             search={true}
-            goBack={true}
+            goBack={'/categories'}
             {...this.props}
           />
           <CategoryCard {...this.props} />

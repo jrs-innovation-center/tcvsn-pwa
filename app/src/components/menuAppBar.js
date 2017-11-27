@@ -36,7 +36,11 @@ const MenuAppBar = props => {
             color="contrast"
             aria-label="Menu"
             onClick={
-              props.goBack ? props.lastPage(props.history) : props.toggleDrawer
+              props.goBack
+                ? typeof props.goBack === 'string'
+                  ? props.lastPage(props.history, props.goBack)
+                  : props.lastPage(props.history)
+                : props.toggleDrawer
             }
           >
             {props.goBack ? (
@@ -65,9 +69,13 @@ const MenuAppBar = props => {
 const mapStateToProps = state => ({})
 const mapActionsToProps = (dispatch, getState) => ({
   toggleDrawer: () => dispatch({ type: 'TOGGLE_DRAWER' }),
-  lastPage: history => e => {
+  lastPage: (history, page) => e => {
     e.preventDefault()
-    history.goBack()
+    if (page) {
+      history.replace(page)
+    } else {
+      history.goBack()
+    }
   }
 })
 
