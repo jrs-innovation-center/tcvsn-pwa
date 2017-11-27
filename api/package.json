@@ -4,9 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "load": "node load-data.js",
+    "loadIndex": "node load-indexes.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
-    "load": "node load-data.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
