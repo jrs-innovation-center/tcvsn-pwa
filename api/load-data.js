@@ -4,7 +4,17 @@ const PouchDB = require('pouchdb')
 const db = new PouchDB(process.env.COUCHDB_URL + process.env.COUCHDB_NAME)
 
 db.bulkDocs([
+  //CATEGORIES
   {
+        "_id": 'category_rehabilitative_and_recreational_therapy',
+        "type": 'category',
+        "name": 'Rehabilitative and Recreational Therapy',
+        "shortDesc": 'various therapeutic outlets to connect with other veterans through physical activity',
+        "desc":
+          'Rehabilitative & Recreational Therapy in the context of this resource directory includes programs and services that provide various therapeutic outlets to connect with other veterans through physical activity and volunteer opportunities.',
+        "icon": 'add_circle'
+      },
+      {
     _id: 'category_basic-needs-assistance',
     type: 'category',
     name: 'Basic Needs Assistance',
@@ -1006,4 +1016,141 @@ db.bulkDocs([
       }
     ]
   }
+//Rehabilatative and Recreational Therapy
+{
+  "_id": "resource_charleston_area_therapeutic_riding, inc.",
+    "type": "resource",
+    "organization": "general",
+    "categoryId": "category_rehabilitative_and_recreational_therapy",
+    "name": "CATR",
+    "formalName": "Charleston Area Therapeutic Riding, Inc.",
+    "shortDesc": "improving the lives of those with disabilities with therapeutic riding and equine reltated activities.",
+    "purpose": "CATR’s mission is to improve the lives of children and adults with disabilities using therapeutic riding and equine related activities. CATR is a PATH International Premier Accredited Center and has been in operation for 22 years. CATR currently works with over 140 individuals with a variety of disabilities each year. We have been working with veterans from the Charleston VA Medical Center as well as other groups. We have WWP scholarships available for veterans who served post 9/11/01.  Therapeutic horseback riding uses the horse as a therapeutic modality that provides physical, psychological, and social benefits to veterans who are healing from injury or illness. The horse’s movement gives multi-sensory input which can improve the veteran’s strength, balance, circulation, posture, endurance, coordination, and agility. Therapeutic riding and equine related activities additionally help to build self-confidence and emotional well-being.",
+    "website": "www.catrfarms.org",
+    "contacts": [{
+        "name": "Colleen Kimener",
+        "office": null
+        "title": "Veterans Lead, Horses for Heroes Program",
+        "phone": "843-559-6060",
+        "email": "ckimener@catr-program.org",
+        "isPrimary": true
+    }],
+    "addresses": [{
+        "location": null,
+        "street": "2669 Hamilton Rd.",
+        "city": "Johns Island",
+        "state": "SC",
+        "zip": "29455",
+        "isPrimary": true
+    }],
+    "rank": null,
+    "faq": [{
+        "question": null,
+        "answer": null
+    }]
+},
+{
+    "_id": "resource_project_healing_waters_fly_fishing",
+    "type": "resource",
+    "organization": "general",
+    "categoryId": "category_rehabilitative_and_recreational_therapy",
+    "name": "PHWFF",
+    "formalName": "Project Healing Waters Fly Fishing (PHWFF)",
+    "shortDesc": "pre-separation transition counseling",
+    "purpose": "Project Healing Waters Fly Fishing, Inc. (PHWFF)is dedicated to the physical and emotional rehabilitation of disabled active military service personnel and disabled veterans through fly fishing and associated activities including education and outings.  PHWFF provides basic fly fishing, fly casting, fly tying and rod building classes, along with clinics participants ranging from beginners who have never fished before, to those with prior fly fishing and tying experience who are adapting their skills to their new abilities. All fly fishing and tying equipment is provided to the participants at no cost. Fishing trips, both one day and multi-day, are also provided free of charge to participants. PHWFF is unique in that our volunteers are teaching classes on an on-going, long term basis. It is much more than a one day fishing trip. For many participants, particularly disabled veterans, the socialization and camaraderie of the classes are just as important as the fishing outings, and provide them a new activity. PHWFF strives to serve the deserving past and present members of our armed forces who have made great sacrifices in the service of our nation.",
+    "website": "http://www.projecthealingwaters.org",
+    "contacts": [{
+        "name": "Walter Shockley",
+        "office": null,
+        "title": "Project Lead-Charleston",
+        "phone": "740-397-5113",
+        "email": "phwffcharleston@gmail.com",
+        "isPrimary": true
+    }],
+    "addresses": [{
+        "location": null,
+        "street": null,
+        "city": null,
+        "state": null,
+        "zip": null,
+        "isPrimary": true
+    }],
+    "rank": null,
+    "faq": [{
+        "question": null,
+        "answer": null
+    }]
+},
+{
+    "_id": "resource_project_hero",
+    "type": "resource",
+    "organization": "general",
+    "categoryId": "category_rehabilitative_and_recreational_therapy",
+    "name": "Ride 2 Recovery",
+    "formalName": "Project Hero - Ride 2 Recovery",
+    "shortDesc": "restoring hope and purpose to veterans through cycling-based programs",
+    "purpose": "Ride 2 Recovery, a groundbreaking Veterans program started in 2008, saves lives by restoring hope and purpose.  We are: Providing a way FOR life, Vets helping Vets, Not giving handouts, Believers in hard work, Serving over 10,000 Veterans, Founded on cycling based programs, Expert staff, People who care",
+    "website": "http://www.ride2recovery.com",
+    "contacts": [{
+        "name": "Harold Clark",
+        "office": null,
+        "title": null,
+        "phone": "304-545-6366",
+        "email": null,
+        "isPrimary": true
+    }],
+    "addresses": [{
+        "location": null,
+        "street": null,
+        "city": null,
+        "state": null,
+        "zip": null,
+        "isPrimary": true
+    }],
+    "rank": null,
+    "faq": [{
+        "question": null,
+        "answer": null
+    }]
+},
+{
+    "_id": "resource_warrior_surf_foundation",
+    "type": "resource",
+    "organization": "general",
+    "categoryId": "category_rehabilitative_and_recreational_therapy",
+    "name": "Charleston Surf Lessons",
+    "formalName": "Warrior Surf Foundation - Charleston Surf Lessons",
+    "shortDesc": "surf lessons for veterans",
+    "purpose": "Here at Charleston Surf Lessons we live to provide that same moment of exhilaration you get when riding your very first wave. Whether you've never touched a surfboard in your life or have surfed since you were young, we teach you the fundamental techniques that will take your surfing experience to the next level! Our lessons are fun, exciting and perfect for any age. Our Team of qualified, CPR certified, surf instructors will have you up and riding the waves in record time! Get ready for an activity to remember, whether you are planning a surf trip, creating your Folly Beach vacation checklist or are currently living in the Charleston or Folly Beach area but just finally wanting to charge the surf.",
+    "website": "http://www.charlestonsurflessons.com",
+    "contacts": [{
+        "name": "Josh Wilson",
+        "office": null,
+        "title": null,
+        "phone": "843-452-5293",
+        "email": "josh@charlestonsurflessons.com",
+        "isPrimary": true},
+    {
+        "name": "Andy Manzi",
+        "office": null,
+        "title": null,
+        "phone": "843-452-5293",
+        "email": null,
+        "isPrimary": false
+    }],
+    "addresses": [{
+        "location": null,
+        "street": "1 Center Street",
+        "city": "Folly Beach",
+        "state": "SC",
+        "zip": "29439",
+        "isPrimary": true
+    }],
+    "rank": null,
+    "faq": [{
+        "question": null,
+        "answer": null
+    }]
+}
+
 ])
