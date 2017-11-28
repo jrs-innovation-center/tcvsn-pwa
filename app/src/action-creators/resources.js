@@ -4,9 +4,7 @@ import {
   SET_CURRENT_RESOURCE,
   SET_EDIT_RESOURCE,
   UPDATE_NEW_RES_FORM,
-  ADD_NEW_RESOURCE,
   IS_ACTIVE,
-  SUBMIT_EDIT_RES_FORM,
   ONCHANGE_EDIT_RES_FORM
 } from '../constants'
 import { isEmpty } from 'ramda'

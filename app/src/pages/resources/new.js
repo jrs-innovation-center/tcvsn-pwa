@@ -4,7 +4,6 @@ import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import ResourceForm from '../../components/resource-form'
 import { connect } from 'react-redux'
-import { map, pathOr } from 'ramda'
 import {
   updateNewForm,
   addNewResource,

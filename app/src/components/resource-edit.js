@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 import Input, { InputLabel } from 'material-ui/Input'
 import { MenuItem } from 'material-ui/Menu'
-import { FormControl, FormHelperText } from 'material-ui/Form'
+import { FormControl } from 'material-ui/Form'
 import Select from 'material-ui/Select'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
 import EditIcon from 'material-ui-icons/ModeEdit'
-import { assoc, isEmpty, map } from 'ramda'
+import { map } from 'ramda'
 
 const styles = theme => ({
   input: {
