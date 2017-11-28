@@ -11,17 +11,15 @@ import {
 } from '../constants'
 import { isEmpty } from 'ramda'
 
+const url = process.env.REACT_APP_BASE_URL
+
 export const setResources = async (dispatch, getState) => {
-  const response = await fetch('http://localhost:5000/resources').then(res =>
-    res.json()
-  )
+  const response = await fetch(`${url}/resources`).then(res => res.json())
   dispatch({ type: SET_RESOURCES, payload: response })
 }
 
 export const setCurrentResource = id => async (dispatch, getState) => {
-  const response = await fetch(
-    'http://localhost:5000/resources/' + id
-  ).then(res => res.json())
+  const response = await fetch(`${url}/resources/${id}`).then(res => res.json())
   dispatch({ type: SET_CURRENT_RESOURCE, payload: response })
 }
 
@@ -38,7 +36,7 @@ export const addNewResource = (data, history) => async (dispatch, getState) => {
   const method = 'POST'
   const body = JSON.stringify(data)
 
-  const result = await fetch('http://localhost:5000/resources', {
+  const result = await fetch(`${url}/resources`, {
     headers,
     method,
     body
@@ -54,9 +52,7 @@ export const addNewResource = (data, history) => async (dispatch, getState) => {
 }
 
 export const setEditResource = id => async (dispatch, getState) => {
-  const response = await fetch(
-    'http://localhost:5000/resources/' + id
-  ).then(res => res.json())
+  const response = await fetch(`${url}/resources/${id}`).then(res => res.json())
   dispatch({ type: SET_EDIT_RESOURCE, payload: response })
   dispatch(isActive)
 }
@@ -69,7 +65,7 @@ export const addEditResource = (data, history) => async (
   const method = 'PUT'
   const body = JSON.stringify(data)
 
-  const result = await fetch('http://localhost:5000/resources/' + data._id, {
+  const result = await fetch(`${url}/resources/${data._id}`, {
     headers,
     method,
     body
