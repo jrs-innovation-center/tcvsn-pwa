@@ -3,10 +3,9 @@ import withRoot from '../../components/withRoot'
 import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 
-import { Typography, List } from 'material-ui'
+import { Typography, List, Button } from 'material-ui'
 import { connect } from 'react-redux'
 import { map } from 'ramda'
-import { Button } from 'material-ui'
 import AddIcon from 'material-ui-icons/Add'
 import CategoryItem from '../../components/category-item'
 import { Link } from 'react-router-dom'
@@ -22,7 +21,7 @@ class Categories extends React.Component {
       <div>
         <MenuAppBar title="Categories" search />
         <Typography />
-        <List style={{ padding: 0 }}>
+        <List style={{ padding: 0, marginBottom: 60 }}>
           {map(CategoryItem, this.props.categories)}
         </List>
         <Link to="/categories/new">
