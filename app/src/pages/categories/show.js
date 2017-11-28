@@ -15,6 +15,7 @@ import { getURLPathID } from '../../lib/url-path-helper'
 import Button from 'material-ui/Button'
 import EditIcon from 'material-ui-icons/ModeEdit'
 import { Link } from 'react-router-dom'
+import SecondaryMenu from '../../components/secondaryMenu'
 
 const styles = theme => ({
   card: {
@@ -58,6 +59,17 @@ class ShowCategory extends React.Component {
     const currentID = getURLPathID(this.props)
     const { category } = this.props
 
+    const menuItemActions = [
+      {
+        name: 'Edit',
+        link: `/categories/${this.props.currentCategory._id}/edit`
+      },
+      {
+        name: 'Delete',
+        link: `/categories/${this.props.currentCategory._id}/delete`
+      }
+    ]
+
     if (path(['currentCategory', '_id'], this.props) === currentID) {
       return (
         <div>
@@ -65,6 +77,9 @@ class ShowCategory extends React.Component {
             title="Category"
             search={true}
             goBack={'/categories'}
+            secondaryMenu={
+              <SecondaryMenu actions={menuItemActions} {...this.props} />
+            }
             {...this.props}
           />
           <CategoryCard {...this.props} />

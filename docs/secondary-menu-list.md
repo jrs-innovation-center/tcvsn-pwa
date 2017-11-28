@@ -1,5 +1,5 @@
 
-
+##
 Things to do:
 
 - pass in some type of information (boolean, secondary? menu component?) as a prop into **menuAppBar.js**.   
@@ -9,19 +9,9 @@ Things to do:
 
 - Create app route for resources and category deletes
 
-- handle the toggle of the secondaryMenu.  WHen the ellpsis button is clicked toggle the state on or off.  
-  - model the secondaryMenuToggler reducer:
-    ```
-    {
-      resource: false,
-      category: false,
-      about: false,
-      inMemory: false,
-      legal: false  
-    }
-    ```
-  - constants:  
-    - TOGGLE_SECONDARY_MENU
+- handle the toggle of the secondaryMenu.  Maintain the state within the component.
+
+## LIST ITEMS (NOT SECONDARY MENU)
 
 - Handle the toggle of the listItem such as a item within the list of catetories such as **resource-item.js** or **category-item.js** .  WHen the ellpsis button is clicked toggle the state on or off.  
   - Amend the list of resources in state store with an additional prop called `itemIsToggled`: false.  Within the thunk that retrieves the list of resources or categories, after we retrieve the list, amend each item in the array with a prop/key/property named `itemIsToggled` with a default value of `false`.
