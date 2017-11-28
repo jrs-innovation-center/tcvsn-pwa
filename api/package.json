@@ -19,7 +19,8 @@
     "express": "^4.16.2",
     "node-http-error": "^2.0.0",
     "nodemon": "^1.12.1",
-    "pouchdb": "^6.3.4",
+    "pouchdb-adapter-http": "^6.3.4",
+    "pouchdb-core": "^6.3.4",
     "pouchdb-find": "^6.3.4",
     "ramda": "^0.25.0"
   },
