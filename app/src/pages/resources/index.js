@@ -23,7 +23,7 @@ class Resources extends React.Component {
     return (
       <div>
         <MenuAppBar title="Resources" search />
-        <List style={{ padding: 0 }}>
+        <List style={{ padding: 0, marginBottom: 60 }}>
           {map(ResourceItem, this.props.resources)}
         </List>
         <Link to="/resources/new">
