@@ -55,8 +55,8 @@ function SimpleMediaCard(props) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="https://static.pexels.com/photos/20861/pexels-photo.jpg"
-          title="Contemplative Reptile"
+          image="http://i.cubeupload.com/aEVXss.jpg"
+          title="Static Map"
         />
         <CardHeader
           classes={{
