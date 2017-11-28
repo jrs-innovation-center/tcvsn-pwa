@@ -9,12 +9,13 @@ import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import { connect } from 'react-redux'
 import { setCurrentCategory } from '../../action-creators/categories'
-import { prop, pathOr, path, split, compose, last } from 'ramda'
+import { prop, path, split, compose, last } from 'ramda'
 import CategoryCard from '../../components/category-card'
 import { getURLPathID } from '../../lib/url-path-helper'
 import Button from 'material-ui/Button'
 import EditIcon from 'material-ui-icons/ModeEdit'
 import { Link } from 'react-router-dom'
+import SecondaryMenu from '../../components/secondaryMenu'
 
 const styles = theme => ({
   card: {
@@ -56,7 +57,18 @@ class ShowCategory extends React.Component {
 
   render() {
     const currentID = getURLPathID(this.props)
-    const { category } = this.props
+    //  const { category } = this.props
+
+    const menuItemActions = [
+      {
+        name: 'Edit',
+        link: `/categories/${this.props.currentCategory._id}/edit`
+      },
+      {
+        name: 'Delete',
+        link: `/categories/${this.props.currentCategory._id}/delete`
+      }
+    ]
 
     if (path(['currentCategory', '_id'], this.props) === currentID) {
       return (
@@ -65,6 +77,9 @@ class ShowCategory extends React.Component {
             title="Category"
             search={true}
             goBack={'/categories'}
+            secondaryMenu={
+              <SecondaryMenu actions={menuItemActions} {...this.props} />
+            }
             {...this.props}
           />
           <CategoryCard {...this.props} />

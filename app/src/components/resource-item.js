@@ -7,7 +7,6 @@ import {
 } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 import IconButton from 'material-ui/IconButton'
-import FolderIcon from 'material-ui-icons/Folder'
 import EllipsisIcon from 'material-ui-icons/MoreVert'
 import Divider from 'material-ui/Divider'
 import { Link } from 'react-router-dom'

@@ -10,11 +10,8 @@ import Card, {
 import Avatar from 'material-ui/Avatar'
 import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
-import FolderIcon from 'material-ui-icons/Folder'
-
 import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
-import { connect } from 'react-redux'
 import { not, isNil } from 'ramda'
 
 const styles = {

@@ -12,25 +12,24 @@ import {
 import history from '../history'
 import { isEmpty } from 'ramda'
 
+const url = process.env.REACT_APP_BASE_URL
+
 export const setCategories = async (dispatch, getState) => {
-  const response = await fetch('http://localhost:5000/categories').then(res =>
-    res.json()
-  )
+  const response = await fetch(`${url}/categories`).then(res => res.json())
   dispatch({ type: SET_CATEGORIES, payload: response })
   //history.push('/categories')
 }
 
 export const setCurrentCategory = id => async (dispatch, getState) => {
-  const response = await fetch(
-    `http://localhost:5000/categories/${id}`
-  ).then(res => res.json())
+  const response = await fetch(`${url}/categories/${id}`).then(res =>
+    res.json()
+  )
   dispatch({ type: SET_CURRENT_CATEGORY, payload: response })
 }
 
 export const createCategory = async (dispatch, getState) => {
   const category = getState().category
-  console.log('category', category)
-  const response = await fetch('http://localhost:5000/categories', {
+  const response = await fetch(`${url}/categories`, {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -48,9 +47,9 @@ export const createCategory = async (dispatch, getState) => {
 }
 
 export const setEditCategory = id => async (dispatch, getState) => {
-  const response = await fetch(
-    'http://localhost:5000/categories/' + id
-  ).then(res => res.json())
+  const response = await fetch(`${url}/categories/${id}`).then(res =>
+    res.json()
+  )
   dispatch({ type: SET_EDIT_CATEGORY, payload: response })
   dispatch(isActive)
 }
@@ -60,7 +59,7 @@ export const updateCategory = data => async (dispatch, getState) => {
   const method = 'PUT'
   const body = JSON.stringify(data)
 
-  const result = await fetch('http://localhost:5000/categories/' + data._id, {
+  const result = await fetch(`${url}/categories/${data._id}`, {
     headers,
     method,
     body
