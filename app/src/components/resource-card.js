@@ -12,7 +12,19 @@ import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
 import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
-import { not, isNil } from 'ramda'
+import {
+  not,
+  isNil,
+  slice,
+  toUpper,
+  contains,
+  head,
+  drop,
+  compose,
+  toLower,
+  join,
+  split
+} from 'ramda'
 
 const styles = {
   card: {
@@ -36,6 +48,8 @@ function SimpleMediaCard(props) {
     </Button>
   ) : null
   const { classes } = props
+  const removeArticles = arrData =>
+    contains(head(arrData), ['the', 'a', 'an']) ? drop(1, arrData) : arrData
   return (
     <div>
       <Card className={classes.card}>
@@ -55,7 +69,14 @@ function SimpleMediaCard(props) {
                 colorDefault: classes.avatarColor
               }}
             >
-              {props.data.name.substr(0, 1).toUpperCase() || ''}
+              {compose(
+                toUpper(),
+                slice(0, 1),
+                join(' '),
+                removeArticles,
+                split(' '),
+                toLower()
+              )(props.data.name)}
             </Avatar>
           }
           title={props.data.formalName}
