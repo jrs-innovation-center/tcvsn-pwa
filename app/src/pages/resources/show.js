@@ -9,19 +9,35 @@ import ResourceCard from '../../components/resource-card'
 import Button from 'material-ui/Button'
 import PhoneIcon from 'material-ui-icons/Phone'
 import { Link } from 'react-router-dom'
+import SecondaryMenu from '../../components/secondaryMenu'
 
 // props.resources === []
 class ShowResource extends React.Component {
+  state = { expanded: false }
+
   componentDidMount() {
     const id = this.props.match.params.id
     this.props.setCurrentResource(id)
-    console.log('this.props', this.props)
+    //console.log('this.props', this.props)
   }
+
+  handleExpandClick = () => {
+    this.setState({ expanded: !this.state.expanded })
+  }
+
   render() {
     const currentID = pathOr('', ['currentResource', '_id'], this.props)
-    // console.log('this.props.match.params.id', this.props.match.params.id)
-    // console.log('currentID', currentID)
-    // console.log('do they match?', this.props.match.params.id === currentID)
+
+    const menuItemActions = [
+      {
+        name: 'Edit',
+        link: `/resources/${this.props.currentResource._id}/edit`
+      },
+      {
+        name: 'Delete',
+        link: `/resources/${this.props.currentResource._id}/delete`
+      }
+    ]
 
     if (this.props.match.params.id === currentID) {
       return (
@@ -30,6 +46,9 @@ class ShowResource extends React.Component {
             title={this.props.currentResource.name}
             search={true}
             goBack={'/resources'}
+            secondaryMenu={
+              <SecondaryMenu actions={menuItemActions} {...this.props} />
+            }
             {...this.props}
           />
           <ResourceCard data={this.props.currentResource} />
@@ -66,5 +85,4 @@ const mapActionsToProps = dispatch => {
 }
 
 const connector = connect(mapStateToProps, mapActionsToProps)
-
 export default withRoot(withDrawer(connector(ShowResource)))
