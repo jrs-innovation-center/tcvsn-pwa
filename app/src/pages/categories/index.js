@@ -21,7 +21,7 @@ class Categories extends React.Component {
       <div>
         <MenuAppBar title="Categories" search />
         <Typography />
-        <List style={{ padding: 0 }}>
+        <List style={{ padding: 0, marginBottom: 60 }}>
           {map(CategoryItem, this.props.categories)}
         </List>
         <Link to="/categories/new">
