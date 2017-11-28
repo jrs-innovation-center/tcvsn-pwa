@@ -9,7 +9,7 @@ import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import { connect } from 'react-redux'
 import { setCurrentCategory } from '../../action-creators/categories'
-import { prop, pathOr, path, split, compose, last } from 'ramda'
+import { prop, path, split, compose, last } from 'ramda'
 import CategoryCard from '../../components/category-card'
 import { getURLPathID } from '../../lib/url-path-helper'
 import Button from 'material-ui/Button'
@@ -57,7 +57,7 @@ class ShowCategory extends React.Component {
 
   render() {
     const currentID = getURLPathID(this.props)
-    const { category } = this.props
+    //  const { category } = this.props
 
     const menuItemActions = [
       {
