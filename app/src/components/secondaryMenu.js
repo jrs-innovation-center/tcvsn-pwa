@@ -40,6 +40,8 @@ class SecondaryMenu extends React.Component {
           aria-label="More"
           aria-owns={open ? 'long-menu' : null}
           aria-haspopup="true"
+          color="inherit"
+          style={{ marginRight: -12 }}
           onClick={this.handleClick}
         >
           <MoreVertIcon />
@@ -58,7 +60,11 @@ class SecondaryMenu extends React.Component {
         >
           {map(
             action => (
-              <Link key={action.name} to={action.link}>
+              <Link
+                key={action.name}
+                to={action.link}
+                className="no-underline no-focus"
+              >
                 <MenuItem onClick={this.handleRequestClose}>
                   {action.name}
                 </MenuItem>

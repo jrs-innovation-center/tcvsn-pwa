@@ -2,13 +2,14 @@ import React from 'react'
 import withRoot from '../../components/withRoot'
 import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
-import ResourceForm from '../../components/resource-edit'
+import ResourceForm from '../../components/resource-form'
 import { connect } from 'react-redux'
 import {
+  updateNewForm,
   addEditResource,
   setEditResource,
-  isActive,
-  onChangeEditForm
+  onChangeEditForm,
+  isActive
 } from '../../action-creators/resources'
 import { setCategories } from '../../action-creators/categories'
 
@@ -18,7 +19,6 @@ class EditResource extends React.Component {
     this.props.onMount()
     const id = this.props.match.params.id
     this.props.setEditResource(id)
-    //this.props.isSubmitActive()
   }
   render() {
     return (
@@ -31,7 +31,7 @@ class EditResource extends React.Component {
         />
         <ResourceForm
           onChange={this.props.onChange}
-          editResource={this.props.editResource}
+          newResource={this.props.editResource}
           onSubmit={this.props.onSubmit(
             this.props.editResource,
             this.props.history
@@ -59,11 +59,12 @@ const mapActionsToProps = dispatch => {
       dispatch(isActive)
     },
     onSubmit: (data, history) => e => {
-      dispatch(addEditResource(data, history))
+      dispatch(setEditResource(data, history))
     },
-    onMount: () => dispatch(setCategories),
-    setEditResource: id => dispatch(setEditResource(id)),
-    isSubmitActive: () => dispatch(isActive)
+    onMount: () => {
+      dispatch(setCategories)
+    },
+    setEditResource: id => dispatch(setEditResource(id))
   }
 }
 
