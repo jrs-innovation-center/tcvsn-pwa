@@ -5,6 +5,11 @@
   box-shadow: none;
   border-color: transparent;
 }
+.under-menu {
+  position: static;
+  z-index: -1;
+  height: 64px;
+}
 .italic {
   font-style: italic;
 }
@@ -48,4 +53,10 @@
   left: 0;
   right: 0;
   position: relative;
+}
+
+@media only screen and (max-width: 599px) {
+  .under-menu {
+    height: 56px;
+  }
 }

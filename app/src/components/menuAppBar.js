@@ -70,6 +70,7 @@ const MenuAppBar = props => {
           {secondaryMenu}
         </Toolbar>
       </AppBar>
+      <div className="under-menu" />
     </div>
   )
 }
