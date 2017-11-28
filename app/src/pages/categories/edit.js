@@ -4,7 +4,7 @@ import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import CategoryForm from '../../components/category-edit'
 import { connect } from 'react-redux'
-import { map, pathOr } from 'ramda'
+
 import {
   updateCategory,
   isActive,
