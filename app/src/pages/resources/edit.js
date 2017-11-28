@@ -2,36 +2,40 @@ import React from 'react'
 import withRoot from '../../components/withRoot'
 import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
-import ResourceForm from '../../components/resource-form'
+import ResourceForm from '../../components/resource-edit'
 import { connect } from 'react-redux'
 import { map, pathOr } from 'ramda'
 import {
-  updateNewForm,
-  addNewResource,
-  isActive
+  updateEditForm,
+  addEditResource,
+  setEditResource,
+  isActive,
+  onChangeEditForm
 } from '../../action-creators/resources'
 import { setCategories } from '../../action-creators/categories'
 
 // props.resources === []
-class NewResource extends React.Component {
+class EditResource extends React.Component {
   componentDidMount() {
     this.props.onMount()
-    this.props.isSubmitActive()
+    const id = this.props.match.params.id
+    this.props.setEditResource(id)
+    //this.props.isSubmitActive()
   }
   render() {
     return (
       <div>
         <MenuAppBar
-          title="Add Resource"
+          title="Edit Resource"
           search={true}
           goBack={true}
           {...this.props}
         />
         <ResourceForm
           onChange={this.props.onChange}
-          newResource={this.props.newResource}
+          editResource={this.props.editResource}
           onSubmit={this.props.onSubmit(
-            this.props.newResource,
+            this.props.editResource,
             this.props.history
           )}
           isActive={this.props.isActive}
@@ -44,7 +48,7 @@ class NewResource extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    newResource: state.newResource,
+    editResource: state.editResource,
     isActive: state.isActive,
     categories: state.categories
   }
@@ -53,19 +57,18 @@ const mapStateToProps = state => {
 const mapActionsToProps = dispatch => {
   return {
     onChange: (field, value) => {
-      dispatch(updateNewForm(field, value))
+      dispatch(onChangeEditForm(field, value))
       dispatch(isActive)
     },
     onSubmit: (data, history) => e => {
-      dispatch(addNewResource(data, history))
+      dispatch(addEditResource(data, history))
     },
-    onMount: () => {
-      dispatch(setCategories)
-    },
+    onMount: () => dispatch(setCategories),
+    setEditResource: id => dispatch(setEditResource(id)),
     isSubmitActive: () => dispatch(isActive)
   }
 }
 
 const connector = connect(mapStateToProps, mapActionsToProps)
 
-export default withRoot(withDrawer(connector(NewResource)))
+export default withRoot(withDrawer(connector(EditResource)))

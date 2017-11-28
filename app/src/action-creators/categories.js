@@ -2,12 +2,16 @@ import fetch from 'isomorphic-fetch'
 import {
   SET_CATEGORIES,
   SET_CURRENT_CATEGORY,
+  SET_EDIT_CATEGORY,
   IS_ACTIVE,
   CLEAR_NEW_FORM,
-  ERROR
+  ERROR,
+  SUBMIT_EDIT_CAT_FORM,
+  ONCHANGE_EDIT_CAT_FORM
 } from '../constants'
 import history from '../history'
 import { isEmpty } from 'ramda'
+
 export const setCategories = async (dispatch, getState) => {
   const response = await fetch('http://localhost:5000/categories').then(res =>
     res.json()
@@ -39,11 +43,43 @@ export const createCategory = async (dispatch, getState) => {
     return
   }
   dispatch(setCategories)
-  dispatch({ type: IS_ACTIVE, payload: true })
+  //dispatch({ type: IS_ACTIVE, payload: true })
   history.push('/categories')
 }
+
+export const setEditCategory = id => async (dispatch, getState) => {
+  const response = await fetch(
+    'http://localhost:5000/categories/' + id
+  ).then(res => res.json())
+  dispatch({ type: SET_EDIT_CATEGORY, payload: response })
+  dispatch(isActive)
+}
+
+export const updateCategory = data => async (dispatch, getState) => {
+  const headers = { 'Content-Type': 'application/json' }
+  const method = 'PUT'
+  const body = JSON.stringify(data)
+
+  const result = await fetch('http://localhost:5000/categories/' + data._id, {
+    headers,
+    method,
+    body
+  }).then(res => res.json())
+
+  if (result.ok) {
+    dispatch(setCategories)
+    //dispatch({ type: IS_ACTIVE, payload: true })
+    history.push('/categories/' + data._id)
+  } else {
+    // handle error
+  }
+}
+
 export const isActive = async (dispatch, getState) => {
-  const { name, desc, shortDesc, icon } = getState().category
+  const currentData = !isEmpty(getState().category.name)
+    ? getState().category
+    : getState().editCategory
+  const { name, desc, shortDesc, icon } = currentData
   if (isEmpty(name) || isEmpty(desc) || isEmpty(shortDesc) || isEmpty(icon)) {
     dispatch({ type: IS_ACTIVE, payload: true })
   } else {
