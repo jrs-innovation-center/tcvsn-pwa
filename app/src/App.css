@@ -1,3 +1,10 @@
+.no-focus:focus,
+.no-focus:hover {
+  outline: none;
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+}
 .italic {
   font-style: italic;
 }
@@ -20,7 +27,8 @@
   left: 0;
   right: 0;
 }
-.router-link {
+.router-link,
+.no-underline {
   text-decoration: none;
 }
 .fab-button {
