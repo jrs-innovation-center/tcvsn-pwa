@@ -34,7 +34,7 @@ const MenuAppBar = props => {
   const secondaryMenu = propOr(null, 'secondaryMenu', props)
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             className={classes.firstButton}
@@ -70,6 +70,7 @@ const MenuAppBar = props => {
           {secondaryMenu}
         </Toolbar>
       </AppBar>
+      <div className="under-menu" />
     </div>
   )
 }
