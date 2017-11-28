@@ -8,7 +8,7 @@ import MenuIcon from 'material-ui-icons/Menu'
 import GoBackIcon from 'material-ui-icons/KeyboardArrowLeft'
 import SearchIcon from 'material-ui-icons/Search'
 import { connect } from 'react-redux'
-import { propOr } from 'ramda'
+import { propOr, isNil } from 'ramda'
 
 const styles = theme => ({
   root: {
@@ -18,9 +18,13 @@ const styles = theme => ({
   flex: {
     flex: 1
   },
-  menuButton: {
+  firstButton: {
     marginLeft: -12,
-    marginRight: 20
+    marginRight: 12
+  },
+  lastButton: {
+    marginLeft: 12,
+    marginRight: -12
   }
 })
 
@@ -33,7 +37,7 @@ const MenuAppBar = props => {
       <AppBar position="static">
         <Toolbar>
           <IconButton
-            className={classes.menuButton}
+            className={classes.firstButton}
             color="contrast"
             aria-label="Menu"
             onClick={
@@ -55,6 +59,7 @@ const MenuAppBar = props => {
           </Typography>
 
           <IconButton
+            className={isNil(secondaryMenu) ? classes.lastButton : ''}
             color="contrast"
             aria-label="Search"
             onClick={props.toggleDrawer}

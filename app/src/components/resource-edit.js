@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
 import Input, { InputLabel } from 'material-ui/Input'
 import { MenuItem } from 'material-ui/Menu'
-import { FormControl, FormHelperText } from 'material-ui/Form'
+import { FormControl } from 'material-ui/Form'
 import Select from 'material-ui/Select'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
-import EditIcon from 'material-ui-icons/ModeEdit'
+import SaveIcon from 'material-ui-icons/Save'
 import { assoc, isEmpty, map } from 'ramda'
 
 const styles = theme => ({
@@ -23,7 +23,7 @@ const categoryMenuItem = category => {
   return <MenuItem value={category.name}>{category.name}</MenuItem>
 }
 
-class ResourceForm extends React.Component {
+class EditResourceForm extends React.Component {
   render() {
     const { classes } = this.props
 
@@ -120,7 +120,7 @@ class ResourceForm extends React.Component {
           className="fab-button"
           disabled={this.props.isActive}
         >
-          <EditIcon />
+          <SaveIcon />
         </Button>
       </form>
     )
@@ -131,4 +131,4 @@ ResourceForm.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(ResourceForm)
+export default withStyles(styles)(EditResourceForm)

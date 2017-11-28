@@ -4,10 +4,7 @@ import {
   SET_CURRENT_CATEGORY,
   SET_EDIT_CATEGORY,
   IS_ACTIVE,
-  CLEAR_NEW_FORM,
-  ERROR,
-  SUBMIT_EDIT_CAT_FORM,
-  ONCHANGE_EDIT_CAT_FORM
+  ERROR
 } from '../constants'
 import history from '../history'
 import { isEmpty } from 'ramda'
