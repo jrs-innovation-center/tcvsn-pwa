@@ -10,7 +10,7 @@ import {
   ONCHANGE_EDIT_CAT_FORM
 } from '../constants'
 import history from '../history'
-import { isEmpty } from 'ramda'
+import { isEmpty, assoc } from 'ramda'
 
 const url = process.env.REACT_APP_BASE_URL
 
@@ -24,7 +24,29 @@ export const setCurrentCategory = id => async (dispatch, getState) => {
   const response = await fetch(`${url}/categories/${id}`).then(res =>
     res.json()
   )
-  dispatch({ type: SET_CURRENT_CATEGORY, payload: response })
+  dispatch({
+    type: SET_CURRENT_CATEGORY,
+    payload: assoc('confirmDelete', false, response)
+  })
+}
+
+export const deleteCategory = id => async (dispatch, getState) => {
+  const response = await fetch(`${url}/categories/${id}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'DELETE'
+  }).then(res => res.json())
+
+  if (!response.ok) {
+    dispatch({ type: ERROR, payload: 'Could not delete category' })
+    return
+  }
+  dispatch({
+    type: SET_CURRENT_CATEGORY,
+    payload: {}
+  })
+  history.push('/categories')
 }
 
 export const createCategory = async (dispatch, getState) => {
