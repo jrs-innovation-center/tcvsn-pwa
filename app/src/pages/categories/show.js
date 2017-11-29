@@ -73,12 +73,12 @@ class ShowCategory extends React.Component {
       {
         name: 'Edit',
         link: `/categories/${this.props.currentCategory._id}/edit`,
-        actionfn: null
+        fn: null
       },
       {
         name: 'Delete',
         link: null,
-        actionfn: this.props.toggleConfirmDelete
+        fn: this.props.toggleConfirmDelete
       }
     ]
 
@@ -109,7 +109,7 @@ class ShowCategory extends React.Component {
             open={this.props.currentCategory.confirmDelete}
             onRequestClose={this.props.toggleConfirmDelete}
           >
-            <DialogTitle>{'Deleve'}</DialogTitle>
+            <DialogTitle>{'Delete'}</DialogTitle>
             <DialogContent>
               <DialogContentText>
                 {'Are you sure you want to delete this category?'}

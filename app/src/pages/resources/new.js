@@ -20,12 +20,7 @@ class NewResource extends React.Component {
   render() {
     return (
       <div>
-        <MenuAppBar
-          title="Add Resource"
-          search={true}
-          goBack={true}
-          {...this.props}
-        />
+        <MenuAppBar title="Add Resource" search goBack {...this.props} />
         <ResourceForm
           onChange={this.props.onChange}
           newResource={this.props.newResource}

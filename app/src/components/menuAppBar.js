@@ -12,7 +12,6 @@ import { propOr, isNil } from 'ramda'
 
 const styles = theme => ({
   root: {
-    marginTop: theme.spacing.unit * 0,
     width: '100%'
   },
   flex: {
@@ -33,8 +32,8 @@ const MenuAppBar = props => {
   const { classes } = props
   const secondaryMenu = propOr(null, 'secondaryMenu', props)
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    <div id="menu-container" className={classes.root}>
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             className={classes.firstButton}

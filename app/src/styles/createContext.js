@@ -19,7 +19,7 @@ jss.options.createGenerateClassName = createGenerateClassName
 
 export const sheetsManager = new Map()
 
-export default function createContext() {
+export default function createContext () {
   return {
     jss,
     theme,
