@@ -14,20 +14,20 @@ import { setResources } from '../../action-creators/resources'
 
 // props.resources === []
 class Resources extends React.Component {
-  componentDidMount() {
-    //console.log(this.props)
+  componentDidMount () {
+    // console.log(this.props)
     this.props.onMount()
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <MenuAppBar title="Resources" search />
+        <MenuAppBar title='Resources' search />
         <List style={{ padding: 0, marginBottom: 60 }}>
           {map(ResourceItem, this.props.resources)}
         </List>
-        <Link to="/resources/new">
-          <Button fab color="primary" aria-label="add" className="fab-button">
+        <Link to='/resources/new'>
+          <Button fab color='primary' aria-label='add' className='fab-button'>
             <AddIcon />
           </Button>
         </Link>

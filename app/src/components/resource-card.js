@@ -41,9 +41,9 @@ const styles = {
   }
 }
 
-function SimpleMediaCard(props) {
+function SimpleMediaCard (props) {
   const websiteButton = not(isNil(props.data.website)) ? (
-    <Button dense color="primary" href={props.data.website} target="_blank">
+    <Button dense color='primary' href={props.data.website} target='_blank'>
       Website
     </Button>
   ) : null
@@ -55,8 +55,8 @@ function SimpleMediaCard(props) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="http://i.cubeupload.com/aEVXss.jpg"
-          title="Static Map"
+          image='http://i.cubeupload.com/aEVXss.jpg'
+          title='Static Map'
         />
         <CardHeader
           classes={{
@@ -64,7 +64,7 @@ function SimpleMediaCard(props) {
           }}
           avatar={
             <Avatar
-              aria-label="Resource"
+              aria-label='Resource'
               classes={{
                 colorDefault: classes.avatarColor
               }}
@@ -83,7 +83,7 @@ function SimpleMediaCard(props) {
           subheader={props.data.shortDesc}
         />
         <CardContent>
-          <Typography component="p">{props.data.purpose}</Typography>
+          <Typography component='p'>{props.data.purpose}</Typography>
         </CardContent>
         <CardActions>{websiteButton}</CardActions>
       </Card>

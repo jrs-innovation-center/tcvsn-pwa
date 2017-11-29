@@ -19,7 +19,7 @@ const CategoryItem = props => {
       <Link
         to={`/categories/${props._id}`}
         style={{ textDecoration: 'none' }}
-        className="link"
+        className='link'
       >
         <ListItem button>
           <ListItemAvatar>
@@ -30,7 +30,7 @@ const CategoryItem = props => {
           <ListItemText primary={props.name} secondary={props.shortDesc} />
 
           <ListItemSecondaryAction>
-            <IconButton aria-label="More">
+            <IconButton aria-label='More'>
               <EllipsisIcon />
             </IconButton>
           </ListItemSecondaryAction>

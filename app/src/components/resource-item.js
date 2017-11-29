@@ -29,7 +29,7 @@ const ResourceItem = resource => {
     contains(head(arrData), ['the', 'a', 'an']) ? drop(1, arrData) : arrData
   return (
     <div key={resource._id}>
-      <Link to={`/resources/${resource._id}`} className="router-link">
+      <Link to={`/resources/${resource._id}`} className='router-link'>
         <ListItem button>
           <ListItemAvatar>
             <Avatar>
@@ -48,7 +48,7 @@ const ResourceItem = resource => {
             secondary={resource.shortDesc}
           />
           <ListItemSecondaryAction>
-            <IconButton aria-label="More">
+            <IconButton aria-label='More'>
               <EllipsisIcon />
             </IconButton>
           </ListItemSecondaryAction>

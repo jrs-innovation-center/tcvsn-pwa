@@ -21,18 +21,18 @@ const App = props => {
       <ScrollToTop>
         <div>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/resources/new" component={NewResource} />
-            <Route exact path="/resources/:id/edit" component={EditResource} />
-            <Route path="/resources/:id" component={ShowResource} />
-            <Route exact path="/resources" component={Resources} />
-            <Route exact path="/categories/new" component={NewCategory} />
-            <Route path="/categories/:id/edit" component={EditCategory} />
-            <Route path="/categories/:id" component={ShowCategory} />
-            <Route exact path="/categories" component={Categories} />
-            <Route path="/about" component={About} />
-            <Route path="/in-memory" component={InMemory} />
-            <Route path="/legal" component={Legal} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/resources/new' component={NewResource} />
+            <Route exact path='/resources/:id/edit' component={EditResource} />
+            <Route path='/resources/:id' component={ShowResource} />
+            <Route exact path='/resources' component={Resources} />
+            <Route exact path='/categories/new' component={NewCategory} />
+            <Route path='/categories/:id/edit' component={EditCategory} />
+            <Route path='/categories/:id' component={ShowCategory} />
+            <Route exact path='/categories' component={Categories} />
+            <Route path='/about' component={About} />
+            <Route path='/in-memory' component={InMemory} />
+            <Route path='/legal' component={Legal} />
           </Switch>
         </div>
       </ScrollToTop>

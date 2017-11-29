@@ -8,16 +8,16 @@ import { createCategory, isActive } from '../../action-creators/categories'
 import { UPDATE_NEW_FORM } from '../../constants'
 
 class NewCategory extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.isSubmitActive()
   }
-  render() {
+  render () {
     return (
       <div>
         <MenuAppBar
-          title="Add Category"
-          search={true}
-          goBack={true}
+          title='Add Category'
+          search
+          goBack
           {...this.props}
         />
         <CategoryForm {...this.props} />

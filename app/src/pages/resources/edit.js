@@ -16,19 +16,19 @@ import { setCategories } from '../../action-creators/categories'
 
 // props.resources === []
 class EditResource extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.onMount()
     const id = this.props.match.params.id
     this.props.setEditResource(id)
-    //this.props.isSubmitActive()
+    // this.props.isSubmitActive()
   }
-  render() {
+  render () {
     return (
       <div>
         <MenuAppBar
-          title="Edit Resource"
-          search={true}
-          goBack={true}
+          title='Edit Resource'
+          search
+          goBack
           {...this.props}
         />
         <EditResourceForm

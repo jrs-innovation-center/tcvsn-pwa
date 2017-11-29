@@ -13,17 +13,17 @@ import { setCategories } from '../../action-creators/categories'
 
 // props.resources === []
 class NewResource extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.onMount()
     this.props.isSubmitActive()
   }
-  render() {
+  render () {
     return (
       <div>
         <MenuAppBar
-          title="Add Resource"
-          search={true}
-          goBack={true}
+          title='Add Resource'
+          search
+          goBack
           {...this.props}
         />
         <ResourceForm

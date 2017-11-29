@@ -24,7 +24,7 @@ const aboutText = [
           display: 'block'
         }}
         image={banner}
-        title="Tri-County Veterans Support Network"
+        title='Tri-County Veterans Support Network'
       />
     ),
     style: 'paragraph',
@@ -50,7 +50,7 @@ const aboutText = [
   },
 
   {
-    text: <img alt="signature" src={sig} width="200" height="auto" />,
+    text: <img alt='signature' src={sig} width='200' height='auto' />,
     style: 'italic',
     bottomMargin: false
   },
@@ -67,19 +67,19 @@ const aboutText = [
 const About = props => {
   return (
     <div>
-      <MenuAppBar title="About" />
-      <div className="container">
+      <MenuAppBar title='About' />
+      <div className='container'>
         <PaperSheet data={aboutText} />
-        <Link to="/in-memory" style={{ textDecoration: 'none' }}>
-          <Button raised color="primary" style={{ marginTop: 16 }}>
+        <Link to='/in-memory' style={{ textDecoration: 'none' }}>
+          <Button raised color='primary' style={{ marginTop: 16 }}>
             <Favorite style={{ marginRight: 7, height: 16, width: 16 }} />
             In Memory
           </Button>
         </Link>
-        <Link to="/legal" style={{ textDecoration: 'none' }}>
+        <Link to='/legal' style={{ textDecoration: 'none' }}>
           <Button
             raised
-            color="primary"
+            color='primary'
             style={{ marginTop: 16, marginLeft: 16 }}
           >
             <Legal style={{ marginRight: 7, height: 16, width: 16 }} />

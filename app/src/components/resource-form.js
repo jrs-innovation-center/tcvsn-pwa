@@ -24,100 +24,100 @@ const categoryMenuItem = category => {
 }
 
 class ResourceForm extends React.Component {
-  render() {
+  render () {
     const { classes } = this.props
 
     return (
       <form
         style={{ marginTop: 8 }}
-        autoComplete="off"
+        autoComplete='off'
         onSubmit={e => {
           e.preventDefault()
           this.props.onSubmit()
         }}
       >
         <FormControl className={classes.input} required>
-          <InputLabel htmlFor="categoryId">Category</InputLabel>
+          <InputLabel htmlFor='categoryId'>Category</InputLabel>
           <Select
-            name="categoryId"
+            name='categoryId'
             value={this.props.newResource.categoryId}
             onChange={e => {
               this.props.onChange('categoryId', e.target.value)
             }}
-            input={<Input id="categoryId" required />}
+            input={<Input id='categoryId' required />}
             autoWidth
             required
           >
-            <MenuItem value="">
+            <MenuItem value=''>
               <em>None</em>
             </MenuItem>
             {map(categoryMenuItem, this.props.categories)}
           </Select>
         </FormControl>
         <TextField
-          name="formalName"
-          label="Formal Name"
+          name='formalName'
+          label='Formal Name'
           value={this.props.newResource.formalName}
           onChange={e => {
             this.props.onChange('formalName', e.target.value)
           }}
-          margin="normal"
+          margin='normal'
           className={classes.input}
           required
           multiline
         />
         <TextField
-          name="name"
-          label="Short Name"
+          name='name'
+          label='Short Name'
           value={this.props.newResource.name}
           onChange={e => {
             this.props.onChange('name', e.target.value)
           }}
-          margin="normal"
+          margin='normal'
           className={classes.input}
           required
         />
         <TextField
-          name="shortDesc"
-          label="Short Description"
+          name='shortDesc'
+          label='Short Description'
           value={this.props.newResource.shortDesc}
           onChange={e => {
             this.props.onChange('shortDesc', e.target.value)
           }}
-          margin="normal"
+          margin='normal'
           className={classes.input}
           required
           multiline
         />
         <TextField
-          name="purpose"
-          label="Purpose"
+          name='purpose'
+          label='Purpose'
           value={this.props.newResource.purpose}
           onChange={e => {
             this.props.onChange('purpose', e.target.value)
           }}
-          margin="normal"
+          margin='normal'
           className={classes.input}
           required
           multiline
         />
         <TextField
-          name="website"
-          label="Website"
+          name='website'
+          label='Website'
           value={this.props.newResource.website}
           onChange={e => {
             this.props.onChange('website', e.target.value)
           }}
-          margin="normal"
+          margin='normal'
           className={classes.input}
         />
 
         <Button
           fab
-          color="primary"
-          type="submit"
-          aria-label="add"
-          className="fab-button"
+          color='primary'
+          type='submit'
+          aria-label='add'
+          className='fab-button'
           disabled={this.props.isActive}
         >
           <SaveIcon />

@@ -1,11 +1,11 @@
 import React from 'react'
 
 class ScrollToTopOnMount extends React.Component {
-  componentDidMount(prevProps) {
+  componentDidMount (prevProps) {
     window.scrollTo(0, 0)
   }
 
-  render() {
+  render () {
     return null
   }
 }

@@ -12,20 +12,20 @@ import { Link } from 'react-router-dom'
 import { setCategories } from '../../action-creators/categories'
 
 class Categories extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.onMount()
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <MenuAppBar title="Categories" search />
+        <MenuAppBar title='Categories' search />
         <Typography />
         <List style={{ padding: 0, marginBottom: 60 }}>
           {map(CategoryItem, this.props.categories)}
         </List>
-        <Link to="/categories/new">
-          <Button fab color="primary" aria-label="add" className="fab-button">
+        <Link to='/categories/new'>
+          <Button fab color='primary' aria-label='add' className='fab-button'>
             <AddIcon />
           </Button>
         </Link>
