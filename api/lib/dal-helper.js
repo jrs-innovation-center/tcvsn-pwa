@@ -17,13 +17,19 @@ const allDocs = options => {
 
 const findDocs = query => (query ? db.find(query).then(res => res.docs) : [])
 
+const findCategoryId = categoryIdName =>
+  db
+    .find({ selector: { categoryId: categoryIdName } })
+    .then(res => res.docs.length)
+
 const dalHelper = {
   get,
   create,
   update,
   deleteDoc,
   allDocs,
-  findDocs
+  findDocs,
+  findCategoryId
 }
 
 module.exports = dalHelper

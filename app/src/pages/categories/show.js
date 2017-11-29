@@ -19,13 +19,14 @@ import Button from 'material-ui/Button'
 import EditIcon from 'material-ui-icons/ModeEdit'
 import { Link } from 'react-router-dom'
 import SecondaryMenu from '../../components/secondaryMenu'
-import { CONFIRM_CATEGORY_DELETE } from '../../constants'
+import { CONFIRM_CATEGORY_DELETE, DENY_CATEGORY_DELETE } from '../../constants'
 import Dialog, {
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle
 } from 'material-ui/Dialog'
+import DenyDeleteDialog from '../../components/deny-category-dialog'
 
 const styles = theme => ({
   card: {
@@ -107,7 +108,9 @@ class ShowCategory extends React.Component {
           </Link>
           <Dialog
             open={this.props.currentCategory.confirmDelete}
-            onRequestClose={this.props.toggleConfirmDelete}
+            onRequestClose={
+              (this.props.toggleConfirmDelete, this.props.toggleDenyDelete)
+            }
           >
             <DialogTitle>{'Delete'}</DialogTitle>
             <DialogContent>
@@ -130,6 +133,7 @@ class ShowCategory extends React.Component {
               </Button>
             </DialogActions>
           </Dialog>
+          <DenyDeleteDialog {...this.props} />
         </div>
       )
     } else {
@@ -148,7 +152,8 @@ const mapActionToProps = (dispatch, getState) => {
   return {
     getCategory: id => dispatch(setCurrentCategory(id)),
     toggleConfirmDelete: () => dispatch({ type: CONFIRM_CATEGORY_DELETE }),
-    deleteCategory: (id, history) => dispatch(deleteCategory(id, history))
+    deleteCategory: (id, history) => dispatch(deleteCategory(id, history)),
+    toggleDenyDelete: () => dispatch({ type: DENY_CATEGORY_DELETE })
   }
 }
 

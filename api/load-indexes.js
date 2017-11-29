@@ -28,26 +28,3 @@ db
     console.log('Created an index on the rank.')
   })
   .catch(err => console.log(err))
-
-db
-  .put({
-    _id: 'foo'
-  })
-  .catch(err => console.log(err))
-
-// db
-//   .put({
-//     _id: '_design/counts',
-//     language: 'javascript',
-//     views: {
-//       resourcesByCategory: {
-//         map: `function(doc) {
-//           if (doc.type === 'resource') {
-//             emit(doc.categoryId, 1)
-//           }
-//         }`,
-//         reduce: '_sum'
-//       }
-//     }
-//   })
-//   .catch(err => console.log(err))

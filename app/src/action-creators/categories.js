@@ -4,6 +4,8 @@ import {
   SET_CURRENT_CATEGORY,
   SET_EDIT_CATEGORY,
   IS_ACTIVE,
+  CONFIRM_CATEGORY_DELETE,
+  DENY_CATEGORY_DELETE,
   ERROR
 } from '../constants'
 import history from '../history'
@@ -34,9 +36,10 @@ export const deleteCategory = id => async (dispatch, getState) => {
     },
     method: 'DELETE'
   }).then(res => res.json())
-
+  console.log('response', response)
   if (!response.ok) {
-    dispatch({ type: ERROR, payload: 'Could not delete category' })
+    dispatch({ type: CONFIRM_CATEGORY_DELETE })
+    dispatch({ type: DENY_CATEGORY_DELETE, payload: response.message })
     return
   }
   dispatch({

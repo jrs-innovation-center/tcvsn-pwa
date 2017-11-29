@@ -73,13 +73,8 @@ class SecondaryMenu extends React.Component {
               ) : (
                 <Link
                   key={action.name}
-<<<<<<< HEAD
-                  onClick={action.actionfn}
-                  to={'#'}
-=======
                   to={'#'}
                   onClick={action.fn}
->>>>>>> master
                   className="no-underline no-focus"
                 >
                   <MenuItem onClick={this.handleRequestClose}>

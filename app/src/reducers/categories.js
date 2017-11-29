@@ -5,7 +5,8 @@ import {
   IS_ACTIVE,
   SET_EDIT_CATEGORY,
   ONCHANGE_EDIT_CAT_FORM,
-  CONFIRM_CATEGORY_DELETE
+  CONFIRM_CATEGORY_DELETE,
+  DENY_CATEGORY_DELETE
 } from '../constants'
 import { merge, not } from 'ramda'
 
@@ -41,6 +42,11 @@ export const currentCategory = (state = {}, action) => {
     case CONFIRM_CATEGORY_DELETE:
       return merge(state, {
         confirmDelete: not(state.confirmDelete)
+      })
+    case DENY_CATEGORY_DELETE:
+      return merge(state, {
+        denyDelete: not(state.denyDelete),
+        denyDeleteMsg: action.payload
       })
     default:
       return state

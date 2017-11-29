@@ -6,7 +6,8 @@ const {
   update,
   deleteDoc,
   allDocs,
-  findDocs
+  findDocs,
+  findCategoryId
 } = require('./lib/dal-helper')
 
 const getAllCategories = options => allDocs(options || { include_docs: true })
@@ -28,6 +29,8 @@ const createCategory = doc => {
 const updateCategory = doc => update(doc)
 const deleteCategory = id => deleteDoc(id)
 
+const checkCategoryId = id => findCategoryId(id)
+
 const dal = {
   createResource,
   getResource,
@@ -38,6 +41,7 @@ const dal = {
   getCategory,
   updateCategory,
   deleteCategory,
-  getAllCategories
+  getAllCategories,
+  checkCategoryId
 }
 module.exports = dal
