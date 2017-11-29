@@ -7,6 +7,7 @@ import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
 import GoBackIcon from 'material-ui-icons/KeyboardArrowLeft'
 import SearchIcon from 'material-ui-icons/Search'
+
 import { connect } from 'react-redux'
 import { propOr, isNil } from 'ramda'
 
@@ -56,7 +57,6 @@ const MenuAppBar = props => {
           <Typography type="title" color="inherit" className={classes.flex}>
             {props.title}
           </Typography>
-
           <IconButton
             className={isNil(secondaryMenu) ? classes.lastButton : ''}
             color="contrast"

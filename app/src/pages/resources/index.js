@@ -4,13 +4,15 @@ import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 
 import { connect } from 'react-redux'
-import { map } from 'ramda'
+import { map, sortBy, prop } from 'ramda'
 import List from 'material-ui/List'
 import ResourceItem from '../../components/resource-item'
 import Button from 'material-ui/Button'
 import AddIcon from 'material-ui-icons/Add'
 import { Link } from 'react-router-dom'
 import { setResources } from '../../action-creators/resources'
+
+const sorter = sortBy(prop('name'))
 
 // props.resources === []
 class Resources extends React.Component {
@@ -24,7 +26,7 @@ class Resources extends React.Component {
       <div>
         <MenuAppBar title="Resources" search />
         <List style={{ padding: 0, marginBottom: 60 }}>
-          {map(ResourceItem, this.props.resources)}
+          {map(ResourceItem, sorter(this.props.resources))}
         </List>
         <Link to="/resources/new">
           <Button fab color="primary" aria-label="add" className="fab-button">
