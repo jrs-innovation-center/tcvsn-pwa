@@ -2,7 +2,7 @@ import React from 'react'
 import { withStyles } from 'material-ui/styles'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
-import EditIcon from 'material-ui-icons/ModeEdit'
+import SaveIcon from 'material-ui-icons/Save'
 
 const styles = theme => ({
   input: {
@@ -71,7 +71,7 @@ class CategoryForm extends React.Component {
           aria-label="add"
           type="submit"
         >
-          <EditIcon />
+          <SaveIcon />
         </Button>
       </form>
     )

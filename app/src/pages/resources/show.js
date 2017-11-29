@@ -4,13 +4,22 @@ import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import { connect } from 'react-redux'
 import { pathOr } from 'ramda'
-import { setCurrentResource } from '../../action-creators/resources'
+import {
+  setCurrentResource,
+  deleteResource
+} from '../../action-creators/resources'
 import ResourceCard from '../../components/resource-card'
 import Button from 'material-ui/Button'
 import PhoneIcon from 'material-ui-icons/Phone'
 import { Link } from 'react-router-dom'
 import SecondaryMenu from '../../components/secondaryMenu'
-
+import Dialog, {
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle
+} from 'material-ui/Dialog'
+import { CONFIRM_RESOURCE_DELETE } from '../../constants'
 // props.resources === []
 class ShowResource extends React.Component {
   state = { expanded: false }
@@ -31,11 +40,13 @@ class ShowResource extends React.Component {
     const menuItemActions = [
       {
         name: 'Edit',
-        link: `/resources/${this.props.currentResource._id}/edit`
+        link: `/resources/${this.props.currentResource._id}/edit`,
+        fn: null
       },
       {
         name: 'Delete',
-        link: `/resources/${this.props.currentResource._id}/delete`
+        link: null,
+        fn: this.props.toggleConfirmDelete
       }
     ]
 
@@ -62,6 +73,31 @@ class ShowResource extends React.Component {
               <PhoneIcon />
             </Button>
           </Link>
+          <Dialog
+            open={this.props.currentResource.confirmDelete}
+            onRequestClose={this.props.toggleConfirmDelete}
+          >
+            <DialogTitle>{'Delete'}</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                {'Are you sure you want to delete this resource?'}
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.props.toggleConfirmDelete} color="primary">
+                Cancel
+              </Button>
+              <Button
+                onClick={() =>
+                  this.props.deleteResource(this.props.currentResource._id)
+                }
+                color="primary"
+                autoFocus
+              >
+                Confirm Delete
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
       )
     } else {
@@ -75,12 +111,17 @@ class ShowResource extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { currentResource: state.currentResource }
+  console.log('mapStateToProps: ', state)
+  return {
+    currentResource: state.currentResource
+  }
 }
 
 const mapActionsToProps = dispatch => {
   return {
-    setCurrentResource: id => dispatch(setCurrentResource(id))
+    setCurrentResource: id => dispatch(setCurrentResource(id)),
+    toggleConfirmDelete: () => dispatch({ type: CONFIRM_RESOURCE_DELETE }),
+    deleteResource: id => dispatch(deleteResource(id))
   }
 }
 
