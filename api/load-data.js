@@ -5,73 +5,85 @@ PouchDB.plugin(require('pouchdb-adapter-http'))
 const db = new PouchDB(process.env.COUCHDB_URL + process.env.COUCHDB_NAME)
 
 db.bulkDocs([
+  {
+    _id: 'category_education',
+    type: 'category',
+    name: 'College Education and Vocational Certification',
+    shortDesc:
+      'assists current and retired military members in obtaining education and training',
+    desc:
+      'College Education and Vocational Certification includes programs that assist current and retired military members to enter institutions of higher education and to obtain additional specialized training or certification necessary for part-time and/or full-time employment.',
+    icon: 'school'
+  },
+  {
+    _id: 'category_financial_and_legal',
+    type: 'category',
+    name: 'Financial and Legal Assistance',
+    shortDesc:
+      'programs and services that offer financial education, counseling and other help to veterans',
+    desc:
+      'Financial & Legal Assistance includes programs and services that offer financial education, management, and counseling to help current service members, veterans and their families become stable in financial matters, and legal assistance to qualifying veterans and their families.',
+    icon: 'attach_money'
+  },
 
   {
-      _id: 'category_education',
-      type: 'category',
-      name: 'College Education and Vocational Certification',
-      shortDesc: 'assists current and retired military members in obtaining education and training',
-      desc: 'College Education and Vocational Certification includes programs that assist current and retired military members to enter institutions of higher education and to obtain additional specialized training or certification necessary for part-time and/or full-time employment.',
-      icon: 'school'
-    },
-  {
-      _id: 'category_financial_and_legal',
-      type: 'category',
-      name: 'Financial and Legal Assistance',
-      shortDesc: 'programs and services that offer financial education, counseling and other help to veterans',
-      desc: 'Financial & Legal Assistance includes programs and services that offer financial education, management, and counseling to help current service members, veterans and their families become stable in financial matters, and legal assistance to qualifying veterans and their families.',
-      icon: 'attach_money'
-    },
+    _id: 'category_health_and_wellness',
+    type: 'category',
+    name: 'Health and Wellness',
+    shortDesc:
+      'programs and services that provide mental, physical, and spiritual support',
+    desc:
+      'Health & Wellness includes programs and services that provide mental, physical, and spiritual support for current military members, retired veterans, caregivers, and for the friends and family of those individuals mentioned previously.',
+    icon: 'rowing'
+  },
 
   {
-      _id: 'category_health_and_wellness',
-      type: 'category',
-      name: 'Health and Wellness',
-      shortDesc: 'programs and services that provide mental, physical, and spiritual support',
-      desc: 'Health & Wellness includes programs and services that provide mental, physical, and spiritual support for current military members, retired veterans, caregivers, and for the friends and family of those individuals mentioned previously.',
-      icon: 'rowing'
-    },
+    _id: 'category_housing_and_homeless_prevention_programs',
+    type: 'category',
+    name: 'Housing and Homeless Prevention Programs',
+    shortDesc:
+      'programs and services that provide assistance in identifying safe and affordable housing',
+    desc:
+      'Housing/Homeless Prevention Programs include programs and services that provide assistance in identifying safe, affordable housing and/or in preventing homelessness through financial support with rental and utility payments.',
+    icon: 'home'
+  },
 
   {
-      _id: ‘category_housing_and_homeless_prevention_programs’,
-      type: 'category',
-      name: 'Housing and Homeless Prevention Programs',
-      shortDesc: 'programs and services that provide assistance in identifying safe and affordable housing',
-      desc: 'Housing/Homeless Prevention Programs include programs and services that provide assistance in identifying safe, affordable housing and/or in preventing homelessness through financial support with rental and utility payments.'
-      icon: 'home_map_marker'
-    },
-
-  {
-      _id: 'category_information_and_referral_services',
-      type: 'category',
-      name: 'Information and Referral Services',
-      shortDesc: 'telephone help and crisis management',
-      desc:'Information & Referral Services include telephone help/crisis management lines and websites to assist veterans and their family members in locating helpful information.'
-      icon: 'message_bulletted'
-    },
+    _id: 'category_information_and_referral_services',
+    type: 'category',
+    name: 'Information and Referral Services',
+    shortDesc: 'telephone help and crisis management',
+    desc:
+      'Information & Referral Services include telephone help/crisis management lines and websites to assist veterans and their family members in locating helpful information.',
+    icon: 'message'
+  },
 
   {
     _id: 'category_peer support_and_recreation',
-      type: 'category',
-      name: 'Peer Support and Recreation',
-      shortDesc: 'veteran-specific support contacts for emotional wellness through social interactions',
-      desc:'Peer Support & Recreation includes veteran-specific support contacts for emotional wellness and recreation in terms of community involvement through social interactions.'
-      icon: 'account_multiple'
-    },
+    type: 'category',
+    name: 'Peer Support and Recreation',
+    shortDesc:
+      'veteran-specific support contacts for emotional wellness through social interactions',
+    desc:
+      'Peer Support & Recreation includes veteran-specific support contacts for emotional wellness and recreation in terms of community involvement through social interactions.',
+    icon: 'supervisor_account'
+  },
 
   {
     _id: 'category_government',
     type: 'category',
     name: 'Government',
     shortDesc: 'advocates for issues relevant to veterans',
-    desc: 'Government includes federal and state representatives who advocate for issues relevant to veterans, especially in relation to benefits.',
+    desc:
+      'Government includes federal and state representatives who advocate for issues relevant to veterans, especially in relation to benefits.',
     icon: 'domain'
   },
   {
     _id: 'category_rehabilitative_and_recreational_therapy',
     type: 'category',
     name: 'Rehabilitative and Recreational Therapy',
-    shortDesc: 'various therapeutic outlets to connect with other veterans through physical activity',
+    shortDesc:
+      'various therapeutic outlets to connect with other veterans through physical activity',
     desc:
       'Rehabilitative & Recreational Therapy in the context of this resource directory includes programs and services that provide various therapeutic outlets to connect with other veterans through physical activity and volunteer opportunities.',
     icon: 'directions_bike'
@@ -81,7 +93,8 @@ db.bulkDocs([
     type: 'category',
     name: 'Basic Needs Assistance',
     shortDesc: 'shelter, food, emergency',
-    desc:  'Basic Needs Assistance includes organizations that provide one or more of the following services: shelter facilities for the homeless and for those escaping situations of domestic violence, food/supplemental nutrition resources, and single-transaction emergency financial assistance in cases of involuntary hardship...',
+    desc:
+      'Basic Needs Assistance includes organizations that provide one or more of the following services: shelter facilities for the homeless and for those escaping situations of domestic violence, food/supplemental nutrition resources, and single-transaction emergency financial assistance in cases of involuntary hardship...',
     icon: 'restaurant'
   },
   {
@@ -89,7 +102,8 @@ db.bulkDocs([
     type: 'category',
     name: 'Benefits',
     shortDesc: 'federal, state, and local agencies',
-    desc:  'Benefits include federal, state, and local agencies that assist veterans and their families in filing for claims to receive benefits earned as a result of military service.',
+    desc:
+      'Benefits include federal, state, and local agencies that assist veterans and their families in filing for claims to receive benefits earned as a result of military service.',
     icon: 'card_giftcard'
   },
   {
