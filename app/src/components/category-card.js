@@ -31,7 +31,7 @@ function SimpleMediaCard(props) {
       <Card style={{ marginBottom: 32 }}>
         <CardHeader
           avatar={
-            <Avatar aria-label="Recipe">
+            <Avatar aria-label={currentCategory.icon}>
               <Icon>{currentCategory.icon}</Icon>
             </Avatar>
           }

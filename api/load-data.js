@@ -12,7 +12,7 @@ db.bulkDocs([
     shortDesc: 'advocates for issues relevant to veterans',
     desc:
       'Government includes federal and state representatives who advocate for issues relevant to veterans, especially in relation to benefits.',
-    icon: 'add_circle'
+    icon: 'domain'
   },
   {
     _id: 'category_rehabilitative_and_recreational_therapy',
@@ -22,7 +22,7 @@ db.bulkDocs([
       'various therapeutic outlets to connect with other veterans through physical activity',
     desc:
       'Rehabilitative & Recreational Therapy in the context of this resource directory includes programs and services that provide various therapeutic outlets to connect with other veterans through physical activity and volunteer opportunities.',
-    icon: 'add_circle'
+    icon: 'directions_bike'
   },
   {
     _id: 'category_basic-needs-assistance',
@@ -31,7 +31,7 @@ db.bulkDocs([
     shortDesc: 'shelter, food, emergency',
     desc:
       'Basic Needs Assistance includes organizations that provide one or more of the following services: shelter facilities for the homeless and for those escaping situations of domestic violence, food/supplemental nutrition resources, and single-transaction emergency financial assistance in cases of involuntary hardship...',
-    icon: 'add_circle'
+    icon: 'restaurant'
   },
   {
     _id: 'category_benefits',
@@ -40,7 +40,7 @@ db.bulkDocs([
     shortDesc: 'federal, state, and local agencies',
     desc:
       'Benefits include federal, state, and local agencies that assist veterans and their families in filing for claims to receive benefits earned as a result of military service.',
-    icon: 'add_circle'
+    icon: 'card_giftcard'
   },
   {
     _id: 'category_employment',
@@ -49,7 +49,7 @@ db.bulkDocs([
     shortDesc: 'assistance in receiving part-time or full-time employment',
     desc:
       'Employment includes programs and services to assist current and retired military members in obtaining part-time and/or full-time employment. This assistance can include cover letter and resume tips, interview tips, learning professional communication expectations and skills, and general job search advice.',
-    icon: 'add_circle'
+    icon: 'work'
   },
   {
     _id: 'resource_va_homeless_prevention_program_and_walk_in_clinic',
