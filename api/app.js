@@ -14,7 +14,8 @@ const {
   getAllCategories,
   updateCategory,
   deleteCategory,
-  findCategory
+  findCategory,
+  checkCategoryId
 } = require('./dal')
 const port = process.env.PORT || 5000
 const HTTPError = require('node-http-error')
@@ -76,7 +77,7 @@ const categoryRequiredPutFieldCheck = checkRequiredFields([
 app.use(cors({ credentials: true }))
 app.use(bodyParser.json())
 
-app.get('/', (req, res, next) => res.send('Welcom to the api.'))
+app.get('/', (req, res, next) => res.send('Welcome to the api.'))
 
 /// //////////////
 ///  Resources
@@ -229,30 +230,21 @@ app.put('/categories/:id', (req, res, next) => {
     .catch(err => next(err => new HTTPError(err.status, err.message)))
 })
 
-app.delete('/categories/:id', (req, res, next) => {
-  let searchStr = compose(split(':'), pathOr('', ['query', 'filter']))(req)
-  const filter = pathOr(null, ['query', 'filter'])(req)
-  var options = {}
-  if (filter) {
-    options = {
-      include_docs: true,
-      startkey: 'resource_' + last(searchStr),
-      endkey: 'resource_' + last(searchStr) + '\ufff0'
-    }
+app.delete('/categories/:id', async (req, res, next) => {
+  const resources = await checkCategoryId(req.params.id)
+  console.log(resources)
+  if (resources === 0) {
+    deleteCategory(path(['params', 'id'], req))
+      .then(result => res.status(200).send(result))
+      .catch(err => next(new HTTPError(err.status, err.message)))
   } else {
-    options = {
-      include_docs: true,
-      startkey: 'resource_',
-      endkey: 'resource_\ufff0'
-    }
+    res.send({
+      ok: false,
+      message: `You cannot delete this category because ${
+        resources
+      } resources are assigned to it.`
+    })
   }
-  listResource(options)
-    .then(results => res.status(200).send(results))
-    .catch(err => next(new HTTPError(err.status, err.message)))
-
-  deleteResource(path(['params', 'id'], req))
-    .then(result => res.status(200).send(result))
-    .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
 app.get('/categories', (req, res, next) => {

@@ -8,7 +8,10 @@ import withRoot from '../../components/withRoot'
 import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import { connect } from 'react-redux'
-import { setCurrentCategory } from '../../action-creators/categories'
+import {
+  setCurrentCategory,
+  deleteCategory
+} from '../../action-creators/categories'
 import { prop, path, split, compose, last } from 'ramda'
 import CategoryCard from '../../components/category-card'
 import { getURLPathID } from '../../lib/url-path-helper'
@@ -16,6 +19,14 @@ import Button from 'material-ui/Button'
 import EditIcon from 'material-ui-icons/ModeEdit'
 import { Link } from 'react-router-dom'
 import SecondaryMenu from '../../components/secondaryMenu'
+import { CONFIRM_CATEGORY_DELETE, DENY_CATEGORY_DELETE } from '../../constants'
+import Dialog, {
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle
+} from 'material-ui/Dialog'
+import DenyDeleteDialog from '../../components/deny-category-dialog'
 
 const styles = theme => ({
   card: {
@@ -62,12 +73,14 @@ class ShowCategory extends React.Component {
     const menuItemActions = [
       {
         name: 'Edit',
-        link: `/categories/${this.props.currentCategory._id}/edit`
+        link: `/categories/${this.props.currentCategory._id}/edit`,
+        fn: null
+      },
+      {
+        name: 'Delete',
+        link: null,
+        fn: this.props.toggleConfirmDelete
       }
-      // {
-      //   name: 'Delete',
-      //   link: `/categories/${this.props.currentCategory._id}/delete`
-      // }
     ]
 
     if (path(['currentCategory', '_id'], this.props) === currentID) {
@@ -93,6 +106,34 @@ class ShowCategory extends React.Component {
               <EditIcon />
             </Button>
           </Link>
+          <Dialog
+            open={this.props.currentCategory.confirmDelete}
+            onRequestClose={
+              (this.props.toggleConfirmDelete, this.props.toggleDenyDelete)
+            }
+          >
+            <DialogTitle>{'Delete'}</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                {'Are you sure you want to delete this category?'}
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.props.toggleConfirmDelete} color="primary">
+                Cancel
+              </Button>
+              <Button
+                onClick={() =>
+                  this.props.deleteCategory(this.props.currentCategory._id)
+                }
+                color="primary"
+                autoFocus
+              >
+                Confirm Delete
+              </Button>
+            </DialogActions>
+          </Dialog>
+          <DenyDeleteDialog {...this.props} />
         </div>
       )
     } else {
@@ -109,7 +150,10 @@ const mapStateToProps = state => {
 }
 const mapActionToProps = (dispatch, getState) => {
   return {
-    getCategory: id => dispatch(setCurrentCategory(id))
+    getCategory: id => dispatch(setCurrentCategory(id)),
+    toggleConfirmDelete: () => dispatch({ type: CONFIRM_CATEGORY_DELETE }),
+    deleteCategory: (id, history) => dispatch(deleteCategory(id, history)),
+    toggleDenyDelete: () => dispatch({ type: DENY_CATEGORY_DELETE })
   }
 }
 

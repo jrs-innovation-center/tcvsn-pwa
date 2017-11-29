@@ -4,10 +4,12 @@ import {
   SET_CURRENT_CATEGORY,
   SET_EDIT_CATEGORY,
   IS_ACTIVE,
+  CONFIRM_CATEGORY_DELETE,
+  DENY_CATEGORY_DELETE,
   ERROR
 } from '../constants'
 import history from '../history'
-import { isEmpty } from 'ramda'
+import { isEmpty, assoc } from 'ramda'
 
 const url = process.env.REACT_APP_BASE_URL
 
@@ -21,7 +23,30 @@ export const setCurrentCategory = id => async (dispatch, getState) => {
   const response = await fetch(`${url}/categories/${id}`).then(res =>
     res.json()
   )
-  dispatch({ type: SET_CURRENT_CATEGORY, payload: response })
+  dispatch({
+    type: SET_CURRENT_CATEGORY,
+    payload: assoc('confirmDelete', false, response)
+  })
+}
+
+export const deleteCategory = id => async (dispatch, getState) => {
+  const response = await fetch(`${url}/categories/${id}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'DELETE'
+  }).then(res => res.json())
+  console.log('response', response)
+  if (!response.ok) {
+    dispatch({ type: CONFIRM_CATEGORY_DELETE })
+    dispatch({ type: DENY_CATEGORY_DELETE, payload: response.message })
+    return
+  }
+  dispatch({
+    type: SET_CURRENT_CATEGORY,
+    payload: {}
+  })
+  history.push('/categories')
 }
 
 export const createCategory = async (dispatch, getState) => {
