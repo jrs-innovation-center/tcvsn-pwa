@@ -28,7 +28,7 @@ function SimpleMediaCard(props) {
   const { currentCategory } = props
   return (
     <div key={currentCategory._id}>
-      <Card>
+      <Card style={{ marginBottom: 32 }}>
         <CardHeader
           avatar={
             <Avatar aria-label="Recipe">

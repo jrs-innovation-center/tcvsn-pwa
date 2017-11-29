@@ -52,7 +52,7 @@ function SimpleMediaCard(props) {
     contains(head(arrData), ['the', 'a', 'an']) ? drop(1, arrData) : arrData
   return (
     <div>
-      <Card className={classes.card}>
+      <Card className={classes.card} style={{ marginBottom: 32 }}>
         <CardMedia
           className={classes.media}
           image="http://i.cubeupload.com/aEVXss.jpg"
