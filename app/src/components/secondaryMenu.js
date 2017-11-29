@@ -71,7 +71,12 @@ class SecondaryMenu extends React.Component {
                   </MenuItem>
                 </Link>
               ) : (
-                <Link key={action.name} onClick={action.actionfn} to={'#'}>
+                <Link
+                  key={action.name}
+                  onClick={action.actionfn}
+                  to={'#'}
+                  className="no-underline no-focus"
+                >
                   <MenuItem onClick={this.handleRequestClose}>
                     {action.name}
                   </MenuItem>
