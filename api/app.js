@@ -230,6 +230,26 @@ app.put('/categories/:id', (req, res, next) => {
 })
 
 app.delete('/categories/:id', (req, res, next) => {
+  let searchStr = compose(split(':'), pathOr('', ['query', 'filter']))(req)
+  const filter = pathOr(null, ['query', 'filter'])(req)
+  var options = {}
+  if (filter) {
+    options = {
+      include_docs: true,
+      startkey: 'resource_' + last(searchStr),
+      endkey: 'resource_' + last(searchStr) + '\ufff0'
+    }
+  } else {
+    options = {
+      include_docs: true,
+      startkey: 'resource_',
+      endkey: 'resource_\ufff0'
+    }
+  }
+  listResource(options)
+    .then(results => res.status(200).send(results))
+    .catch(err => next(new HTTPError(err.status, err.message)))
+
   deleteResource(path(['params', 'id'], req))
     .then(result => res.status(200).send(result))
     .catch(err => next(new HTTPError(err.status, err.message)))

@@ -13,20 +13,15 @@ import {
 import { ONCHANGE_EDIT_CAT_FORM } from '../../constants'
 
 class EditCategory extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     const id = this.props.match.params.id
     this.props.setEditCategory(id)
     // this.props.isSubmitActive()
   }
-  render () {
+  render() {
     return (
       <div>
-        <MenuAppBar
-          title='Edit Category'
-          search
-          goBack
-          {...this.props}
-        />
+        <MenuAppBar title="Edit Category" search goBack {...this.props} />
         <CategoryForm isActive={this.props.isActive} {...this.props} />
       </div>
     )

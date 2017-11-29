@@ -5,7 +5,7 @@ PouchDB.plugin(require('pouchdb-find'))
 
 const db = new PouchDB(process.env.COUCHDB_URL + process.env.COUCHDB_NAME)
 
-// sort the docs by the type property
+sort the docs by the type property
 db
   .createIndex({ index: { fields: ['type'] } })
   .then(() => {
@@ -28,3 +28,26 @@ db
     console.log('Created an index on the rank.')
   })
   .catch(err => console.log(err))
+
+db
+  .put({
+    _id: 'foo'
+  })
+  .catch(err => console.log(err))
+
+// db
+//   .put({
+//     _id: '_design/counts',
+//     language: 'javascript',
+//     views: {
+//       resourcesByCategory: {
+//         map: `function(doc) {
+//           if (doc.type === 'resource') {
+//             emit(doc.categoryId, 1)
+//           }
+//         }`,
+//         reduce: '_sum'
+//       }
+//     }
+//   })
+//   .catch(err => console.log(err))

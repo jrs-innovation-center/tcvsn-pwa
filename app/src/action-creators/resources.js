@@ -1,4 +1,4 @@
-import fetch from "isomorphic-fetch"
+import fetch from 'isomorphic-fetch'
 import {
   SET_RESOURCES,
   SET_CURRENT_RESOURCE,
@@ -7,9 +7,9 @@ import {
   IS_ACTIVE,
   ERROR,
   ONCHANGE_EDIT_RES_FORM
-} from "../constants"
-import { isEmpty, assoc } from "ramda"
-import history from "../history"
+} from '../constants'
+import { isEmpty, assoc } from 'ramda'
+import history from '../history'
 const url = process.env.REACT_APP_BASE_URL
 
 export const setResources = async (dispatch, getState) => {
@@ -17,25 +17,25 @@ export const setResources = async (dispatch, getState) => {
   dispatch({ type: SET_RESOURCES, payload: response })
 }
 export const deleteResource = id => async (dispatch, getState) => {
-  const headers = { "Content-Type": "application/json" }
-  const method = "DELETE"
+  const headers = { 'Content-Type': 'application/json' }
+  const method = 'DELETE'
   const response = await fetch(`${url}/resources/${id}`, {
     method,
     headers
   }).then(res => res.json())
   if (!response.ok) {
-    dispatch({ type: ERROR, payload: "Could not delete resource" })
+    dispatch({ type: ERROR, payload: 'Could not delete resource' })
     return
   }
   dispatch(setResources)
-  history.push("/resources")
+  history.push('/resources')
 }
 
 export const setCurrentResource = id => async (dispatch, getState) => {
   const response = await fetch(`${url}/resources/${id}`).then(res => res.json())
   dispatch({
     type: SET_CURRENT_RESOURCE,
-    payload: assoc("confirmDelete", false, response)
+    payload: assoc('confirmDelete', false, response)
   })
 }
 
@@ -48,8 +48,8 @@ export const onChangeEditForm = (field, value) => (dispatch, getState) => {
 }
 
 export const addNewResource = (data, history) => async (dispatch, getState) => {
-  const headers = { "Content-Type": "application/json" }
-  const method = "POST"
+  const headers = { 'Content-Type': 'application/json' }
+  const method = 'POST'
   const body = JSON.stringify(data)
 
   const result = await fetch(`${url}/resources`, {
@@ -61,7 +61,7 @@ export const addNewResource = (data, history) => async (dispatch, getState) => {
   if (result.ok) {
     dispatch(setResources)
     // dispatch({ type: IS_ACTIVE, payload: true })
-    history.push("/resources")
+    history.push('/resources')
   } else {
     // handle error
   }
@@ -77,8 +77,8 @@ export const addEditResource = (data, history) => async (
   dispatch,
   getState
 ) => {
-  const headers = { "Content-Type": "application/json" }
-  const method = "PUT"
+  const headers = { 'Content-Type': 'application/json' }
+  const method = 'PUT'
   const body = JSON.stringify(data)
 
   const result = await fetch(`${url}/resources/${data._id}`, {
@@ -90,7 +90,7 @@ export const addEditResource = (data, history) => async (
   if (result.ok) {
     dispatch(setResources)
     // dispatch({ type: IS_ACTIVE, payload: true })
-    history.push("/resources/" + data._id)
+    history.push('/resources/' + data._id)
   } else {
     // handle error
   }

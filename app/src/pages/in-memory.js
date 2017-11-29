@@ -25,7 +25,7 @@ const aboutText = [
           display: 'block'
         }}
         image={Eileen}
-        title='Eileen S. Hadbavny'
+        title="Eileen S. Hadbavny"
       />
     ),
     style: 'paragraph',
@@ -40,8 +40,8 @@ const aboutText = [
           </Avatar>
         }
         style={{ paddingBottom: 16 }}
-        title='In Loving Memory of Eileen S. Hadbavny'
-        subheader='Co-Founder of the Tri-County Veterans Support Network'
+        title="In Loving Memory of Eileen S. Hadbavny"
+        subheader="Co-Founder of the Tri-County Veterans Support Network"
       />
     ),
     style: 'paragraph',
@@ -70,19 +70,19 @@ const aboutText = [
 const InMemory = props => {
   return (
     <div>
-      <MenuAppBar title='In Memory' />
-      <div className='container'>
+      <MenuAppBar title="In Memory" />
+      <div className="container">
         <PaperSheet data={aboutText} />
-        <Link to='/about' style={{ textDecoration: 'none' }}>
-          <Button raised color='primary' style={{ marginTop: 16 }}>
+        <Link to="/about" style={{ textDecoration: 'none' }}>
+          <Button raised color="primary" style={{ marginTop: 16 }}>
             <About style={{ marginRight: 7, height: 16, width: 16 }} />
             About
           </Button>
         </Link>
-        <Link to='/legal' style={{ textDecoration: 'none' }}>
+        <Link to="/legal" style={{ textDecoration: 'none' }}>
           <Button
             raised
-            color='primary'
+            color="primary"
             style={{ marginTop: 16, marginLeft: 16 }}
           >
             <Legal style={{ marginRight: 7, height: 16, width: 16 }} />

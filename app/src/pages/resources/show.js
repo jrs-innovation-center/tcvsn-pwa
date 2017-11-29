@@ -1,25 +1,25 @@
-import React from "react"
-import withRoot from "../../components/withRoot"
-import withDrawer from "../../components/withDrawer"
-import MenuAppBar from "../../components/menuAppBar"
-import { connect } from "react-redux"
-import { pathOr } from "ramda"
+import React from 'react'
+import withRoot from '../../components/withRoot'
+import withDrawer from '../../components/withDrawer'
+import MenuAppBar from '../../components/menuAppBar'
+import { connect } from 'react-redux'
+import { pathOr } from 'ramda'
 import {
   setCurrentResource,
   deleteResource
-} from "../../action-creators/resources"
-import ResourceCard from "../../components/resource-card"
-import Button from "material-ui/Button"
-import PhoneIcon from "material-ui-icons/Phone"
-import { Link } from "react-router-dom"
-import SecondaryMenu from "../../components/secondaryMenu"
+} from '../../action-creators/resources'
+import ResourceCard from '../../components/resource-card'
+import Button from 'material-ui/Button'
+import PhoneIcon from 'material-ui-icons/Phone'
+import { Link } from 'react-router-dom'
+import SecondaryMenu from '../../components/secondaryMenu'
 import Dialog, {
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle
-} from "material-ui/Dialog"
-import { CONFIRM_RESOURCE_DELETE } from "../../constants"
+} from 'material-ui/Dialog'
+import { CONFIRM_RESOURCE_DELETE } from '../../constants'
 // props.resources === []
 class ShowResource extends React.Component {
   state = { expanded: false }
@@ -35,16 +35,16 @@ class ShowResource extends React.Component {
   }
 
   render() {
-    const currentID = pathOr("", ["currentResource", "_id"], this.props)
+    const currentID = pathOr('', ['currentResource', '_id'], this.props)
 
     const menuItemActions = [
       {
-        name: "Edit",
+        name: 'Edit',
         link: `/resources/${this.props.currentResource._id}/edit`,
         fn: null
       },
       {
-        name: "Delete",
+        name: 'Delete',
         link: null,
         fn: this.props.toggleConfirmDelete
       }
@@ -56,7 +56,7 @@ class ShowResource extends React.Component {
           <MenuAppBar
             title={this.props.currentResource.name}
             search={true}
-            goBack={"/resources"}
+            goBack={'/resources'}
             secondaryMenu={
               <SecondaryMenu actions={menuItemActions} {...this.props} />
             }
@@ -77,10 +77,10 @@ class ShowResource extends React.Component {
             open={this.props.currentResource.confirmDelete}
             onRequestClose={this.props.toggleConfirmDelete}
           >
-            <DialogTitle>{"Delete"}</DialogTitle>
+            <DialogTitle>{'Delete'}</DialogTitle>
             <DialogContent>
               <DialogContentText>
-                {"Are you sure you want to delete this category?"}
+                {'Are you sure you want to delete this category?'}
               </DialogContentText>
             </DialogContent>
             <DialogActions>
@@ -111,7 +111,7 @@ class ShowResource extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("mapStateToProps: ", state)
+  console.log('mapStateToProps: ', state)
   return {
     currentResource: state.currentResource
   }

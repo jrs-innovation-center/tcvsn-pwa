@@ -32,13 +32,13 @@ const MenuAppBar = props => {
   const { classes } = props
   const secondaryMenu = propOr(null, 'secondaryMenu', props)
   return (
-    <div id='menu-container' className={classes.root}>
-      <AppBar position='fixed'>
+    <div id="menu-container" className={classes.root}>
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             className={classes.firstButton}
-            color='contrast'
-            aria-label='Menu'
+            color="contrast"
+            aria-label="Menu"
             onClick={
               props.goBack
                 ? typeof props.goBack === 'string'
@@ -53,14 +53,14 @@ const MenuAppBar = props => {
               <MenuIcon />
             )}
           </IconButton>
-          <Typography type='title' color='inherit' className={classes.flex}>
+          <Typography type="title" color="inherit" className={classes.flex}>
             {props.title}
           </Typography>
 
           <IconButton
             className={isNil(secondaryMenu) ? classes.lastButton : ''}
-            color='contrast'
-            aria-label='Search'
+            color="contrast"
+            aria-label="Search"
             onClick={props.toggleDrawer}
           >
             <SearchIcon />

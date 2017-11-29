@@ -5,13 +5,13 @@ import MenuAppBar from '../components/menuAppBar'
 import { connect } from 'react-redux'
 
 class Home extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.toggleDrawer()
   }
-  render () {
+  render() {
     return (
       <div>
-        <MenuAppBar title='Home' />
+        <MenuAppBar title="Home" />
       </div>
     )
   }

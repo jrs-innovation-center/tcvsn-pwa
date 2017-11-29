@@ -14,62 +14,62 @@ import GavelIcon from 'material-ui-icons/Gavel'
 const sideList = (
   <div>
     <List>
-      <Link to='/' className='router-link'>
+      <Link to="/" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText primary='Home' />
+          <ListItemText primary="Home" />
         </ListItem>
       </Link>
-      <Link to='/resources' className='router-link'>
+      <Link to="/resources" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <InboxIcon />
           </ListItemIcon>
-          <ListItemText primary='Resources' />
+          <ListItemText primary="Resources" />
         </ListItem>
       </Link>
-      <Link to='/categories' className='router-link'>
+      <Link to="/categories" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <ViewList />
           </ListItemIcon>
-          <ListItemText primary='Categories' />
+          <ListItemText primary="Categories" />
         </ListItem>
       </Link>
     </List>
     <Divider />
     <List>
-      <Link to='/about' className='router-link'>
+      <Link to="/about" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <HelpIcon />
           </ListItemIcon>
-          <ListItemText primary='About' />
+          <ListItemText primary="About" />
         </ListItem>
       </Link>
-      <Link to='/legal' className='router-link'>
+      <Link to="/legal" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <GavelIcon />
           </ListItemIcon>
-          <ListItemText primary='Legal' />
+          <ListItemText primary="Legal" />
         </ListItem>
       </Link>
-      <Link to='/in-memory' className='router-link'>
+      <Link to="/in-memory" className="router-link">
         <ListItem button>
           <ListItemIcon>
             <FavoriteIcon />
           </ListItemIcon>
-          <ListItemText primary='In Memory' />
+          <ListItemText primary="In Memory" />
         </ListItem>
       </Link>
     </List>
   </div>
 )
 
-const withDrawer = function (PageComponent) {
+const withDrawer = function(PageComponent) {
   const WrapDrawerComponent = props => {
     return (
       <div>
@@ -77,7 +77,7 @@ const withDrawer = function (PageComponent) {
         <Drawer open={props.open} onRequestClose={props.toggleDrawer}>
           <div
             tabIndex={0}
-            role='button'
+            role="button"
             onClick={props.toggleDrawer}
             onKeyDown={props.toggleDrawer}
           >
