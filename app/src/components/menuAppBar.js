@@ -33,7 +33,7 @@ const MenuAppBar = props => {
   const { classes } = props
   const secondaryMenu = propOr(null, 'secondaryMenu', props)
   return (
-    <div className={classes.root}>
+    <div id="menu-container" className={classes.root}>
       <AppBar position="fixed">
         <Toolbar>
           <IconButton
