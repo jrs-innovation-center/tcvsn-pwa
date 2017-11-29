@@ -80,7 +80,7 @@ class ShowResource extends React.Component {
             <DialogTitle>{'Delete'}</DialogTitle>
             <DialogContent>
               <DialogContentText>
-                {'Are you sure you want to delete this category?'}
+                {'Are you sure you want to delete this Resource?'}
               </DialogContentText>
             </DialogContent>
             <DialogActions>
