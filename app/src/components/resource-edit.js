@@ -8,7 +8,7 @@ import Select from 'material-ui/Select'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
 import SaveIcon from 'material-ui-icons/Save'
-import { assoc, isEmpty, map } from 'ramda'
+import { assoc, isEmpty, map, reduce } from 'ramda'
 
 const styles = theme => ({
   input: {
@@ -20,7 +20,7 @@ const styles = theme => ({
 })
 
 const categoryMenuItem = category => {
-  return <MenuItem value={category.name}>{category.name}</MenuItem>
+  return <MenuItem value={category._id}>{category.name}</MenuItem>
 }
 
 class EditResourceForm extends React.Component {
@@ -116,7 +116,7 @@ class EditResourceForm extends React.Component {
           fab
           color="primary"
           type="submit"
-          aria-label="add"
+          aria-label="edit"
           className="fab-button"
           disabled={this.props.isActive}
         >
