@@ -127,7 +127,7 @@ class EditResourceForm extends React.Component {
   }
 }
 
-ResourceForm.propTypes = {
+EditResourceForm.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
