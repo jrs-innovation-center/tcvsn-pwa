@@ -6,6 +6,15 @@ const db = new PouchDB(process.env.COUCHDB_URL + process.env.COUCHDB_NAME)
 
 db.bulkDocs([
   {
+    _id: 'category_government',
+    type: 'category',
+    name: 'Government',
+    shortDesc: 'advocates for issues relevant to veterans',
+    desc:
+      'Government includes federal and state representatives who advocate for issues relevant to veterans, especially in relation to benefits.',
+    icon: 'add_circle'
+  },
+  {
     _id: 'category_rehabilitative_and_recreational_therapy',
     type: 'category',
     name: 'Rehabilitative and Recreational Therapy',
@@ -221,14 +230,16 @@ db.bulkDocs([
         name: 'Selena Wilson',
         office: 'One80 Place',
         title: 'Chief Program Officer',
-        phone: [
-          {
-            mainLine: '843-723-9477',
-            'Supportive Services for Veterans & Families (SSVF) Hotline':
-              '843-212-8668'
-          }
-        ],
+        phone: '843-723-9477',
         email: 'swilson@one80place.org',
+        isPrimary: false
+      },
+      {
+        name: 'Supportive Services for Veterans & Families (SSVF) Hotline',
+        office: 'One80 Place',
+        title: null,
+        phone: '843-212-8668',
+        email: null,
         isPrimary: true
       }
     ],
@@ -369,45 +380,6 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_goodwill_industries_of_lower_south_carolina',
-    type: 'resource',
-    organization: 'community resource',
-    categoryId: 'category_basic-needs-assistance',
-    name: 'Goodwill',
-    formalName: 'Goodwill Industries of Lower South Carolina',
-    shortDesc: 'employment training',
-    purpose:
-      'The Palmetto Goodwill mission is to help people “achieve their full potential through the dignity and power of work.” This mission is achieved through employment training and job placement in 18 counties across South Carolina, helping recent graduates of work training programs face the challenges of preparing for the work force and maintaining steady employment to improve financial stability and well-being. Palmetto Goodwill staff offer assistance in career coaching, vocational assessment, skills training and job placement, case management, and training.',
-    website: 'www.palmettogoodwill.org',
-    contacts: [
-      {
-        name: 'Manish Mazyck',
-        office: 'Palmetto Goodwill',
-        title: 'Veteran Employment Specialist',
-        phone: '843-556-0072',
-        email: 'mmazyck@palmettogoodwill.org',
-        isPrimary: true
-      }
-    ],
-    addresses: [
-      {
-        location: 'Palmetto Goodwill',
-        street: '2150 Eagle Drive., Building 100',
-        city: 'North Charleston',
-        state: 'SC',
-        zip: '29406',
-        isPrimary: true
-      }
-    ],
-    rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
-  },
-  {
     _id: "resource_my_sister's_house,_inc.",
     type: 'resource',
     organization: 'community resource',
@@ -423,14 +395,24 @@ db.bulkDocs([
         name: null,
         office: null,
         title: null,
-        phone: [
-          {
-            phone1: '843-767-4069',
-            phone2: '843-744-3242',
-            '24-hour crisis hotline': '800-273-HOPE'
-          }
-        ],
-        email: 'hope@mysistershouse.com',
+        phone: '843-767-4069',
+        email: null,
+        isPrimary: false
+      },
+      {
+        name: null,
+        office: null,
+        title: null,
+        phone: '843-744-3242',
+        email: null,
+        isPrimary: false
+      },
+      {
+        name: '24-hour Crisis Hotline',
+        office: null,
+        title: null,
+        phone: '843-273-HOPE',
+        email: null,
         isPrimary: true
       }
     ],
@@ -476,7 +458,7 @@ db.bulkDocs([
     ],
     addresses: [
       {
-        location: 'Navel Weapons Station',
+        location: 'Naval Weapons Station',
         street: '1004 Jefferson Avenue, Building 717',
         city: 'Goose Creek',
         state: 'SC',
@@ -516,7 +498,7 @@ db.bulkDocs([
     ],
     addresses: [
       {
-        location: 'Navel Weapons Station',
+        location: 'Naval Weapons Station',
         street: '1004 Jefferson Avenue, Building 717',
         city: 'Goose Creek',
         state: 'SC',
@@ -562,13 +544,6 @@ db.bulkDocs([
         zip: '29407',
         isPrimary: true
       }
-    ],
-    rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
     ]
   },
   {
@@ -597,7 +572,7 @@ db.bulkDocs([
         title: 'Veterans Advocate',
         phone: '803-299-0506',
         email: 'gina.marshall@sebapro.com',
-        isPrimary: true
+        isPrimary: false
       }
     ],
     addresses: [
@@ -912,15 +887,27 @@ db.bulkDocs([
     contacts: [
       {
         name: 'Chuck Alexander',
-        office: null,
+        office: 'SC Works Charleston Center',
         title: null,
-        phone: [
-          { charlestonCounty: '843-574-1800' },
-          { berkeleyCounty: '843-761-4400' },
-          { dorchesterCounty: '843-821-0695' }
-        ],
+        phone: '843-574-1800',
         email: 'calexander@dew.sc.gov',
         isPrimary: true
+      },
+      {
+        name: null,
+        office: 'SC Works Berkeley Center',
+        title: null,
+        phone: '843-761-4400',
+        email: null,
+        isPrimary: false
+      },
+      {
+        name: null,
+        office: 'SC Works Dorchester Center',
+        title: null,
+        phone: '843-821-0695',
+        email: null,
+        isPrimary: false
       }
     ],
     addresses: [
@@ -970,14 +957,19 @@ db.bulkDocs([
     contacts: [
       {
         name: null,
-        office: null,
+        office: 'Charleston County Center',
         title: null,
-        phone: [
-          { charlestonCounty: '843-740-1600' },
-          { 'berkeley-dorchesterCounty': '843-761-6036' }
-        ],
+        phone: '843-740-1600',
         email: null,
         isPrimary: true
+      },
+      {
+        name: null,
+        office: 'Berkeley-Dorchester Road',
+        title: null,
+        phone: '843-761-6036',
+        email: null,
+        isPrimary: false
       }
     ],
     addresses: [
@@ -995,14 +987,6 @@ db.bulkDocs([
         city: 'Moncks Corner',
         state: 'SC',
         zip: '29461',
-        isPrimary: false
-      },
-      {
-        location: 'SC Works Dorchester Center',
-        street: '2885 West 5th North Street, Highway 78',
-        city: 'Summerville',
-        state: 'SC',
-        zip: '29483',
         isPrimary: false
       }
     ],
@@ -1169,6 +1153,125 @@ db.bulkDocs([
         city: 'Folly Beach',
         state: 'SC',
         zip: '29439',
+        isPrimary: true
+      }
+    ],
+    rank: null,
+    faq: [
+      {
+        question: null,
+        answer: null
+      }
+    ]
+  },
+  {
+    _id: 'resource_office_of_senator_lindsey_graham',
+    type: 'resource',
+    organization: 'general',
+    categoryId: 'category_government',
+    name: 'Senator Lindsey Graham',
+    formalName: 'Office of Senator Lindsey Graham',
+    shortDesc:
+      'dedicated to assisting veterans and their family members meeting their needs.',
+    purpose:
+      'The Office of Senator Lindsey Graham is dedicated to assisting veterans and their family members meeting their needs. These resources include filing for VA benefits and medical claims, applying to receive the Montgomery GI Bill to pursue higher education, receiving assistance with suicide prevention, filing for survival benefits, accessing military records, and receiving benefits from awards earned while in the service.',
+    website: 'http://www.lgraham.senate.gov/public/',
+    contacts: [
+      {
+        name: null,
+        office: 'Office of Senator Lindsey Graham',
+        title: null,
+        phone: '843-849-3887',
+        email: null,
+        isPrimary: true
+      }
+    ],
+    addresses: [
+      {
+        location: null,
+        street: '530 Johnnie Dodds Blvd., Suite 202',
+        city: 'Mt. Pleasant',
+        state: 'SC',
+        zip: '29464',
+        isPrimary: true
+      }
+    ],
+    rank: null,
+    faq: [
+      {
+        question: null,
+        answer: null
+      }
+    ]
+  },
+  {
+    _id: 'resource_office_of_congressman_sanford',
+    type: 'resource',
+    organization: 'general',
+    categoryId: 'category_government',
+    name: 'Congressman Sanford',
+    formalName: 'Office of Congressman Sanford',
+    shortDesc:
+      'focusing on various issues pertinent to the population of Charleston and surrounding areas of the Lowcountry.',
+    purpose:
+      'Congressman Mark Sanford serves the First District of South Carolina, focusing on various issues pertinent to the population of Charleston and surrounding areas of the Lowcountry.',
+    website: 'http://sanford.house.gov/resources/veterans-resources',
+    contacts: [
+      {
+        name: null,
+        office: 'Office of Congressman Sanford',
+        title: null,
+        phone: '843-352-7572',
+        email: null,
+        isPrimary: true
+      }
+    ],
+    addresses: [
+      {
+        location: null,
+        street: '530 Johnnie Dodds Blvd., Suite 202',
+        city: 'Mt. Pleasant',
+        state: 'SC',
+        zip: '29464',
+        isPrimary: true
+      }
+    ],
+    rank: null,
+    faq: [
+      {
+        question: null,
+        answer: null
+      }
+    ]
+  },
+  {
+    _id: 'resource_office_of_senator_tim_scott',
+    type: 'resource',
+    organization: 'general',
+    categoryId: 'category_government',
+    name: 'Senator Tim Scott',
+    formalName: 'Office of Senator Tim Scott',
+    shortDesc: 'dedicated to assisting veterans',
+    purpose:
+      'The Office of Senator Tim Scott is dedicated to assisting veterans. These resources include filing for VA benefits and medical claims, applying to receive the Montgomery GI Bill to pursue higher education, receiving assistance with suicide prevention, filing for survival benefits, accessing military records, and receiving benefits from awards earned while attached to the service.',
+    website: 'http://www.scott.senate.gov/resources/veterans',
+    contacts: [
+      {
+        name: 'Roger Yongue',
+        office: null,
+        title: null,
+        phone: '843-727-4525',
+        email: 'Roger_Yongue@scott.senate.gov',
+        isPrimary: true
+      }
+    ],
+    addresses: [
+      {
+        location: null,
+        street: '2500 City Hall Lane, 3rd Floor Suite',
+        city: 'North Charleston',
+        state: 'SC',
+        zip: '29406',
         isPrimary: true
       }
     ],
