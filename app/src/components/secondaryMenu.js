@@ -59,17 +59,29 @@ class SecondaryMenu extends React.Component {
           }}
         >
           {map(
-            action => (
-              <Link
-                key={action.name}
-                to={action.link}
-                className="no-underline no-focus"
-              >
-                <MenuItem onClick={this.handleRequestClose}>
-                  {action.name}
-                </MenuItem>
-              </Link>
-            ),
+            action =>
+              action.link ? (
+                <Link
+                  key={action.name}
+                  to={action.link}
+                  className="no-underline no-focus"
+                >
+                  <MenuItem onClick={this.handleRequestClose}>
+                    {action.name}
+                  </MenuItem>
+                </Link>
+              ) : (
+                <Link
+                  key={action.name}
+                  to={'#'}
+                  onClick={action.fn}
+                  className="no-underline no-focus"
+                >
+                  <MenuItem onClick={this.handleRequestClose}>
+                    {action.name}
+                  </MenuItem>
+                </Link>
+              ),
             actions
           )}
         </Menu>

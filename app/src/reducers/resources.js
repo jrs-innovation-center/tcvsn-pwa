@@ -4,10 +4,11 @@ import {
   UPDATE_NEW_RES_FORM,
   IS_ACTIVE,
   SET_EDIT_RESOURCE,
+  CONFIRM_RESOURCE_DELETE,
   ONCHANGE_EDIT_RES_FORM
 } from '../constants'
 
-import { merge } from 'ramda'
+import { merge, not } from 'ramda'
 
 export const resources = (state = [], action) => {
   // {type: SET_RESOURCES, payload: resources??? }
@@ -24,6 +25,9 @@ export const currentResource = (state = {}, action) => {
   switch (action.type) {
     case SET_CURRENT_RESOURCE:
       return action.payload
+    case CONFIRM_RESOURCE_DELETE:
+      console.log('CONFIRM_RESOURCE_DELETE')
+      return merge(state, { confirmDelete: not(state.confirmDelete) })
     default:
       return state
   }
@@ -53,14 +57,14 @@ export const newResource = (state = newResourceDefault, action) => {
 export const editResource = (state = newResourceDefault, action) => {
   switch (action.type) {
     case SET_EDIT_RESOURCE:
-      //console.log('SET_EDIT_RESOURCE', action.payload)
+      // console.log('SET_EDIT_RESOURCE', action.payload)
       return action.payload
     case ONCHANGE_EDIT_RES_FORM:
-      //console.log('ACTION', action.payload)
-      //console.log('STATE', state)
+      // console.log('ACTION', action.payload)
+      // console.log('STATE', state)
       return merge(state, action.payload)
     case SET_RESOURCES:
-      //console.log('YOU SHOULD NOT BE HERE! SET_RESOURCES')
+      // console.log('YOU SHOULD NOT BE HERE! SET_RESOURCES')
       return newResourceDefault
     default:
       return state

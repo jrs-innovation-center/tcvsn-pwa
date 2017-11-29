@@ -20,17 +20,12 @@ class EditResource extends React.Component {
     this.props.onMount()
     const id = this.props.match.params.id
     this.props.setEditResource(id)
-    //this.props.isSubmitActive()
+    // this.props.isSubmitActive()
   }
   render() {
     return (
       <div>
-        <MenuAppBar
-          title="Edit Resource"
-          search={true}
-          goBack={true}
-          {...this.props}
-        />
+        <MenuAppBar title="Edit Resource" search goBack {...this.props} />
         <EditResourceForm
           onChange={this.props.onChange}
           editResource={this.props.editResource}

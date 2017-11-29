@@ -17,7 +17,11 @@ class CategoryForm extends React.Component {
   render() {
     const { classes } = this.props
     return (
-      <form style={{ marginTop: 8 }} onSubmit={this.props.createCategory}>
+      <form
+        style={{ marginTop: 8 }}
+        autoComplete="off"
+        onSubmit={this.props.createCategory}
+      >
         <TextField
           label="Name"
           value={this.props.category.name}
@@ -62,11 +66,11 @@ class CategoryForm extends React.Component {
         />
         <Button
           fab
-          disabled={this.props.isActive}
-          className="fab-button"
           color="primary"
-          aria-label="add"
           type="submit"
+          aria-label="add"
+          className="fab-button"
+          disabled={this.props.isActive}
         >
           <SaveIcon />
         </Button>

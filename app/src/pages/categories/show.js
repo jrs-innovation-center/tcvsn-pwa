@@ -63,11 +63,11 @@ class ShowCategory extends React.Component {
       {
         name: 'Edit',
         link: `/categories/${this.props.currentCategory._id}/edit`
-      },
-      {
-        name: 'Delete',
-        link: `/categories/${this.props.currentCategory._id}/delete`
       }
+      // {
+      //   name: 'Delete',
+      //   link: `/categories/${this.props.currentCategory._id}/delete`
+      // }
     ]
 
     if (path(['currentCategory', '_id'], this.props) === currentID) {

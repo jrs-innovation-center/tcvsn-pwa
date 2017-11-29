@@ -14,7 +14,7 @@ const url = process.env.REACT_APP_BASE_URL
 export const setCategories = async (dispatch, getState) => {
   const response = await fetch(`${url}/categories`).then(res => res.json())
   dispatch({ type: SET_CATEGORIES, payload: response })
-  //history.push('/categories')
+  // history.push('/categories')
 }
 
 export const setCurrentCategory = id => async (dispatch, getState) => {
@@ -39,7 +39,7 @@ export const createCategory = async (dispatch, getState) => {
     return
   }
   dispatch(setCategories)
-  //dispatch({ type: IS_ACTIVE, payload: true })
+  // dispatch({ type: IS_ACTIVE, payload: true })
   history.push('/categories')
 }
 
@@ -64,7 +64,7 @@ export const updateCategory = data => async (dispatch, getState) => {
 
   if (result.ok) {
     dispatch(setCategories)
-    //dispatch({ type: IS_ACTIVE, payload: true })
+    // dispatch({ type: IS_ACTIVE, payload: true })
     history.push('/categories/' + data._id)
   } else {
     // handle error
