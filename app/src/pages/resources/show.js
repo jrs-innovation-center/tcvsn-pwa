@@ -63,7 +63,7 @@ class ShowResource extends React.Component {
             {...this.props}
           />
           <ResourceCard data={this.props.currentResource} />
-          <Link to={`/resources/${this.props.currentResource._id}/edit`}>
+          <a href="tel:+1-978-793-2472">
             <Button
               fab
               color="secondary"
@@ -72,7 +72,7 @@ class ShowResource extends React.Component {
             >
               <PhoneIcon />
             </Button>
-          </Link>
+          </a>
           <Dialog
             open={this.props.currentResource.confirmDelete}
             onRequestClose={this.props.toggleConfirmDelete}
@@ -89,8 +89,7 @@ class ShowResource extends React.Component {
               </Button>
               <Button
                 onClick={() =>
-                  this.props.deleteResource(this.props.currentResource._id)
-                }
+                  this.props.deleteResource(this.props.currentResource._id)}
                 color="primary"
                 autoFocus
               >
