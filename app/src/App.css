@@ -8,6 +8,9 @@
 .italic {
   font-style: italic;
 }
+#menu-container {
+  margin-top: 64px;
+}
 .container {
   max-width: 95%;
   width: 95%;
@@ -48,4 +51,10 @@
   left: 0;
   right: 0;
   position: relative;
+}
+
+@media screen and (max-width: 599px) {
+  #menu-container {
+    margin-top: 56px;
+  }
 }
