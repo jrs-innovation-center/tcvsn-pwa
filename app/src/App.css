@@ -52,6 +52,7 @@
   right: 0;
   position: relative;
 }
+
 @media screen and (max-width: 599px) {
   #menu-container {
     margin-top: 56px;

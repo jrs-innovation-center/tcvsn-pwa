@@ -12,7 +12,6 @@ import { propOr, isNil } from 'ramda'
 
 const styles = theme => ({
   root: {
-    marginTop: 55,
     width: '100%'
   },
   flex: {
