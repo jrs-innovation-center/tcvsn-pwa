@@ -90,6 +90,19 @@ class EditResourceForm extends React.Component {
           multiline
         />
         <TextField
+          name="primaryPhone"
+          label="Primary Phone"
+          value={this.props.editResource.primaryPhone}
+          onChange={e => {
+            this.props.onChange('primaryPhone', e.target.value)
+          }}
+          margin="normal"
+          className={classes.input}
+          required
+          multiline
+        />
+
+        <TextField
           name="purpose"
           label="Purpose"
           value={this.props.editResource.purpose}
