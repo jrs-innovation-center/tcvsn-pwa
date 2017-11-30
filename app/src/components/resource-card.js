@@ -1,17 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
-import Card, {
-  CardActions,
-  CardContent,
-  CardMedia,
-  CardHeader
-} from 'material-ui/Card'
+import Collapse from 'material-ui/transitions/Collapse';
+import {withStyles} from 'material-ui/styles'
+import Card, {CardActions, CardContent, CardMedia, CardHeader} from 'material-ui/Card'
+import {connect} from 'react-redux'
 import Avatar from 'material-ui/Avatar'
+import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
 import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
+import MoreVertIcon from 'material-ui-icons/MoreVert';
+import IconButton from 'material-ui/IconButton';
 import {
   not,
   isNil,
@@ -23,7 +22,8 @@ import {
   compose,
   toLower,
   join,
-  split
+  split,
+  pathOr
 } from 'ramda'
 
 const styles = {
@@ -41,59 +41,82 @@ const styles = {
   }
 }
 
-function SimpleMediaCard(props) {
-  const websiteButton = not(isNil(props.data.website)) ? (
-    <Button dense color="primary" href={props.data.website} target="_blank">
-      Website
-    </Button>
-  ) : null
-  const { classes } = props
-  const removeArticles = arrData =>
-    contains(head(arrData), ['the', 'a', 'an']) ? drop(1, arrData) : arrData
-  return (
-    <div>
-      <Card className={classes.card} style={{ marginBottom: 32 }}>
-        <CardMedia
-          className={classes.media}
-          image="http://i.cubeupload.com/aEVXss.jpg"
-          title="Static Map"
-        />
-        <CardHeader
-          classes={{
-            title: classes.cardHeader
-          }}
-          avatar={
-            <Avatar
-              aria-label="Resource"
-              classes={{
+function removeArticles(arrData) {
+  return contains(head(arrData), ['the', 'a', 'an'])
+    ? drop(1, arrData)
+    : arrData
+}
+
+class ActionCard extends React.Component {
+  state = {
+    expanded: false
+  };
+
+  handleExpandClick = () => {
+    this.setState({
+      expanded: !this.state.expanded
+    });
+    console.log("the expaned state:", this.state.expanded)
+  };
+
+  render() {
+    const {classes} = this.props
+    const websiteButton = pathOr(null, [
+      'data', 'website'
+    ], this.props)
+      ? (
+        <Button dense color="primary" href={this.props.data.website} target="_blank">Website
+        </Button>
+      )
+      : null
+    return (
+      <div>
+        <Card className={classes.card} style={{
+          marginBottom: 32
+        }}>
+          <CardMedia
+            className={classes.media}
+            image="http://i.cubeupload.com/aEVXss.jpg"
+            title="Static Map"/>
+          <CardActions className="flex">
+            <IconButton aria-label="Add to favorites">
+              <Avatar
+                aria-label="Resource"
+                classes={{
                 colorDefault: classes.avatarColor
-              }}
-            >
-              {compose(
-                toUpper(),
-                slice(0, 1),
-                join(' '),
-                removeArticles,
-                split(' '),
-                toLower()
-              )(props.data.name)}
-            </Avatar>
-          }
-          title={props.data.formalName}
-          subheader={props.data.shortDesc}
-        />
-        <CardContent>
-          <Typography component="p">{props.data.purpose}</Typography>
-        </CardContent>
-        <CardActions>{websiteButton}</CardActions>
-      </Card>
-    </div>
-  )
+              }}>
+                {compose(toUpper(), slice(0, 1), join(' '), removeArticles, split(' '), toLower())(this.props.data.name)}
+              </Avatar>
+            </IconButton>
+            <Typography>
+              <Typography type="headline">{this.props.data.formalName}</Typography>
+              <Typography type="subheading" color="secondary">
+                {this.props.data.shortDesc}
+              </Typography>
+            </Typography>
+            <IconButton
+              aria-label="Show more"
+              onClick={this.handleExpandClick}
+              aria-expanded={this.state.expanded}>
+              <ExpandMoreIcon/>
+            </IconButton>
+          </CardActions>
+          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+
+              <Typography paragraph>
+                {this.props.data.purpose}
+              </Typography>
+
+            </CardContent>
+          </Collapse>
+          <CardActions>{websiteButton}</CardActions>
+        </Card>
+      </div>
+    )
+  }
 }
 
-SimpleMediaCard.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-
+const connector = connect(state => state)
 // export default withStyles(styles)(SimpleMediaCard);
-export default withRoot(withDrawer(withStyles(styles)(SimpleMediaCard)))
+export default withRoot(withDrawer(withStyles(styles)(connector(ActionCard))))
