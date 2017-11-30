@@ -1,0 +1,17 @@
+{
+  "name": "tcvsn-pwa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:jrs-innovation-center/tcvsn-pwa.git",
+  "author": "Tom Wilson <tom@jackhq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "foreman": "^2.0.0"
+  },
+  "scripts": {
+    "start": "nf start",
+    "setup": "cd api && yarn load",
+    "db":
+      "docker run -p 5984:5984 -v $(pwd)/data:/opt/couchdb/data apache/couchdb"
+  }
+}
