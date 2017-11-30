@@ -9,6 +9,7 @@ import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
 import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
+import {ListItemText} from 'material-ui/List'
 import MoreVertIcon from 'material-ui-icons/MoreVert';
 import IconButton from 'material-ui/IconButton';
 import {
@@ -35,6 +36,12 @@ const styles = {
   },
   media: {
     height: '40vh'
+  },
+  content: {
+    flex: '1 0 auto'
+  },
+  controls: {
+    display: 'flex'
   },
   avatarColor: {
     backgroundColor: '#607d8b'
@@ -78,7 +85,7 @@ class ActionCard extends React.Component {
             className={classes.media}
             image="http://i.cubeupload.com/aEVXss.jpg"
             title="Static Map"/>
-          <CardActions className="flex">
+          <CardActions>
             <IconButton aria-label="Add to favorites">
               <Avatar
                 aria-label="Resource"
@@ -88,12 +95,10 @@ class ActionCard extends React.Component {
                 {compose(toUpper(), slice(0, 1), join(' '), removeArticles, split(' '), toLower())(this.props.data.name)}
               </Avatar>
             </IconButton>
-            <Typography>
-              <Typography type="headline">{this.props.data.formalName}</Typography>
-              <Typography type="subheading" color="secondary">
-                {this.props.data.shortDesc}
-              </Typography>
-            </Typography>
+            <ListItemText
+              primary={this.props.data.formalName}
+              secondary={this.props.data.shortDesc}/>
+
             <IconButton
               aria-label="Show more"
               onClick={this.handleExpandClick}
@@ -117,6 +122,6 @@ class ActionCard extends React.Component {
   }
 }
 
-const connector = connect(state => state)
-// export default withStyles(styles)(SimpleMediaCard);
-export default withRoot(withDrawer(withStyles(styles)(connector(ActionCard))))
+// const connector = connect(state => state) export default
+// withStyles(styles)(SimpleMediaCard);
+export default withRoot(withDrawer(withStyles(styles)(ActionCard)))
