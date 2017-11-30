@@ -4,10 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "load": "node load-data.js",
-    "loadIndex": "node load-indexes.js",
+    "load": "npm run load:data && npm run load:indexes",
+    "load:data": "node load-data.js",
+    "load:indexes": "node load-indexes.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
