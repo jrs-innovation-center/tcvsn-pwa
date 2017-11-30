@@ -1,0 +1,15 @@
+{
+  "main": [
+    { "text": "Summary", "url": "/summary" },
+    { "text": "User Stories", "url": "/user-stories" },
+    { "text": "WireFrames", "url": "/wireframes" },
+    { "text": "API", "url": "/api" }
+  ],
+  "sub": [
+    { "text": "StyleGuide", "url": "/guide" },
+    { "text": "Technology", "url": "/stack" },
+    { "text": "Setup", "url": "/setup" },
+    { "text": "Testing", "url": "/testing" },
+    { "text": "Deploy", "url": "/deploy" }
+  ]
+}
