@@ -9,8 +9,7 @@ import { Link } from 'react-router-dom'
 props.actions = [
 {name: 'Edit', link: '/resources/???/edit'},
 {name: 'Delete, link: '/resources/???/delete'}
-]
-*/
+]*/
 
 const ITEM_HEIGHT = 48
 
