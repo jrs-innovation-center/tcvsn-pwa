@@ -137,8 +137,8 @@ Date are formatted to the ISO 8601 standard.
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | GET    | Use to retrieve all resources (organizations) and resource categories via `\resources`, `\categories` and a single resource and a single category via `\resources\{id}`, and `\categories\{id}`. |
 | POST   | Used to create a resource (organization) and resource category via `\resources` and `\categories`.                                                                                               |
-| PUT    | Used to update a resource (organization) and resource category via `\resources\{id}` and a breed via `\categories\{id}`.                                                                         |
-| DELETE | Used to delete `\resources\{id}` and `\categories\{id}`.                                                                                                                                         |
+| PUT    | Used to update a resource (organization) and resource category via `\resources\{id}` and `\categories\{id}`.                                                                         |
+| DELETE | Used to delete a single resource and a single resource category via `\resources\{id}` and `\categories\{id}`.                                                                                                                                         |
 
 ### Content Types
 
