@@ -12,7 +12,7 @@ that same spirit of excellence.
 ## Getting Started
 
 Instructions on how to get a developer up and running on the Veteran Resource
-Base API api in a local, development environment.
+Base API in a local, development environment.
 
 > The instructions assume node >= 7x and you have access to a CouchDB
 > installation on either your local machine or in the cloud as a DBaas, such as
@@ -84,20 +84,18 @@ within the **package.json** for details:
 
 **YARN EXAMPLE**
 
-```
-$ yarn
-$ yarn load
-$ yarn loadIndex
-$ yarn start
+```bash
+yarn
+yarn load
+yarn start
 ```
 
 **NPM EXAMPLE**
 
 ```
-$ npm install
-$ npm run load
-$ npm run loadIndex
-$ npm start
+npm install
+npm run load
+npm start
 ```
 
 Check your terminal and verify the API starts. Attempt the following HTTP
@@ -105,6 +103,13 @@ requests using a client such as your browser or POSTman.
 
 ```
 GET http://localhost:5000/resources
+```
+
+## Generating api-docs
+
+```
+yarn docs
+yarn md-docs
 ```
 
 ## Basics
@@ -137,8 +142,8 @@ Date are formatted to the ISO 8601 standard.
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | GET    | Use to retrieve all resources (organizations) and resource categories via `\resources`, `\categories` and a single resource and a single category via `\resources\{id}`, and `\categories\{id}`. |
 | POST   | Used to create a resource (organization) and resource category via `\resources` and `\categories`.                                                                                               |
-| PUT    | Used to update a resource (organization) and resource category via `\resources\{id}` and a breed via `\categories\{id}`.                                                                         |
-| DELETE | Used to delete `\resources\{id}` and `\categories\{id}`.                                                                                                                                         |
+| PUT    | Used to update a resource (organization) and resource category via `\resources\{id}` and `\categories\{id}`.                                                                         |
+| DELETE | Used to delete a single resource and a single resource category via `\resources\{id}` and `\categories\{id}`.                                                                                                                                         |
 
 ### Content Types
 

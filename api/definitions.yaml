@@ -1,0 +1,59 @@
+definitions:
+  Resource:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+      categoryId:
+        type: "string"
+        description: "reference identifier to category doc"
+      name:
+        type: "string"
+        description: "name of resource for veteran"
+      formalName:
+        type: "string"
+        description: "Long Name description of resource"
+      shortDesc:
+        type: "string"
+        description: "Short Name of resource"
+      purpose:
+        type: "string"
+        description: "long description of resource"
+      website:
+        type: "string:"
+        description: "url of website"
+      primaryPhone:
+        type: "string"
+        description: "primary contact phone number"
+      rank:
+        type: "integer"
+        description: "resource rank"
+      faq:
+        type: "array"
+        items:
+          $ref: "#/definitions/Faq"
+  Faq:
+    type: "object"
+    properties:
+      _id:
+        type: "string"
+      question:
+        type: "string:"
+        description: "Frequently Asked Question"
+      answer:
+        type: "string"
+        description: "Answer to question"
+  Category:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"
+        description: "name of category"
+      shortDesc:
+        type: "string"
+        description: "short description of category"
+      icon:
+        type: "string"
+        description: "icon class name"
