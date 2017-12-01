@@ -26,7 +26,10 @@ class Resources extends React.Component {
       <div>
         <MenuAppBar title="Resources" search />
         <List style={{ padding: 0, marginBottom: 60 }}>
-          {map(ResourceItem, sorter(this.props.resources))}
+          {map(
+            resource => <ResourceItem resource={resource} />,
+            sorter(this.props.resources)
+          )}
         </List>
         <Link to="/resources/new">
           <Button fab color="primary" aria-label="add" className="fab-button">
