@@ -44,8 +44,6 @@ const newResourceDefault = {
 export const newResource = (state = newResourceDefault, action) => {
   switch (action.type) {
     case UPDATE_NEW_RES_FORM:
-      console.log('ACTION', action.payload)
-      console.log('STATE', state)
       return merge(state, action.payload)
     case SET_RESOURCES:
       return newResourceDefault
