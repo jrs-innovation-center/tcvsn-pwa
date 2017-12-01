@@ -59,7 +59,7 @@ cd app
 echo REACT_APP_BASE_URL=http://localhost:5000
 ```
 
-We display a map of the veteran resource at the top of the resource card.  You also need the api key for google maps.  Contact @twilsom63 or @tripott for the secret. 
+We display a map of the veteran resource at the top of the resource card.  You also need the api key for google maps.  Contact @twilson63 or @tripott for the secret. 
 
 ```bash
 echo REACT_APP_MAP=<contact a repo admin for secret>
