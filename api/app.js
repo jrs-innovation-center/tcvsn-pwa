@@ -232,7 +232,6 @@ app.put('/categories/:id', (req, res, next) => {
 
 app.delete('/categories/:id', async (req, res, next) => {
   const resources = await checkCategoryId(req.params.id)
-  console.log(resources)
   if (resources === 0) {
     deleteCategory(path(['params', 'id'], req))
       .then(result => res.status(200).send(result))
@@ -269,4 +268,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500).send(err)
 })
 
-app.listen(port, () => console.log('Im up and ready to go on port ', port))
+if (!module.parent) {
+  app.listen(port, () => console.log('Im up and ready to go on port ', port))
+}
+
+module.exports = app
