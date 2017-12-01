@@ -12,7 +12,7 @@ that same spirit of excellence.
 ## Getting Started
 
 Instructions on how to get a developer up and running on the Veteran Resource
-Base API api in a local, development environment.
+Base API in a local, development environment.
 
 > The instructions assume node >= 7x and you have access to a CouchDB
 > installation on either your local machine or in the cloud as a DBaas, such as
