@@ -1,3 +1,32 @@
+# Veteran Support Base App
+
+The purpose of the application is to provide a way to veteran support networks to provide resources and support for their local veteran community.
+
+This is the application that provides the front end experience of the Veteran Support Base application. The current focus is the Mobile Look and Feel with a fall back to responsive sizes.  We use React and [Material-UI](https://material-ui-next.com/)
+React components to implement Google's Material Design user experience. 
+
+## Setup 
+
+If you havent already done so, install the yarn cli from npm.  Then use the yarn cli to install the dependecies for the react 
+
+> NodeJS is required, you can install from https://nodejs.org 
+
+``` bash
+npm install yarn -g
+yarn
+```
+
+## Run in Development Mode 
+
+> Make sure you have you environment variables setup - `REACT_APP_MAP` and `RREACT_APP_BASE_URL`
+
+
+``` bash
+yarn start
+```
+
+## Create React App Documentation 
+
 This project was bootstrapped with
 [Create React App](https://github.com/facebookincubator/create-react-app).
 
