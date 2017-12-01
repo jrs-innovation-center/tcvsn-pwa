@@ -13,7 +13,7 @@ const {
 const getAllCategories = options => allDocs(options || { include_docs: true })
 
 const createResource = resource => {
-  resource._id = pkGenerator('resource_', resource.formalName)
+  resource._id = pkGenerator('resource_', resource.name)
   return create(resource)
 }
 const getResource = id => get(id)

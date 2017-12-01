@@ -59,7 +59,7 @@ db.bulkDocs([
   },
 
   {
-    _id: 'category_peer support_and_recreation',
+    _id: 'category_peer_support_and_recreation',
     type: 'category',
     name: 'Peer Support and Recreation',
     shortDesc:
@@ -155,8 +155,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id:
-      'resource_airman_and_family_readiness_center_transition_assistance_program',
+    _id: 'resource_tap',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -171,7 +170,7 @@ db.bulkDocs([
     contacts: [
       {
         name: null,
-        office: 'Airman & Family Readiness Center',
+        office: 'Airman and Family Readiness Center',
         title: null,
         phone: '843-963-7231',
         email: null,
@@ -197,11 +196,11 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_american_red_cross_of_the_lowcountry_sc',
+    _id: 'resource_red-cross-lowcountry-sc',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
-    name: 'Red Cross',
+    name: 'Red Cross Lowcountry SC',
     formalName: 'American Red Cross of the Lowcountry - SC',
     shortDesc: 'emergency communication and transition services',
     purpose:
@@ -236,50 +235,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id:
-      'resource_association_of_the_u.s._army,_charleston,_sc_sub-chapter_of_the_columbia_sc_chapter',
-    type: 'resource',
-    organization: 'community resource',
-    categoryId: 'category_basic-needs-assistance',
-    name: 'AUSA',
-    formalName:
-      'Association of the U.S. Army (AUSA), Charleston, SC Sub-Chapter of the Columbia SC Chapter',
-    shortDesc: 'post-transition employment services',
-    purpose:
-      'AUSA is a not-for-profit, professional, education organization devoted to helping troops, veterans, their families, and all of our armed services communities in the Low Country, SC. AUSA’s Charleston Sub-Chapter (of the Palmetto – Fort Jackson SC Chapter) helps troops and vets write resumes and cover letters, learn to network and interview effectively, follow up after interviews, and helps find suitable employment. The AUSA Charleston Sub-Chapter also adopts Army (Regular, Reserve, and National Guard) units to help identify short-term housing, ships supplies and comfort items to troops overseas, helps industries find reliable employees, hosts social events for troops and their families, distributes helpful publications for parents and spouses, and adopts the widows and widowers of troops killed in the war on terror.',
-    website: 'www.ausa.org',
-    contacts: [
-      {
-        name: 'LTC W. Larry Dandridge (Retired)',
-        office:
-          'Association of the U.S. Army (AUSA), Charleston, SC Sub-Chapter of the Columbia SC Chapter',
-        title: 'AUSA Charleston SC Chapter VP for Veterans Affairs',
-        phone: '843-276-7164',
-        email: 'LDandridge@earthlink.net',
-        isPrimary: true
-      }
-    ],
-    addresses: [
-      {
-        location:
-          'Association of the U.S. Army (AUSA), Charleston, SC Sub-Chapter of the Columbia SC Chapter',
-        street: '236 North Ainsdale Drive',
-        city: 'North Charleston',
-        state: 'SC',
-        zip: '29414',
-        isPrimary: true
-      }
-    ],
-    rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
-  },
-  {
-    _id: 'resource_one80_place',
+    _id: 'resource_one80-place',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -326,7 +282,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_church_mobilization_hub_of_charleston',
+    _id: 'resource_hub',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -365,7 +321,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_origin_sc',
+    _id: 'resource_origin-sc',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -404,12 +360,12 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_fleet_and_family_support_center',
+    _id: 'resource_ffsc',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
     name: 'FFSC',
-    formalName: 'Fleet & Family Support Center',
+    formalName: 'Fleet And Family Support Center',
     shortDesc: 'transition-related services',
     purpose:
       "The Fleet and Family Support Center (FFSC), Naval Weapons Station is the military community's primary resource for information and services. We are recognized by commands in the area as vital to the success of their mission. We serve with pride and distinction and are renowned for our superb performance. The Fleet and Family support Center assists all Reserves, Active Duty, National Guard, retired veterans and civilian employees regardless of service branch. The Transition Assistance Program (TAP) assists and prepares members separating, retiring, or demobilizing service members and their families with skills and knowledge to facilitate a successful transition from life in the military to the civilian sector. Each Family Readiness Center is staffed to provide personalized assistance for all transition-related needs of armed services members.",
@@ -444,7 +400,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: "resource_my_sister's_house,_inc.",
+    _id: "resource_my-sister's-house",
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -499,7 +455,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_navy-marine_corps_relief_society',
+    _id: 'resource_NMCRS',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -539,7 +495,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_nmcrs_combat_casualty_assistance_visiting_nurse_program',
+    _id: 'resource_cca-visiting-nurse-program',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -579,7 +535,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_the_salvation_army',
+    _id: 'resource_salvation-army',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -611,11 +567,11 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_sc_army_national_guard_family_programs',
+    _id: 'resource_sc-army-national-guard-family-programs',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
-    name: 'Family Assistance Program',
+    name: 'SC Army National Guard Family Assistance Program',
     formalName: 'SC Army National Guard-Family Programs',
     shortDesc: 'pre and post-deployment counseling',
     purpose:
@@ -658,7 +614,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_united_states_marie_corps_wounded_warrior_regiment',
+    _id: 'resource_wwr',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -698,7 +654,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_army_onesource',
+    _id: 'resource_army-onesource',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
@@ -738,7 +694,7 @@ db.bulkDocs([
   },
 
   {
-    _id: 'resource_vocational_rehabilitation_ralph_h._johson_va_medical_center',
+    _id: 'resource_vocational-rehabilitation',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_employment',
@@ -778,8 +734,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id:
-      'resource_association_of_the_u.s._army,_charleston,_sc_sub-chapter_of_the_columbia_sc_chapter',
+    _id: 'resource_AUSA-SC',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_employment',
@@ -821,7 +776,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_goodwill_industries_of_lower_south_carolina',
+    _id: 'resource_goodwill-industries-of-lower-south-carolina',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_employment',
@@ -860,7 +815,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_military_community_connection',
+    _id: 'resource_mcc',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_employment',
@@ -899,7 +854,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_operation_palmetto_employment',
+    _id: 'resource_operation-palmetto-employment',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_employment',
@@ -938,7 +893,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_sc_works_trident',
+    _id: 'resource_sc-works-trident',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_employment',
@@ -1009,7 +964,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_south_carolina_vocational_rehabilitation',
+    _id: 'resource_sc-vocational-rehabilitation',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_employment',
@@ -1063,7 +1018,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_charleston_area_therapeutic_riding, inc.',
+    _id: 'resource_catr',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_rehabilitative_and_recreational_therapy',
@@ -1103,7 +1058,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_project_healing_waters_fly_fishing',
+    _id: 'resource_phwff',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_rehabilitative_and_recreational_therapy',
@@ -1142,7 +1097,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_project_hero',
+    _id: 'resource_ride-2-recovery',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_rehabilitative_and_recreational_therapy',
@@ -1182,11 +1137,11 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_warrior_surf_foundation',
+    _id: 'resource_warrior_surf_foundation-charleston-surf-lessons',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_rehabilitative_and_recreational_therapy',
-    name: 'Charleston Surf Lessons',
+    name: 'Warrior Surf Foundation Charleston Surf Lessons',
     formalName: 'Warrior Surf Foundation - Charleston Surf Lessons',
     shortDesc: 'surf lessons for veterans',
     purpose:
@@ -1229,7 +1184,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_office_of_senator_lindsey_graham',
+    _id: 'resource_senator-lindsey-graham',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_government',
@@ -1269,7 +1224,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_office_of_congressman_sanford',
+    _id: 'resource_congressman-sanford',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_government',
@@ -1309,7 +1264,7 @@ db.bulkDocs([
     ]
   },
   {
-    _id: 'resource_office_of_senator_tim_scott',
+    _id: 'resource_senator-tim-scott',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_government',
