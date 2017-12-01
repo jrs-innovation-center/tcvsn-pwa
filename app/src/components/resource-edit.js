@@ -8,7 +8,7 @@ import Select from 'material-ui/Select'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
 import SaveIcon from 'material-ui-icons/Save'
-import { assoc, isEmpty, map, reduce } from 'ramda'
+import { map } from 'ramda'
 
 const styles = theme => ({
   input: {

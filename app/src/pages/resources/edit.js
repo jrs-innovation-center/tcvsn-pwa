@@ -4,9 +4,7 @@ import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import EditResourceForm from '../../components/resource-edit'
 import { connect } from 'react-redux'
-import { map, pathOr } from 'ramda'
 import {
-  updateEditForm,
   addEditResource,
   setEditResource,
   isActive,
