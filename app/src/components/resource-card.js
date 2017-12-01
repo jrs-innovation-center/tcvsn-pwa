@@ -53,11 +53,19 @@ function SimpleMediaCard(props) {
   return (
     <div>
       <Card className={classes.card} style={{ marginBottom: 32 }}>
-        <CardMedia
-          className={classes.media}
-          image="http://i.cubeupload.com/aEVXss.jpg"
-          title="Static Map"
-        />
+        <CardMedia className={classes.media}>
+          <iframe
+            title={props.data.formalName}
+            width="100%"
+            height="270"
+            frameborder="0"
+            style={{ border: 0 }}
+            src={`https://www.google.com/maps/embed/v1/place?key=${
+              process.env.REACT_APP_MAP
+            }&q=${encodeURI(props.data.formalName)}`}
+            allowfullscreen
+          />
+        </CardMedia>
         <CardHeader
           classes={{
             title: classes.cardHeader
