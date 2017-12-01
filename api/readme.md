@@ -84,20 +84,18 @@ within the **package.json** for details:
 
 **YARN EXAMPLE**
 
-```
-$ yarn
-$ yarn load
-$ yarn loadIndex
-$ yarn start
+```bash
+yarn
+yarn load
+yarn start
 ```
 
 **NPM EXAMPLE**
 
 ```
-$ npm install
-$ npm run load
-$ npm run loadIndex
-$ npm start
+npm install
+npm run load
+npm start
 ```
 
 Check your terminal and verify the API starts. Attempt the following HTTP
@@ -105,6 +103,13 @@ requests using a client such as your browser or POSTman.
 
 ```
 GET http://localhost:5000/resources
+```
+
+## Generating api-docs
+
+```
+yarn docs
+yarn md-docs
 ```
 
 ## Basics

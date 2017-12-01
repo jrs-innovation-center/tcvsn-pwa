@@ -77,19 +77,56 @@ const categoryRequiredPutFieldCheck = checkRequiredFields([
 app.use(cors({ credentials: true }))
 app.use(bodyParser.json())
 
-app.get('/', (req, res, next) => res.send('Welcome to the api.'))
+app.get('/', (req, res, next) =>
+  res.send({ name: pkg.description, version: pkg.version })
+)
 
 /// //////////////
 ///  Resources
 /// /////////////
 
+/**
+ * @swagger
+ * /resources:
+ *   post:
+ *     description: create new resource
+ *     parameters:
+ *     - in: "body"
+ *       name: "body"
+ *       description: "Resource Object"
+ *       required: true
+ *       schema:
+ *         $ref: "#/definitions/Resource"
+ *     responses:
+ *       200:
+ *        description: Success
+ *        schema:
+ *          type: object
+ *          properties:
+ *            ok:
+ *              type: boolean
+ *            id:
+ *              type: string
+ *            rev:
+ *              type: string
+ *       400:
+ *         description: Missing body or required fields
+ *         schema:
+ *           type: object
+ *           properties:
+ *             ok:
+ *               type: boolean
+ *             message:
+ *               type: string
+ */
 app.post('/resources', (req, res, next) => {
   if (isEmpty(prop('body', req))) {
     return next(
-      new HTTPError(
-        400,
-        'Missing request body.  Content-Type header should be application/json.'
-      )
+      new HTTPError(400, {
+        ok: false,
+        message:
+          'Missing request body.  Content-Type header should be application/json.'
+      })
     )
   }
 
@@ -103,7 +140,10 @@ app.post('/resources', (req, res, next) => {
 
   if (not(isEmpty(missingFields))) {
     return next(
-      new HTTPError(400, `Missing required fields: ${join(' ', missingFields)}`)
+      new HTTPError(400, {
+        ok: false,
+        message: `Missing required fields: ${join(' ', missingFields)}`
+      })
     )
   }
 
@@ -112,12 +152,68 @@ app.post('/resources', (req, res, next) => {
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
+/**
+ * @swagger
+ * /resources/{id}:
+ *   get:
+ *     description: get resource by id
+ *     parameters:
+ *     - in: "path"
+ *       name: "id"
+ *       type: "string"
+ *       required: true
+ *     responses:
+ *       200:
+ *         description: Success
+ *         schema:
+ *           $ref: "#/definitions/Resource"
+ *       500:
+ *         description: Error
+ */
 app.get('/resources/:id', (req, res, next) => {
   getResource(path(['params', 'id'], req))
     .then(doc => res.status(200).send(doc))
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
+/**
+ * @swagger
+ * /resources/{id}:
+ *   put:
+ *     description: update resource
+ *     parameters:
+ *     - in: "path"
+ *       name: "id"
+ *       type: "string"
+ *       required: true
+ *     - in: "body"
+ *       name: "body"
+ *       description: "Resource Object"
+ *       required: true
+ *       schema:
+ *         $ref: "#/definitions/Resource"
+ *     responses:
+ *       200:
+ *         description: Success
+ *         schema:
+ *           type: object
+ *           properties:
+ *             ok:
+ *               type: boolean
+ *             id:
+ *               type: string
+ *             rev:
+ *               type: string
+ *       400:
+ *         description: Missing body or required fields
+ *         schema:
+ *           type: object
+ *           properties:
+ *             ok:
+ *               type: boolean
+ *             message:
+ *               type: string
+ */
 app.put('/resources/:id', (req, res, next) => {
   if (isEmpty(prop('body'), req)) {
     return next(
@@ -140,12 +236,49 @@ app.put('/resources/:id', (req, res, next) => {
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
+/**
+ * @swagger
+ * /resources/{id}:
+ *   delete:
+ *     description: remove resource by id
+ *     parameters:
+ *     - in: "path"
+ *       name: "id"
+ *       type: "string"
+ *       required: true
+ *     responses:
+ *       200:
+ *        description: Success
+ *        schema:
+ *          type: object
+ *          properties:
+ *            ok:
+ *              type: boolean
+ */
 app.delete('/resources/:id', (req, res, next) => {
   deleteResource(path(['params', 'id'], req))
     .then(result => res.status(200).send(result))
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
+/**
+ * @swagger
+ * /resources:
+ *   get:
+ *     description: list resources
+ *     parameters:
+ *     - in: "query"
+ *       name: "filter"
+ *       type: "string"
+ *       required: false
+ *     responses:
+ *       200:
+ *        description: Success
+ *        schema:
+ *          type: array
+ *          items:
+ *            $ref: '#/definitions/Resource'
+ */
 app.get('/resources', (req, res, next) => {
   let searchStr = compose(split(':'), pathOr('', ['query', 'filter']))(req)
   const filter = pathOr(null, ['query', 'filter'])(req)
@@ -172,6 +305,42 @@ app.get('/resources', (req, res, next) => {
 /// //// categories
 /// //////////////////
 
+/**
+ * @swagger
+ * /categories:
+ *   post:
+ *     description:
+ *       Adds a category to the collection of categories. When adding a category
+ *       the `name`, `short desc`, and `desc` are required fields.
+ *     parameters:
+ *     - in: "body"
+ *       name: "body"
+ *       description: "Category Object"
+ *       required: true
+ *       schema:
+ *         $ref: "#/definitions/Category"
+ *     responses:
+ *       200:
+ *        description: Success
+ *        schema:
+ *          type: object
+ *          properties:
+ *            ok:
+ *              type: boolean
+ *            id:
+ *              type: string
+ *            rev:
+ *              type: string
+ *       400:
+ *         description: Missing body or required fields
+ *         schema:
+ *           type: object
+ *           properties:
+ *             ok:
+ *               type: boolean
+ *             message:
+ *               type: string
+ */
 app.post('/categories', (req, res, next) => {
   if (isEmpty(prop('body'), req)) {
     return next(
@@ -266,7 +435,9 @@ app.get('/categories', (req, res, next) => {
 
 app.use(function(err, req, res, next) {
   console.log(req.method, ' ', req.path, ' ', 'error ', err)
-  res.status(err.status || 500).send(err)
+  res
+    .status(err.status || 500)
+    .send({ status: err.status, message: err.message })
 })
 
 app.listen(port, () => console.log('Im up and ready to go on port ', port))
