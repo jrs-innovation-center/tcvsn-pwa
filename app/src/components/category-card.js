@@ -42,13 +42,6 @@ function SimpleMediaCard(props) {
         <CardContent>
           <Typography component="p">{`${currentCategory.desc}`}</Typography>
         </CardContent>
-
-        <CardActions disableActionSpacing>
-          <Button raised>
-            Resources
-            <InboxIcon />
-          </Button>
-        </CardActions>
       </Card>
     </div>
   )

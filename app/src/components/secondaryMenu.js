@@ -30,9 +30,6 @@ class SecondaryMenu extends React.Component {
   render() {
     const open = Boolean(this.state.anchorEl)
     const actions = propOr([], 'actions', this.state)
-    console.log('props:', this.props)
-    console.log('state:', this.state)
-    console.log('options:', actions)
     return (
       <div>
         <IconButton

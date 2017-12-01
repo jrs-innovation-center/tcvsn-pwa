@@ -3,7 +3,7 @@ import React from 'react'
 import red from 'material-ui/colors/red'
 
 //import Chevron_left from " material-ui-icons/Chevron_left";
-
+import { filter, propEq } from 'ramda'
 import withRoot from '../../components/withRoot'
 import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
@@ -27,6 +27,8 @@ import Dialog, {
   DialogTitle
 } from 'material-ui/Dialog'
 import DenyDeleteDialog from '../../components/deny-category-dialog'
+import CategoryResources from '../../components/category-resources'
+import { setResources } from '../../action-creators/resources'
 
 const styles = theme => ({
   card: {
@@ -60,6 +62,7 @@ class ShowCategory extends React.Component {
       ? path(['match', 'params', 'id'])(this.props)
       : compose(last, split('/'), path(['location', 'pathname']))(this.props)
     this.props.getCategory(pathID)
+    this.props.loadResources(pathID)
   }
 
   handleExpandClick = () => {
@@ -96,6 +99,7 @@ class ShowCategory extends React.Component {
             {...this.props}
           />
           <CategoryCard {...this.props} />
+          <CategoryResources categoryResources={this.props.categoryResources} />
           <Link to={`/categories/${this.props.currentCategory._id}/edit`}>
             <Button
               fab
@@ -146,14 +150,21 @@ class ShowCategory extends React.Component {
   }
 }
 const mapStateToProps = state => {
-  return { currentCategory: state.currentCategory }
+  return {
+    currentCategory: state.currentCategory,
+    categoryResources: filter(
+      propEq('categoryId', state.currentCategory._id),
+      state.resources
+    )
+  }
 }
 const mapActionToProps = (dispatch, getState) => {
   return {
     getCategory: id => dispatch(setCurrentCategory(id)),
     toggleConfirmDelete: () => dispatch({ type: CONFIRM_CATEGORY_DELETE }),
     deleteCategory: (id, history) => dispatch(deleteCategory(id, history)),
-    toggleDenyDelete: () => dispatch({ type: DENY_CATEGORY_DELETE })
+    toggleDenyDelete: () => dispatch({ type: DENY_CATEGORY_DELETE }),
+    loadResources: id => dispatch(setResources)
   }
 }
 
