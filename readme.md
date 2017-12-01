@@ -4,7 +4,7 @@ Veteran Support Base Progressive Web App (PWA)
 
 * [User Stories](./docs/user-stories.md)
 * [Wireframes](./docs/wireframes.md)
-* [Veteran Support Base Application Docs](./app/readme.md)
+* [Veteran Support Base Application Docs](./app/README.md)
 * [Veteran Support Base API Docs](./api/readme.md)
 
 ## Developer Setup Instructions
