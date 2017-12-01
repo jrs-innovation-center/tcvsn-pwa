@@ -4,7 +4,8 @@ Veteran Support Base Progressive Web App (PWA)
 
 * [User Stories](./docs/user-stories.md)
 * [Wireframes](./docs/wireframes.md)
-* [API](./api/readme.md)
+* [Veteran Support Base Application Docs](./app/readme.md)
+* [Veteran Support Base API Docs](./api/readme.md)
 
 ## Developer Setup Instructions
 
@@ -58,12 +59,11 @@ cd app
 echo REACT_APP_BASE_URL=http://localhost:5000
 ```
 
-We display a map of the veteran resource at the top of the resource card.  You also need the api key for google maps.  Contact us for the secret. 
+We display a map of the veteran resource at the top of the resource card.  You also need the api key for google maps.  Contact @twilsom63 or @tripott for the secret. 
 
 ```bash
 echo REACT_APP_MAP=<contact a repo admin for secret>
 ```
-
 
 ```bash
 yarn start
