@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import Avatar from 'material-ui/Avatar'
 import List, { ListItem, ListItemText, ListItemAvatar } from 'material-ui/List'
 import {
-  not,
-  isNil,
   slice,
   toUpper,
   contains,

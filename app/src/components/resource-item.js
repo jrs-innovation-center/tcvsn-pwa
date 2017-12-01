@@ -1,14 +1,12 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
+
 import { ListItem, ListItemAvatar, ListItemText } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
-import IconButton from 'material-ui/IconButton'
-
 import Divider from 'material-ui/Divider'
 import ResourceMenuItem from './resource-item-menu'
-import { withRouter } from 'react-router-dom'
+
 import {
-  not,
-  isNil,
   slice,
   toUpper,
   contains,

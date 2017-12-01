@@ -1,58 +1,56 @@
 import React from 'react'
-
-import red from 'material-ui/colors/red'
-
-//import Chevron_left from " material-ui-icons/Chevron_left";
-import { filter, propEq } from 'ramda'
-import withRoot from '../../components/withRoot'
-import withDrawer from '../../components/withDrawer'
-import MenuAppBar from '../../components/menuAppBar'
 import { connect } from 'react-redux'
 import {
   setCurrentCategory,
   deleteCategory
 } from '../../action-creators/categories'
-import { prop, path, split, compose, last } from 'ramda'
+import { setResources } from '../../action-creators/resources'
+import { CONFIRM_CATEGORY_DELETE, DENY_CATEGORY_DELETE } from '../../constants'
+import { Link } from 'react-router-dom'
+
+import withRoot from '../../components/withRoot'
+import withDrawer from '../../components/withDrawer'
+import MenuAppBar from '../../components/menuAppBar'
+import SecondaryMenu from '../../components/secondaryMenu'
 import CategoryCard from '../../components/category-card'
+import DenyDeleteDialog from '../../components/deny-category-dialog'
+import CategoryResources from '../../components/category-resources'
+
 import { getURLPathID } from '../../lib/url-path-helper'
 import Button from 'material-ui/Button'
 import EditIcon from 'material-ui-icons/ModeEdit'
-import { Link } from 'react-router-dom'
-import SecondaryMenu from '../../components/secondaryMenu'
-import { CONFIRM_CATEGORY_DELETE, DENY_CATEGORY_DELETE } from '../../constants'
 import Dialog, {
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle
 } from 'material-ui/Dialog'
-import DenyDeleteDialog from '../../components/deny-category-dialog'
-import CategoryResources from '../../components/category-resources'
-import { setResources } from '../../action-creators/resources'
 
-const styles = theme => ({
-  card: {
-    maxWidth: 400
-  },
-  media: {
-    height: 194
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest
-    })
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)'
-  },
-  avatar: {
-    backgroundColor: red[500]
-  },
-  flexGrow: {
-    flex: '1 1 auto'
-  }
-})
+import { prop, path, split, compose, last, filter, propEq } from 'ramda'
+
+// const styles = theme => ({
+//   card: {
+//     maxWidth: 400
+//   },
+//   media: {
+//     height: 194
+//   },
+//   expand: {
+//     transform: 'rotate(0deg)',
+//     transition: theme.transitions.create('transform', {
+//       duration: theme.transitions.duration.shortest
+//     })
+//   },
+//   expandOpen: {
+//     transform: 'rotate(180deg)'
+//   },
+//   avatar: {
+//     backgroundColor: red[500]
+//   },
+//   flexGrow: {
+//     flex: '1 1 auto'
+//   }
+// })
 
 class ShowCategory extends React.Component {
   state = { expanded: false }
@@ -71,8 +69,6 @@ class ShowCategory extends React.Component {
 
   render() {
     const currentID = getURLPathID(this.props)
-    //  const { category } = this.props
-
     const menuItemActions = [
       {
         name: 'Edit',
@@ -128,8 +124,7 @@ class ShowCategory extends React.Component {
               </Button>
               <Button
                 onClick={() =>
-                  this.props.deleteCategory(this.props.currentCategory._id)
-                }
+                  this.props.deleteCategory(this.props.currentCategory._id)}
                 color="primary"
                 autoFocus
               >

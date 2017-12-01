@@ -47,7 +47,7 @@ class ResourceMenuItem extends React.Component {
             onClick={event => {
               event.stopPropagation()
               window.open('tel:' + this.props.phone)
-              this.handleRequestClose
+              this.handleRequestClose()
             }}
           >
             CALL

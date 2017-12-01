@@ -11,7 +11,6 @@ import {
 import ResourceCard from '../../components/resource-card'
 import Button from 'material-ui/Button'
 import PhoneIcon from 'material-ui-icons/Phone'
-import { Link } from 'react-router-dom'
 import SecondaryMenu from '../../components/secondaryMenu'
 import Dialog, {
   DialogActions,
@@ -91,8 +90,7 @@ class ShowResource extends React.Component {
               </Button>
               <Button
                 onClick={() =>
-                  this.props.deleteResource(this.props.currentResource._id)
-                }
+                  this.props.deleteResource(this.props.currentResource._id)}
                 color="primary"
                 autoFocus
               >

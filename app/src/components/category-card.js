@@ -1,12 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
-import Card, { CardActions, CardContent, CardHeader } from 'material-ui/Card'
-import Avatar from 'material-ui/Avatar'
-import Button from 'material-ui/Button'
-import Typography from 'material-ui/Typography'
 
-import InboxIcon from 'material-ui-icons/Inbox'
+import { withStyles } from 'material-ui/styles'
+import Card, { CardContent, CardHeader } from 'material-ui/Card'
+import Avatar from 'material-ui/Avatar'
+import Typography from 'material-ui/Typography'
 import Icon from 'material-ui/Icon'
 
 import withRoot from '../components/withRoot'
