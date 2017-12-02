@@ -7,7 +7,7 @@ export default class Auth {
     domain: 'vet-support.auth0.com',
     clientID: 'u5XLNl1BCq8j7Z1wqxHkdMAi2vn0b3wC',
     redirectUri: 'http://localhost:3000/callback',
-    audience: 'https://vet-support.auth0.com/userinfo',
+    audience: 'https',
     responseType: 'token id_token',
     scope: 'openid'
   })

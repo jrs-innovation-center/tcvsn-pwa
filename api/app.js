@@ -39,6 +39,7 @@ const {
 } = require('ramda')
 const checkRequiredFields = require('./lib/check-required-fields')
 const cors = require('cors')
+const checkJwt = require('./jwt')
 
 const postResourceRequiredFieldCheck = checkRequiredFields([
   'categoryId',
@@ -119,7 +120,7 @@ app.get('/', (req, res, next) =>
  *             message:
  *               type: string
  */
-app.post('/resources', (req, res, next) => {
+app.post('/resources', checkJwt, (req, res, next) => {
   if (isEmpty(prop('body', req))) {
     return next(
       new HTTPError(400, {
@@ -214,7 +215,7 @@ app.get('/resources/:id', (req, res, next) => {
  *             message:
  *               type: string
  */
-app.put('/resources/:id', (req, res, next) => {
+app.put('/resources/:id', checkJwt, (req, res, next) => {
   if (isEmpty(prop('body'), req)) {
     return next(
       new HTTPError(
@@ -255,7 +256,7 @@ app.put('/resources/:id', (req, res, next) => {
  *            ok:
  *              type: boolean
  */
-app.delete('/resources/:id', (req, res, next) => {
+app.delete('/resources/:id', checkJwt, (req, res, next) => {
   deleteResource(path(['params', 'id'], req))
     .then(result => res.status(200).send(result))
     .catch(err => next(new HTTPError(err.status, err.message)))
@@ -341,7 +342,7 @@ app.get('/resources', (req, res, next) => {
  *             message:
  *               type: string
  */
-app.post('/categories', (req, res, next) => {
+app.post('/categories', checkJwt, (req, res, next) => {
   if (isEmpty(prop('body'), req)) {
     return next(
       new HTTPError(
@@ -378,7 +379,7 @@ app.get('/categories/:id', (req, res, next) => {
     .catch(err => next(err => new HTTPError(err.status, err.message)))
 })
 
-app.put('/categories/:id', (req, res, next) => {
+app.put('/categories/:id', checkJwt, (req, res, next) => {
   if (isEmpty(prop('body'), req)) {
     return next(
       new HTTPError(
@@ -399,7 +400,7 @@ app.put('/categories/:id', (req, res, next) => {
     .catch(err => next(err => new HTTPError(err.status, err.message)))
 })
 
-app.delete('/categories/:id', async (req, res, next) => {
+app.delete('/categories/:id', checkJwt, async (req, res, next) => {
   const resources = await checkCategoryId(req.params.id)
   if (resources === 0) {
     deleteCategory(path(['params', 'id'], req))
