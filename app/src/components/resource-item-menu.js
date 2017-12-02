@@ -55,7 +55,7 @@ class ResourceMenuItem extends React.Component {
           <MenuItem
             onClick={event => {
               event.stopPropagation()
-              window.open(this.props.website)
+              window.open('http://' + this.props.website)
               this.handleRequestClose()
             }}
           >
