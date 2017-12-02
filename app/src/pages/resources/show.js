@@ -57,7 +57,9 @@ class ShowResource extends React.Component {
             search={true}
             goBack={'/resources'}
             secondaryMenu={
-              <SecondaryMenu actions={menuItemActions} {...this.props} />
+              this.props.isAuthenticated() && (
+                <SecondaryMenu actions={menuItemActions} {...this.props} />
+              )
             }
             {...this.props}
           />
@@ -90,7 +92,8 @@ class ShowResource extends React.Component {
               </Button>
               <Button
                 onClick={() =>
-                  this.props.deleteResource(this.props.currentResource._id)}
+                  this.props.deleteResource(this.props.currentResource._id)
+                }
                 color="primary"
                 autoFocus
               >

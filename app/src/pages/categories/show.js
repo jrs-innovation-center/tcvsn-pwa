@@ -90,22 +90,26 @@ class ShowCategory extends React.Component {
             search={true}
             goBack={'/categories'}
             secondaryMenu={
-              <SecondaryMenu actions={menuItemActions} {...this.props} />
+              this.props.isAuthenticated() && (
+                <SecondaryMenu actions={menuItemActions} {...this.props} />
+              )
             }
             {...this.props}
           />
           <CategoryCard {...this.props} />
           <CategoryResources categoryResources={this.props.categoryResources} />
-          <Link to={`/categories/${this.props.currentCategory._id}/edit`}>
-            <Button
-              fab
-              color="secondary"
-              aria-label="edit"
-              className="fab-button"
-            >
-              <EditIcon />
-            </Button>
-          </Link>
+          {this.props.isAuthenticated() && (
+            <Link to={`/categories/${this.props.currentCategory._id}/edit`}>
+              <Button
+                fab
+                color="secondary"
+                aria-label="edit"
+                className="fab-button"
+              >
+                <EditIcon />
+              </Button>
+            </Link>
+          )}
           <Dialog
             open={this.props.currentCategory.confirmDelete}
             onRequestClose={
@@ -124,7 +128,8 @@ class ShowCategory extends React.Component {
               </Button>
               <Button
                 onClick={() =>
-                  this.props.deleteCategory(this.props.currentCategory._id)}
+                  this.props.deleteCategory(this.props.currentCategory._id)
+                }
                 color="primary"
                 autoFocus
               >

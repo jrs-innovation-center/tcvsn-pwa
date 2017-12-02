@@ -24,11 +24,13 @@ class Categories extends React.Component {
         <List style={{ padding: 0, marginBottom: 60 }}>
           {map(CategoryItem, this.props.categories)}
         </List>
-        <Link to="/categories/new">
-          <Button fab color="primary" aria-label="add" className="fab-button">
-            <AddIcon />
-          </Button>
-        </Link>
+        {this.props.isAuthenticated() && (
+          <Link to="/categories/new">
+            <Button fab color="primary" aria-label="add" className="fab-button">
+              <AddIcon />
+            </Button>
+          </Link>
+        )}
       </div>
     )
   }
