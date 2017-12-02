@@ -17,7 +17,8 @@
     "typeface-roboto": "^0.0.45"
   },
   "scripts": {
-    "dev": "poi"
+    "dev": "poi",
+    "build": "poi build"
   },
   "devDependencies": {
     "poi-preset-react": "^9.2.0"

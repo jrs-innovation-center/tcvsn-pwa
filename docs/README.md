@@ -19,6 +19,15 @@ Description
 You can either read the docs in the README files or generate the documentation
 website and read the docs using a browser.
 
+## How to build the api docs
+
+```
+cd ../api
+yarn docs
+yarn md-docs
+cp api.md ../docs/static
+```
+
 ## How to run the docs
 
 ```

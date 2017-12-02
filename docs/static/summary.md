@@ -1,15 +1,19 @@
-# Veteran Support Base
+# Veteran Support Base App
 
-Veteran Support Base manages the representation of many resources
-(organizations) filled with dedicated men and women committed to serving our
-veterans and families. There can be no doubt that these people care a great deal
-for our warriors. We are grateful for the sacrifices of our veterans and their
-families. Now, please receive our gratitude and our desire to serve you with
-that same spirit of excellence.
+VSBA is an open source application that enables veteran support organizations to
+create a mobile friendly app providing local resources for their local veteran
+community. Any veteran organization can use this application to build a mobile
+online resource experience.
 
-## Contents
+## Getting Started
 
-* [Summary](summary)
+* [Requirements](requirements)
+* [Installation](installation)
+* [Configuration](config)
+* [Deploy](deploy)
+
+## Contributing
+
 * [User Stories](user-stories)
 * [Wireframes](wireframes)
 * [API](api)
