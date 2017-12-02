@@ -17,7 +17,13 @@ export const setResources = async (dispatch, getState) => {
   dispatch({ type: SET_RESOURCES, payload: response })
 }
 export const deleteResource = id => async (dispatch, getState) => {
-  const headers = { 'Content-Type': 'application/json' }
+  if (!window.localStorage.getItem('access_token')) {
+    return dispatch({ type: ERROR, payload: 'Can not delete resource' })
+  }
+  const headers = {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
+  }
   const method = 'DELETE'
   const response = await fetch(`${url}/resources/${id}`, {
     method,
@@ -48,7 +54,13 @@ export const onChangeEditForm = (field, value) => (dispatch, getState) => {
 }
 
 export const addNewResource = (data, history) => async (dispatch, getState) => {
-  const headers = { 'Content-Type': 'application/json' }
+  if (!window.localStorage.getItem('access_token')) {
+    return dispatch({ type: ERROR, payload: 'Can not add resource' })
+  }
+  const headers = {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
+  }
   const method = 'POST'
   const body = JSON.stringify(data)
 
@@ -77,7 +89,13 @@ export const addEditResource = (data, history) => async (
   dispatch,
   getState
 ) => {
-  const headers = { 'Content-Type': 'application/json' }
+  if (!window.localStorage.getItem('access_token')) {
+    return dispatch({ type: ERROR, payload: 'Can not delete resource' })
+  }
+  const headers = {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
+  }
   const method = 'PUT'
   const body = JSON.stringify(data)
 

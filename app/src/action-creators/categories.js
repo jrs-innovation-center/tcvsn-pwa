@@ -30,13 +30,18 @@ export const setCurrentCategory = id => async (dispatch, getState) => {
 }
 
 export const deleteCategory = id => async (dispatch, getState) => {
+  if (!window.localStorage.getItem('access_token')) {
+    return dispatch({ type: ERROR, payload: 'Can not delete category' })
+  }
+
   const response = await fetch(`${url}/categories/${id}`, {
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
     },
     method: 'DELETE'
   }).then(res => res.json())
-  console.log('response', response)
+
   if (!response.ok) {
     dispatch({ type: CONFIRM_CATEGORY_DELETE })
     dispatch({ type: DENY_CATEGORY_DELETE, payload: response.message })
@@ -51,9 +56,13 @@ export const deleteCategory = id => async (dispatch, getState) => {
 
 export const createCategory = async (dispatch, getState) => {
   const category = getState().category
+  if (!window.localStorage.getItem('access_token')) {
+    return dispatch({ type: ERROR, payload: 'Could not add category' })
+  }
   const response = await fetch(`${url}/categories`, {
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
     },
     method: 'POST',
     body: JSON.stringify(category)
@@ -77,7 +86,14 @@ export const setEditCategory = id => async (dispatch, getState) => {
 }
 
 export const updateCategory = data => async (dispatch, getState) => {
-  const headers = { 'Content-Type': 'application/json' }
+  if (!window.localStorage.getItem('access_token')) {
+    return dispatch({ type: ERROR, payload: 'Could not update category' })
+  }
+
+  const headers = {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${window.localStorage.getItem('access_token')}`
+  }
   const method = 'PUT'
   const body = JSON.stringify(data)
 
