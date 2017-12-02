@@ -78,11 +78,12 @@ const mapActionsToProps = (dispatch, getState) => ({
   toggleDrawer: () => dispatch({ type: 'TOGGLE_DRAWER' }),
   lastPage: (history, page) => e => {
     e.preventDefault()
-    if (page) {
-      history.replace(page)
-    } else {
-      history.goBack()
-    }
+    history.goBack()
+    // if (page) {
+    //   history.replace(page)
+    // } else {
+    // history.goBack()
+    // }
   }
 })
 

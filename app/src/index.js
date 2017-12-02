@@ -5,7 +5,7 @@ import App from './App'
 import { Provider } from 'react-redux'
 import store from './store'
 import './App.css'
-
+import { SET_FAVORITES } from './constants'
 import 'typeface-roboto'
 
 // import { setResources } from './action-creators/resources'
@@ -30,5 +30,13 @@ if (module.hot) {
   module.hot.accept('./App', () => {
     const NextApp = require('./App').default
     ReactDOM.render(<NextApp />, document.getElementById('root'))
+  })
+}
+
+// load favorites
+if (window.localStorage.getItem('favorites')) {
+  store.dispatch({
+    type: SET_FAVORITES,
+    payload: JSON.parse(window.localStorage.getItem('favorites'))
   })
 }
