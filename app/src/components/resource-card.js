@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import IconButton from 'material-ui/IconButton'
+import FavoriteIcon from 'material-ui-icons/Favorite'
 import { withStyles } from 'material-ui/styles'
 import Card, {
   CardActions,
@@ -34,7 +36,7 @@ const styles = {
     fontSize: '16px'
   },
   media: {
-    height: '40vh'
+    height: '27vh'
   },
   avatarColor: {
     backgroundColor: '#607d8b'
@@ -57,19 +59,17 @@ function SimpleMediaCard(props) {
           <iframe
             title={props.data.formalName}
             width="100%"
-            height="270"
-            frameborder="0"
+            height="100%"
+            frameBorder="0"
             style={{ border: 0 }}
             src={`https://www.google.com/maps/embed/v1/place?key=${
               process.env.REACT_APP_MAP
             }&q=${encodeURI(props.data.formalName)}`}
-            allowfullscreen
+            allowFullScreen
           />
         </CardMedia>
         <CardHeader
-          classes={{
-            title: classes.cardHeader
-          }}
+          className={classes.cardHeader}
           avatar={
             <Avatar
               aria-label="Resource"
@@ -90,10 +90,21 @@ function SimpleMediaCard(props) {
           title={props.data.formalName}
           subheader={props.data.shortDesc}
         />
+
         <CardContent>
           <Typography component="p">{props.data.purpose}</Typography>
         </CardContent>
-        <CardActions>{websiteButton}</CardActions>
+        <CardActions>
+          <IconButton
+            onClick={props.toggleFavorite}
+            aria-label="Add to favorites"
+          >
+            <FavoriteIcon
+              style={{ color: props.isFavorite ? 'red' : 'silver' }}
+            />
+          </IconButton>
+          {websiteButton}
+        </CardActions>
       </Card>
     </div>
   )

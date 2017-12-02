@@ -3,7 +3,7 @@ import withRoot from '../../components/withRoot'
 import withDrawer from '../../components/withDrawer'
 import MenuAppBar from '../../components/menuAppBar'
 import { connect } from 'react-redux'
-import { pathOr } from 'ramda'
+import { pathOr, contains } from 'ramda'
 import {
   setCurrentResource,
   deleteResource
@@ -19,6 +19,8 @@ import Dialog, {
   DialogTitle
 } from 'material-ui/Dialog'
 import { CONFIRM_RESOURCE_DELETE } from '../../constants'
+import { toggleFavorite } from '../../action-creators/favorites'
+
 // props.resources === []
 class ShowResource extends React.Component {
   state = { expanded: false }
@@ -61,7 +63,11 @@ class ShowResource extends React.Component {
             }
             {...this.props}
           />
-          <ResourceCard data={this.props.currentResource} />
+          <ResourceCard
+            data={this.props.currentResource}
+            isFavorite={this.props.isFavorite}
+            toggleFavorite={this.props.toggleFavorite}
+          />
           {this.props.currentResource.primaryPhone && (
             <a href={`tel:${this.props.currentResource.primaryPhone}`}>
               <Button
@@ -90,7 +96,8 @@ class ShowResource extends React.Component {
               </Button>
               <Button
                 onClick={() =>
-                  this.props.deleteResource(this.props.currentResource._id)}
+                  this.props.deleteResource(this.props.currentResource._id)
+                }
                 color="primary"
                 autoFocus
               >
@@ -111,9 +118,10 @@ class ShowResource extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('mapStateToProps: ', state)
+  console.log(contains(state.currentResource._id, state.favorites))
   return {
-    currentResource: state.currentResource
+    currentResource: state.currentResource,
+    isFavorite: contains(state.currentResource._id, state.favorites)
   }
 }
 
@@ -121,7 +129,8 @@ const mapActionsToProps = dispatch => {
   return {
     setCurrentResource: id => dispatch(setCurrentResource(id)),
     toggleConfirmDelete: () => dispatch({ type: CONFIRM_RESOURCE_DELETE }),
-    deleteResource: id => dispatch(deleteResource(id))
+    deleteResource: id => dispatch(deleteResource(id)),
+    toggleFavorite: () => dispatch(toggleFavorite)
   }
 }
 

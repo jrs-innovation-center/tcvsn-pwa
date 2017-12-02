@@ -13,6 +13,8 @@ import {
   editCategory,
   isActive
 } from './reducers/categories'
+import { favorites } from './reducers/favorites'
+
 import thunk from 'redux-thunk'
 
 const store = createStore(
@@ -26,7 +28,8 @@ const store = createStore(
     editCategory,
     newResource,
     editResource,
-    isActive
+    isActive,
+    favorites
   }),
   applyMiddleware(thunk)
 )
