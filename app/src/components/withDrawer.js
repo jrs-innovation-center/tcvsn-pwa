@@ -7,9 +7,12 @@ import HomeIcon from 'material-ui-icons/Home'
 import HelpIcon from 'material-ui-icons/Help'
 import ViewList from 'material-ui-icons/ViewList'
 import FavoriteIcon from 'material-ui-icons/Favorite'
+import LockOutlineIcon from 'material-ui-icons/LockOutline'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import GavelIcon from 'material-ui-icons/Gavel'
+import Auth from '../auth'
+const auth = new Auth()
 
 const sideList = (
   <div>
@@ -65,6 +68,26 @@ const sideList = (
           <ListItemText primary="In Memory" />
         </ListItem>
       </Link>
+      <Divider />
+      {auth.isAuthenticated() ? (
+        <Link to="/logout" className="router-link">
+          <ListItem button>
+            <ListItemIcon>
+              <LockOutlineIcon />
+            </ListItemIcon>
+            <ListItemText primary="Logout" />
+          </ListItem>
+        </Link>
+      ) : (
+        <Link to="/login" className="router-link">
+          <ListItem button>
+            <ListItemIcon>
+              <LockOutlineIcon />
+            </ListItemIcon>
+            <ListItemText primary="Admin" />
+          </ListItem>
+        </Link>
+      )}
     </List>
   </div>
 )

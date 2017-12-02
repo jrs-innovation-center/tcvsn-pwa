@@ -59,7 +59,9 @@ class ShowResource extends React.Component {
             search={true}
             goBack={'/resources'}
             secondaryMenu={
-              <SecondaryMenu actions={menuItemActions} {...this.props} />
+              this.props.isAuthenticated() && (
+                <SecondaryMenu actions={menuItemActions} {...this.props} />
+              )
             }
             {...this.props}
           />

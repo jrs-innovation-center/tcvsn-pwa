@@ -27,15 +27,17 @@ class Resources extends React.Component {
         <MenuAppBar title="Resources" search />
         <List style={{ padding: 0, marginBottom: 60 }}>
           {map(
-            resource => <ResourceItem resource={resource} />,
+            resource => <ResourceItem key={resource._id} resource={resource} />,
             sorter(this.props.resources)
           )}
         </List>
-        <Link to="/resources/new">
-          <Button fab color="primary" aria-label="add" className="fab-button">
-            <AddIcon />
-          </Button>
-        </Link>
+        {this.props.isAuthenticated() && (
+          <Link to="/resources/new">
+            <Button fab color="primary" aria-label="add" className="fab-button">
+              <AddIcon />
+            </Button>
+          </Link>
+        )}
       </div>
     )
   }
