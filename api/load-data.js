@@ -16,7 +16,7 @@ db.bulkDocs([
     icon: 'school'
   },
   {
-    _id: 'category_financial_and_legal',
+    _id: 'category_financial-and-legal',
     type: 'category',
     name: 'Financial and Legal Assistance',
     shortDesc:
@@ -27,7 +27,7 @@ db.bulkDocs([
   },
 
   {
-    _id: 'category_health_and_wellness',
+    _id: 'category_health-and-wellness',
     type: 'category',
     name: 'Health and Wellness',
     shortDesc:
@@ -38,7 +38,7 @@ db.bulkDocs([
   },
 
   {
-    _id: 'category_housing_and_homeless_prevention_programs',
+    _id: 'category_housing-and-homeless-prevention-programs',
     type: 'category',
     name: 'Housing and Homeless Prevention Programs',
     shortDesc:
@@ -49,7 +49,7 @@ db.bulkDocs([
   },
 
   {
-    _id: 'category_information_and_referral_services',
+    _id: 'category_information-and-referral-services',
     type: 'category',
     name: 'Information and Referral Services',
     shortDesc: 'telephone help and crisis management',
@@ -59,7 +59,7 @@ db.bulkDocs([
   },
 
   {
-    _id: 'category_peer_support_and_recreation',
+    _id: 'category_peer-support-and-recreation',
     type: 'category',
     name: 'Peer Support and Recreation',
     shortDesc:
@@ -79,7 +79,7 @@ db.bulkDocs([
     icon: 'domain'
   },
   {
-    _id: 'category_rehabilitative_and_recreational_therapy',
+    _id: 'category_rehabilitative-and-recreational-therapy',
     type: 'category',
     name: 'Rehabilitative and Recreational Therapy',
     shortDesc:
@@ -116,16 +116,16 @@ db.bulkDocs([
     icon: 'work'
   },
   {
-    _id: 'resource_va_homeless_prevention_program_and_walk_in_clinic',
+    _id: 'resource_va-homeless-prevention',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_basic-needs-assistance',
-    name: 'VA',
+    name: 'VA Homeless Prevention',
     formalName: 'VA Homeless Prevention Program & Walk-In Clinic',
     shortDesc: 're-housing assistance and medical care',
     purpose:
       'The Ralph H. Johnson Veterans Affairs Medical Center offers a walk-in clinic for veterans searching for re-housing assistance and means to prevent homelessness. In addition to referral services, the walk-in clinic offers basic outpatient medical care.',
-    website: 'http://www.charleston.va.gov/services/homeless/index.asp',
+    website: 'www.charleston.va.gov/services/homeless/index.asp',
     contacts: [
       {
         name: 'Linda Williams',
@@ -136,6 +136,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-577-5011',
     addresses: [
       {
         location: 'Ralph H. Johnson Veterans Affairs Medical Center',
@@ -147,26 +148,21 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
-    _id: 'resource_tap',
+    _id: 'resource_airman-and-family-readiness-center',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
-    name: 'TAP',
+    name: 'Airman and Family Readiness Center',
     formalName:
       'Airman & Family Readiness Center-Transition Assistance Program (TAP)',
     shortDesc: 'pre-separation transition counseling',
     purpose:
       'The Airman & Family Readiness Center assists all Reserves, Active Duty, National Guard, retired veterans and civilian employees regardless of branch. The Transition Assistance Program (TAP) assists those associated specifically with the United States Air Force and prepares separating, retiring, and demobilizing service members and their families with skills and knowledge to facilitate a successful transition from life in the military to the civilian sector. The first step in the transition process is to complete the congressionally-mandated pre-separation counseling session, which provides detailed information on the various benefits and services available to separating members. Each Family Readiness Center is staffed to provide personalized assistance for all transition-related needs of armed services members.',
     website:
-      'http://www.jbcharleston.com/youth-and-family/air-base/airman-a-family-readiness',
+      'www.jbcharleston.com/youth-and-family/air-base/airman-a-family-readiness',
     contacts: [
       {
         name: null,
@@ -177,6 +173,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-963-7231',
     addresses: [
       {
         location: 'Airman & Family Readiness Center',
@@ -188,12 +185,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_red-cross-lowcountry-sc',
@@ -205,7 +197,7 @@ db.bulkDocs([
     shortDesc: 'emergency communication and transition services',
     purpose:
       'The American Red Cross provides emergency communication services to military (active duty, National Guard, Reserves, retired, and veterans) and their families, helping them locate and send messages to their loved ones across the globe. When service members return home, they have access to several programs and American Red Cross volunteers who are ready and willing to ease the transition from deployment or discharge into the civilian sector. Programs provided include, but a renot limited to, emergency financial assistance referrals, disaster preparedness and response, reconnection and family mental health education, resiliency training to cope with the challenges of life in the military, and supportive transitional services for wounded soldiers and their family members. We also offer volunteer opportunities in all lines of service.To initiate an Emergency Communication Message, call 1-877-272-7337 when you need to contact a service member in the event of a family emergency. This service is available 365 days a year, 24 hours a day.',
-    website: 'http://www.redcross.org/what-we-do/support-military-families',
+    website: 'www.redcross.org/what-we-do/support-military-families',
     contacts: [
       {
         name: 'Jeanne Carmichael',
@@ -216,6 +208,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-764-2323',
     addresses: [
       {
         location: 'American Red Cross of the Lowcountry - SC',
@@ -227,12 +220,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_one80-place',
@@ -263,6 +251,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-212-8668',
     addresses: [
       {
         location: 'One80 Place',
@@ -274,12 +263,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_hub',
@@ -302,23 +286,10 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
-    addresses: [
-      {
-        location: 'Church Mobilization Hub of Charleston',
-        street: null,
-        city: null,
-        state: null,
-        zip: null,
-        isPrimary: true
-      }
-    ],
+    primaryPhone: '843-345-6370',
+    addresses: [],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_origin-sc',
@@ -327,20 +298,22 @@ db.bulkDocs([
     categoryId: 'category_basic-needs-assistance',
     name: 'Origin SC',
     formalName: 'Origin SC (formerly known as Family Services, Inc.)',
-    shortDesc: 'financial counseling',
+    shortDesc:
+      'financial, consumer credit, counseling, home purchase, foreclosure, behavioral health services, homeless prevention, homeownership',
     purpose:
       'Origin SC has existed since 1888, bringing hope and quality customer service to the Charleston community and beyond. Our goal is to empower individuals and families to achieve financial independence and sustainability at a cost comparable to industry standards.  Services include:  Bankruptcy Counseling, Behavioral Health Services, VA Conservatorship Program, Consumer Credit Counseling, Foreclosure Prevention, Home Purchase Programs, Homeless Prevention/Supportive Services, Homeless Prevention/Supportive Services, Homeownership Resource Center, Representative Payee Program, Supportive Services for Veterans & Families, Supportive Services for Veterans & Families',
     website: 'www.originsc.org',
     contacts: [
       {
-        name: null,
+        name: 'David Greer',
         office: null,
-        title: null,
-        phone: null,
+        title: 'CEO',
+        phone: '843-735-7802',
         email: 'dgeer@originsc.org',
         isPrimary: true
       }
     ],
+    primaryPhone: '843-735-7802',
     addresses: [
       {
         location: 'Origin SC',
@@ -352,35 +325,22 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_ffsc',
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
-    name: 'FFSC',
+    name: 'Fleet And Family Support Center',
     formalName: 'Fleet And Family Support Center',
     shortDesc: 'transition-related services',
     purpose:
       "The Fleet and Family Support Center (FFSC), Naval Weapons Station is the military community's primary resource for information and services. We are recognized by commands in the area as vital to the success of their mission. We serve with pride and distinction and are renowned for our superb performance. The Fleet and Family support Center assists all Reserves, Active Duty, National Guard, retired veterans and civilian employees regardless of service branch. The Transition Assistance Program (TAP) assists and prepares members separating, retiring, or demobilizing service members and their families with skills and knowledge to facilitate a successful transition from life in the military to the civilian sector. Each Family Readiness Center is staffed to provide personalized assistance for all transition-related needs of armed services members.",
     website:
       'https://www.jbcharleston.com/youth-family/military-family-support/',
-    contacts: [
-      {
-        name: null,
-        office: null,
-        title: null,
-        phone: null,
-        email: null,
-        isPrimary: true
-      }
-    ],
+    contacts: [],
+    primaryPhone: null,
     addresses: [
       {
         location: 'Fleet & Family Support Center',
@@ -392,12 +352,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: "resource_my-sister's-house",
@@ -409,7 +364,7 @@ db.bulkDocs([
     shortDesc: 'emergency shelter for women and children',
     purpose:
       "My Sister's House provides a safe-haven for women and children looking to escape the cycle of domestic violence and other forms of abuse. An emergency shelter is available 24 hours per day with 36 beds for women and children throughout Berkeley, Charleston, and Dorchester counties.",
-    website: 'http://mysistershouse.org/',
+    website: 'mysistershouse.org/',
     contacts: [
       {
         name: null,
@@ -436,46 +391,34 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
-    addresses: [
-      {
-        location: null,
-        street: null,
-        city: null,
-        state: null,
-        zip: null,
-        isPrimary: true
-      }
-    ],
+    primaryPhone: '843-273-4673',
+    addresses: [],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_NMCRS',
     type: 'resource',
     organization: 'community resource',
-    categoryId: 'category_basic-needs-assistance',
+    categoryId: 'category_financial-and-legal',
     name: 'NMCRS',
     formalName: 'Navy-Marine Corps Relief Society',
     shortDesc:
-      'interest free loans and grants for emergency and medical expenses',
+      'transportation, food, funernal, medical, dental, rent, utility, bills',
     purpose:
       'Potential clients must have an active military ID. The NMCRS is unable to assist non-military civilians. Agency provides military assistance to military personnel, their immediate family members who have ID, and military 20 (or more) year retirees. Interest-free loans, grants or a combination of the two may provide:  Emergency transportation, Food, Funeral Expenses, Medical/Dental Needs, Rental & utility bill assistance, Eligibility for NMCRS services covers Sailors, Marines, and Army currently on active duty and their immediate families ONLY. Retirees with 20 or more years of active military service and widows of eligible service members and retirees also may qualify.',
-    website: 'http://www.nmcrs.org/',
+    website: 'www.nmcrs.org/',
     contacts: [
       {
-        name: null,
-        office: null,
-        title: null,
+        name: 'Navy-Marine Corps Relief Society',
+        office: 'Naval Weapons Station',
+        title: 'Combat Casualty Visiting Nurse, RN, BSN',
         phone: '843-794-7662',
         email: null,
         isPrimary: true
       }
     ],
+    primaryPhone: '843-794-7662',
     addresses: [
       {
         location: 'Naval Weapons Station',
@@ -487,35 +430,31 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_cca-visiting-nurse-program',
     type: 'resource',
     organization: 'community resource',
-    categoryId: 'category_basic-needs-assistance',
-    name: 'CCA Visiting Nurse Program',
+    categoryId: 'category_health-and-wellness',
+    name: 'NMCRS CCA Visiting Nurse Program',
     formalName:
-      'Navy-Marine Corps Relief Society Combat Casualty Assistance Visiting Nurse Program',
+      'Navy-Marine Corps Relief Society (NMCRS) Combat Casualty Assistance (CCA) Visiting Nurse Program',
     shortDesc: 'face to face nurse visits at no cost to service members',
     purpose:
-      'The Combat Casualty Assistance (CCA) Visiting Nurse Program is available for both active duty and veteran Marines and Sailors and families that have been affected by their Post 9-11 wartime service in Iraq or Afghanistan. Our program is unique in that we have registered nurses who are able to make face to face visits at no cost to our service members, veterans and families regardless of their location and discharge status.  Since the stresses of combat may not become obvious for many years, our nurses are available to help whenever needed, however we find the transition and reintegration phase to be most challenging for the Marine/Sailor and family. Our program is also available to help anyone who may have lost a loved one as a result of their combat service.  While complying with all HIPAA guidelines, the CCA Visiting Nurses role is customized to each patient and family. Here is a small example of what our program offers:  Educate family members on the Marine/Sailors physical and/or psychological injuries to include Post Traumatic Stress (PTS) and Traumatic Brain Injury (TBI).  Perform assessment of medical and non-medical needs (housing, financial, benefits, employment, education...) and assist the patient and family in identifying and utilizing available local, state and national agencies and resources. Collaborate with the healthcare team at Military Treatment Facilities and VA Hospitals to connect the Marine/Sailor to treatment, or reinforce existing plan of care. Additionally, we serve as an advocate helping them navigate through the Tricare and VA system to make sure they are getting the help they need.  Assist patient and family in identifying short and long term goals, while providing ongoing emotional support.  To make a referral or learn more about our program, please feel free to contact Kim Bradley, RN, BSN. I am the nurse who covers the state of SC.',
-    website: 'http://www.nmcrs.org/',
+      'The Combat Casualty Assistance (CCA) Visiting Nurse Program is available for both active duty and veteran Marines and Sailors and families that have been affected by their Post 9-11 wartime service in Iraq or Afghanistan. Our program is unique in that we have registered nurses who are able to make face to face visits at no cost to our service members, veterans and families regardless of their location and discharge status. Since the stresses of combat may not become obvious for many years, our nurses are available to help whenever needed, however we find the transition and reintegration phase to be most challenging for the Marine/Sailor and family. Our program is also available to help anyone who may have lost a loved one as a result of their combat service.  While complying with all HIPAA guidelines, the CCA Visiting Nurses role is customized to each patient and family. Here is a small example of what our program offers Educate family members on the Marine/Sailor physical and/or psychological injuries to include Post Traumatic Stress (PTS) and Traumatic Brain Injury (TBI). Perform assessment of medical and non-medical needs (housing, financial, benefits, employment, education...) and assist the patient and family in identifying and utilizing available local, state and national agencies and resources.  Collaborate with the healthcare team at Military Treatment Facilities and VA Hospitals to connect the Marine/Sailor to treatment, or reinforce existing plan of care. Additionally, we serve as an advocate helping them navigate through the Tricare and VA system to make sure they are getting the help they need. Assist patient and family in identifying short and long term goals, while providing ongoing emotional support. To make a referral or learn more about our program, please feel free to contact Kim Bradley, RN, BSN. I am the nurse who covers the state of SC.',
+    website: 'www.nmcrs.org',
     contacts: [
       {
-        name: 'Kim Bradley',
+        name: 'Kim Bradley, RN, BSN',
         office: null,
         title: 'Combat Casualty Visiting Nurse',
         phone: '571-216-6329',
         email: 'Kim.Bradley@nmcrs.org',
-        isPrimary: true
+        isPrimary: false
       }
     ],
+    primaryPhone: '571-216-6329',
     addresses: [
       {
         location: 'Naval Weapons Station',
@@ -527,12 +466,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_salvation-army',
@@ -541,13 +475,13 @@ db.bulkDocs([
     categoryId: 'category_basic-needs-assistance',
     name: 'Salvation Army',
     formalName: 'The Salvation Army',
-    shortDesc: 'providing food, clothing, and shelter',
+    shortDesc: 'food, clothing, shelter',
     purpose:
       'The Salvation Army provides food, clothing, shelter, financial assistance, and after school programs to all those in need without discrimination.',
-    website: 'http://www.salvationarmycarolinas.org/charleston/home/',
+    website: 'www.salvationarmycarolinas.org/charleston/home/',
     contacts: [
       {
-        name: null,
+        name: 'The Salvation Army',
         office: null,
         title: null,
         phone: '843-747-5271',
@@ -555,6 +489,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-747-5271',
     addresses: [
       {
         location: 'The Salvation Army',
@@ -571,7 +506,7 @@ db.bulkDocs([
     type: 'resource',
     organization: 'community resource',
     categoryId: 'category_basic-needs-assistance',
-    name: 'SC Army National Guard Family Assistance Program',
+    name: 'SC Army National Guard-Family Programs',
     formalName: 'SC Army National Guard-Family Programs',
     shortDesc: 'pre and post-deployment counseling',
     purpose:
@@ -595,6 +530,7 @@ db.bulkDocs([
         isPrimary: false
       }
     ],
+    primaryPhone: '803-429-9792',
     addresses: [
       {
         location: 'Citadel Armory',
@@ -606,12 +542,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_wwr',
@@ -632,26 +563,21 @@ db.bulkDocs([
         title: 'District Injured Support Coordinator',
         phone: null,
         email: 'holyfield.usmcdisc@gmail.com',
-        isPrimary: true
-      }
-    ],
-    addresses: [
+        isPrimary: false
+      },
       {
-        location: null,
-        street: null,
-        city: null,
-        state: null,
-        zip: null,
+        name: 'Call Center 24/7 365',
+        office: 'Call Center 24/7 365',
+        title: 'Call Center 24/7 365',
+        phone: '877-487-6299',
+        email: null,
         isPrimary: true
       }
     ],
+    primaryPhone: '877-487-6299',
+    addresses: [],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_army-onesource',
@@ -660,7 +586,8 @@ db.bulkDocs([
     categoryId: 'category_basic-needs-assistance',
     name: 'Army OneSource',
     formalName: 'Army OneSource',
-    shortDesc: 'family program and services',
+    shortDesc:
+      'Health, Housing, Child, Youth, School, Education, Careers, Libraries, Recreation, Travel',
     purpose:
       'Army OneSource is a single point source for Soldiers (Active Duty, Reserve, and Guard), their spouses, and their family members with resources and assistance in Family Programs and Services; Health Care; Soldier and Family Housing; Child, Youth, and School Services; Education, Careers, and Libraries; Recreation, Travel, and BOSS; and Community Support.',
     website: 'www.MyArmyOneSource.com',
@@ -674,23 +601,10 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
-    addresses: [
-      {
-        location: null,
-        street: null,
-        city: null,
-        state: null,
-        zip: null,
-        isPrimary: true
-      }
-    ],
+    primaryPhone: '910-429-4493',
+    addresses: [],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
 
   {
@@ -704,7 +618,7 @@ db.bulkDocs([
       'assisting the homeless, unemployed and those with disabilities with employment services',
     purpose:
       'To assist veterans in preparing for, obtaining, and maintaining employment. To qualify for services veterans must have a mental or physical disability or be homeless and unemployed. Referrals are made by VA providers. Please call for additional information.',
-    website: 'http://www.benefits.va.gov/columbia/vre_ncharleston.asp',
+    website: 'www.benefits.va.gov/columbia/vre_ncharleston.asp',
     contacts: [
       {
         name: 'Joan Dunn',
@@ -715,6 +629,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-789-7830',
     addresses: [
       {
         location: 'Ralph H. Johnson Veterans Affairs Medical Center',
@@ -725,13 +640,9 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_AUSA-SC',
@@ -756,6 +667,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-276-7164',
     addresses: [
       {
         location:
@@ -768,12 +680,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_goodwill-industries-of-lower-south-carolina',
@@ -796,6 +703,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-556-0072',
     addresses: [
       {
         location: 'Palmetto Goodwill',
@@ -807,12 +715,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_mcc',
@@ -824,7 +727,7 @@ db.bulkDocs([
     shortDesc: 'holistic care',
     purpose:
       'To unite the Veteran population and the local community, Military Community Connection (MCC) seeks to streamline the coordination of care through a collective impact model, facilitating partnerships between community service providers and Veterans to deliver the highest standard of holistic care. MCC is proud to manage the SCServes Coordination Center, the first AmericaServes Coordination Center in the state of South Carolina.',
-    website: 'http://mccunite.org',
+    website: 'mccunite.org',
     contacts: [
       {
         name: 'Marie Elana Roland',
@@ -835,6 +738,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '855-355-1200',
     addresses: [
       {
         location: null,
@@ -846,12 +750,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_operation-palmetto-employment',
@@ -863,7 +762,7 @@ db.bulkDocs([
     shortDesc: 'career counseling',
     purpose:
       'Former governor Nikki Haley, together with the SC Army National Guard and the SC Department of Employment and Workforce, launched Operation Palmetto Employment as a state-wide effort to help service members, veterans, and family members find fulfilling careers in the civilian community.',
-    website: 'http://operationpalmettoemployment.sc.gov/',
+    website: 'operationpalmettoemployment.sc.gov/',
     contacts: [
       {
         name: 'Stanley Cox',
@@ -874,23 +773,10 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
-    addresses: [
-      {
-        location: null,
-        street: null,
-        city: null,
-        state: null,
-        zip: null,
-        isPrimary: true
-      }
-    ],
+    primaryPhone: '843-607-6698',
+    addresses: [],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_sc-works-trident',
@@ -902,7 +788,7 @@ db.bulkDocs([
     shortDesc: 'connect potential employees with employers',
     purpose:
       'To connect potential employees with employers through career fairs, job postings, and skills training.',
-    website: 'http://www.tridentscworks.org/index.htm',
+    website: 'www.tridentscworks.org/index.htm',
     contacts: [
       {
         name: 'Chuck Alexander',
@@ -913,7 +799,7 @@ db.bulkDocs([
         isPrimary: true
       },
       {
-        name: null,
+        name: 'SC Works Berkeley Center',
         office: 'SC Works Berkeley Center',
         title: null,
         phone: '843-761-4400',
@@ -921,7 +807,7 @@ db.bulkDocs([
         isPrimary: false
       },
       {
-        name: null,
+        name: 'SC Works Dorchester Center',
         office: 'SC Works Dorchester Center',
         title: null,
         phone: '843-821-0695',
@@ -929,6 +815,7 @@ db.bulkDocs([
         isPrimary: false
       }
     ],
+    primaryPhone: '843-574-1800',
     addresses: [
       {
         location: 'SC Works Charleston Center',
@@ -956,12 +843,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_sc-vocational-rehabilitation',
@@ -975,7 +857,7 @@ db.bulkDocs([
     website: 'www.scvrd.net',
     contacts: [
       {
-        name: null,
+        name: 'Charleston County Center',
         office: 'Charleston County Center',
         title: null,
         phone: '843-740-1600',
@@ -983,14 +865,15 @@ db.bulkDocs([
         isPrimary: true
       },
       {
-        name: null,
-        office: 'Berkeley-Dorchester Road',
+        name: 'Berkeley-Dorchester County Center',
+        office: 'Berkeley-Dorchester County Center',
         title: null,
         phone: '843-761-6036',
         email: null,
         isPrimary: false
       }
     ],
+    primaryPhone: '843-740-1600',
     addresses: [
       {
         location: 'Charleston County Center',
@@ -1010,22 +893,18 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
+
   {
     _id: 'resource_catr',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_rehabilitative_and_recreational_therapy',
-    name: 'CATR',
-    formalName: 'Charleston Area Therapeutic Riding, Inc.',
+    name: 'Charleston Area Therapeutic Riding',
+    formalName: 'Charleston Area Therapeutic Riding, Inc. (CATR)',
     shortDesc:
-      'improving the lives of those with disabilities with therapeutic riding and equine reltated activities.',
+      'Improving the lives of those with disabilities with therapeutic riding and equine reltated activities.',
     purpose:
       'CATR’s mission is to improve the lives of children and adults with disabilities using therapeutic riding and equine related activities. CATR is a PATH International Premier Accredited Center and has been in operation for 22 years. CATR currently works with over 140 individuals with a variety of disabilities each year. We have been working with veterans from the Charleston VA Medical Center as well as other groups. We have WWP scholarships available for veterans who served post 9/11/01.  Therapeutic horseback riding uses the horse as a therapeutic modality that provides physical, psychological, and social benefits to veterans who are healing from injury or illness. The horse’s movement gives multi-sensory input which can improve the veteran’s strength, balance, circulation, posture, endurance, coordination, and agility. Therapeutic riding and equine related activities additionally help to build self-confidence and emotional well-being.',
     website: 'www.catrfarms.org',
@@ -1039,9 +918,10 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-559-6060',
     addresses: [
       {
-        location: null,
+        location: 'Charleston Area Therapeutic Riding, Inc.',
         street: '2669 Hamilton Rd.',
         city: 'Johns Island',
         state: 'SC',
@@ -1050,24 +930,19 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_phwff',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_rehabilitative_and_recreational_therapy',
-    name: 'PHWFF',
+    name: 'Project Healing Waters Fly Fishing',
     formalName: 'Project Healing Waters Fly Fishing (PHWFF)',
-    shortDesc: 'pre-separation transition counseling',
+    shortDesc: 'rehabilitation, fishing',
     purpose:
       'Project Healing Waters Fly Fishing, Inc. (PHWFF)is dedicated to the physical and emotional rehabilitation of disabled active military service personnel and disabled veterans through fly fishing and associated activities including education and outings.  PHWFF provides basic fly fishing, fly casting, fly tying and rod building classes, along with clinics participants ranging from beginners who have never fished before, to those with prior fly fishing and tying experience who are adapting their skills to their new abilities. All fly fishing and tying equipment is provided to the participants at no cost. Fishing trips, both one day and multi-day, are also provided free of charge to participants. PHWFF is unique in that our volunteers are teaching classes on an on-going, long term basis. It is much more than a one day fishing trip. For many participants, particularly disabled veterans, the socialization and camaraderie of the classes are just as important as the fishing outings, and provide them a new activity. PHWFF strives to serve the deserving past and present members of our armed forces who have made great sacrifices in the service of our nation.',
-    website: 'http://www.projecthealingwaters.org',
+    website: 'www.projecthealingwaters.org',
     contacts: [
       {
         name: 'Walter Shockley',
@@ -1078,36 +953,23 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
-    addresses: [
-      {
-        location: null,
-        street: null,
-        city: null,
-        state: null,
-        zip: null,
-        isPrimary: true
-      }
-    ],
+    primaryPhone: '740-397-5113',
+    addresses: [],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_ride-2-recovery',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_rehabilitative_and_recreational_therapy',
-    name: 'Ride 2 Recovery',
+    name: 'Project Hero= Ride 2 Recovery',
     formalName: 'Project Hero - Ride 2 Recovery',
     shortDesc:
       'restoring hope and purpose to veterans through cycling-based programs',
     purpose:
       'Ride 2 Recovery, a groundbreaking Veterans program started in 2008, saves lives by restoring hope and purpose.  We are: Providing a way FOR life, Vets helping Vets, Not giving handouts, Believers in hard work, Serving over 10,000 Veterans, Founded on cycling based programs, Expert staff, People who care',
-    website: 'http://www.ride2recovery.com',
+    website: 'www.ride2recovery.com',
     contacts: [
       {
         name: 'Harold Clark',
@@ -1118,35 +980,22 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
-    addresses: [
-      {
-        location: null,
-        street: null,
-        city: null,
-        state: null,
-        zip: null,
-        isPrimary: true
-      }
-    ],
+    primaryPhone: '304-545-6366',
+    addresses: [],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
-    _id: 'resource_warrior_surf_foundation-charleston-surf-lessons',
+    _id: 'resource_warrior-surf-foundation-charleston-surf-lessons',
     type: 'resource',
     organization: 'general',
     categoryId: 'category_rehabilitative_and_recreational_therapy',
-    name: 'Warrior Surf Foundation Charleston Surf Lessons',
+    name: 'Warrior Surf Foundation',
     formalName: 'Warrior Surf Foundation - Charleston Surf Lessons',
     shortDesc: 'surf lessons for veterans',
     purpose:
       "Here at Charleston Surf Lessons we live to provide that same moment of exhilaration you get when riding your very first wave. Whether you've never touched a surfboard in your life or have surfed since you were young, we teach you the fundamental techniques that will take your surfing experience to the next level! Our lessons are fun, exciting and perfect for any age. Our Team of qualified, CPR certified, surf instructors will have you up and riding the waves in record time! Get ready for an activity to remember, whether you are planning a surf trip, creating your Folly Beach vacation checklist or are currently living in the Charleston or Folly Beach area but just finally wanting to charge the surf.",
-    website: 'http://www.charlestonsurflessons.com',
+    website: 'www.charlestonsurflessons.com',
     contacts: [
       {
         name: 'Josh Wilson',
@@ -1165,9 +1014,10 @@ db.bulkDocs([
         isPrimary: false
       }
     ],
+    primaryPhone: '843-452-5293',
     addresses: [
       {
-        location: null,
+        location: 'Charleston Surf Lessons',
         street: '1 Center Street',
         city: 'Folly Beach',
         state: 'SC',
@@ -1176,12 +1026,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_senator-lindsey-graham',
@@ -1194,7 +1039,7 @@ db.bulkDocs([
       'dedicated to assisting veterans and their family members meeting their needs.',
     purpose:
       'The Office of Senator Lindsey Graham is dedicated to assisting veterans and their family members meeting their needs. These resources include filing for VA benefits and medical claims, applying to receive the Montgomery GI Bill to pursue higher education, receiving assistance with suicide prevention, filing for survival benefits, accessing military records, and receiving benefits from awards earned while in the service.',
-    website: 'http://www.lgraham.senate.gov/public/',
+    website: 'www.lgraham.senate.gov/public/',
     contacts: [
       {
         name: null,
@@ -1205,6 +1050,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-849-3887',
     addresses: [
       {
         location: null,
@@ -1216,12 +1062,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_congressman-sanford',
@@ -1234,7 +1075,7 @@ db.bulkDocs([
       'focusing on various issues pertinent to the population of Charleston and surrounding areas of the Lowcountry.',
     purpose:
       'Congressman Mark Sanford serves the First District of South Carolina, focusing on various issues pertinent to the population of Charleston and surrounding areas of the Lowcountry.',
-    website: 'http://sanford.house.gov/resources/veterans-resources',
+    website: 'sanford.house.gov/resources/veterans-resources',
     contacts: [
       {
         name: null,
@@ -1245,6 +1086,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-352-7572',
     addresses: [
       {
         location: null,
@@ -1256,12 +1098,7 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   },
   {
     _id: 'resource_senator-tim-scott',
@@ -1273,7 +1110,7 @@ db.bulkDocs([
     shortDesc: 'dedicated to assisting veterans',
     purpose:
       'The Office of Senator Tim Scott is dedicated to assisting veterans. These resources include filing for VA benefits and medical claims, applying to receive the Montgomery GI Bill to pursue higher education, receiving assistance with suicide prevention, filing for survival benefits, accessing military records, and receiving benefits from awards earned while attached to the service.',
-    website: 'http://www.scott.senate.gov/resources/veterans',
+    website: 'www.scott.senate.gov/resources/veterans',
     contacts: [
       {
         name: 'Roger Yongue',
@@ -1284,6 +1121,7 @@ db.bulkDocs([
         isPrimary: true
       }
     ],
+    primaryPhone: '843-727-4525',
     addresses: [
       {
         location: null,
@@ -1295,11 +1133,6 @@ db.bulkDocs([
       }
     ],
     rank: null,
-    faq: [
-      {
-        question: null,
-        answer: null
-      }
-    ]
+    faq: []
   }
 ])
