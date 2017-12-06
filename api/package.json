@@ -9,7 +9,7 @@
     "load:indexes": "node load-indexes.js",
     "test": "tape test/**/*_test.js",
     "start": "node app.js",
-    "dev": "nodemon app.js",
+    "dev": "NODE_ENV=development nodemon app.js",
     "docs": "swagger-jsdoc -d swaggerDef.js -o api.yaml",
     "md-docs": "swagger-markdown -i api.yaml"
   },
@@ -36,7 +36,7 @@
     "eslint-plugin-react": "^7.5.1",
     "nock": "^9.1.3",
     "supertest": "^3.0.0",
-    "tape": "^4.8.0",
-    "swagger-markdown": "^1.1.2"
+    "swagger-markdown": "^1.1.2",
+    "tape": "^4.8.0"
   }
 }

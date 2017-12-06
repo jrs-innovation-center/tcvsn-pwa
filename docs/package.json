@@ -8,15 +8,18 @@
     "material-design-icons": "^3.0.1",
     "material-ui": "^1.0.0-beta.21",
     "material-ui-icons": "^1.0.0-beta.17",
+    "poi": "^9.5.5",
     "ramda": "^0.25.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-markdown": "^3.0.2",
     "react-router-dom": "^4.2.2",
     "recompose": "^0.26.0",
+    "serve": "^6.4.1",
     "typeface-roboto": "^0.0.45"
   },
   "scripts": {
+    "start": "serve ./dist --single",
     "dev": "poi",
     "build": "poi build"
   },
