@@ -1,5 +1,5 @@
 import React from 'react'
-import withRoot from '../components/withRoot'
+//import withRoot from '../components/withRoot'
 import withDrawer from '../components/withDrawer'
 import MenuAppBar from '../components/menuAppBar'
 import { connect } from 'react-redux'
@@ -41,4 +41,4 @@ const connector = connect(
     }
   }
 )
-export default withRoot(withDrawer(connector(Home)))
+export default withDrawer(connector(Home))
