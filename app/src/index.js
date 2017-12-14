@@ -7,17 +7,18 @@ import store from './store'
 import './App.css'
 import { SET_FAVORITES } from './constants'
 import 'typeface-roboto'
+import withRoot from './components/withRoot'
 
+const Root = withRoot(() => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+))
 // import { setResources } from './action-creators/resources'
 // import { setCategories } from './action-creators/categories'
 // import {setResourceFilters} from './action-creators/resourceFilters'
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
+ReactDOM.render(<Root />, document.getElementById('root'))
 
 // store.dispatch(setResources)
 // store.dispatch(setCategories)
