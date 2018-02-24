@@ -4,10 +4,11 @@
   "private": true,
   "dependencies": {
     "auth0-js": "^8.11.3",
-    "material-ui": "^1.0.0-beta.21",
+    "material-ui": "1.0.0-beta.34",
     "material-ui-icons": "^1.0.0-beta.17",
     "ramda": "^0.25.0",
     "react": "^16.1.1",
+    "react-declarative-container": "^1.0.0",
     "react-dom": "^16.1.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
@@ -15,7 +16,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "serve": "^6.4.1",
-    "typeface-roboto": "^0.0.45"
+    "typeface-roboto": "^0.0.54"
   },
   "scripts": {
     "start": "serve -s build",
