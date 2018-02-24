@@ -23,9 +23,9 @@ $ git clone https://github.com/jrs-innovation-center/tcvsn-pwa.git
 $ cd tcvsn-pwa
 ```
 
-## Create a database in CouchDB
+## Create a database
 
-Using either a local installation of CouchDB or a DBaaS such as Cloudant, create
+Using either a local installation of MySQL or a DBaaS such as Amazon RDS, create
 a new database. If your using a DBaaS, create an API key and/or ensure the key
 as admin rights to the database. Admin rights are needed for creating indexes
 within the database.
@@ -35,7 +35,8 @@ for your API. This key may only provide read, write access to the database.
 
 > Tip: After creating your API Key or keys, you will need to write both the key
 > and password down and keep it secure and safe. In the following step, you will
-> use the key and password to create a `COUCHDB_URL` as an environment variable.
+> use the key and password to create a `MYSQL_URI` as an environment variable and
+> if you want to connect via ssl `MYSQL_SSL=Amazon RDS`
 
 ## API Environment Variables
 
@@ -49,11 +50,11 @@ for your API. This key may only provide read, write access to the database.
   of `COUCHDB_NAME`. Provide a `PORT` number, such as 4000, that does not
   conflict with other port numbers in your project.:
 
-  * `COUCHDB_URL`
-  * `COUCHDB_NAME`
+  * `MYSQL_URI`
+  * `MYSQL_SSL`
   * `PORT`
 
-For example, here are example values for `COUCHDB_URL` and `COUCHDB_NAME`
+For example, here are example values for `MYSQL_URI` and `MYSQL_SSL`
 environment variables for an instance of CouchDB DBaaS running in IBM Blue Mix's
 Cloudant service:
 
@@ -63,17 +64,8 @@ Cloudant service:
 > new API key and secret and update your application.
 
 ```
-COUCHDB_URL=https://<API KEY>:<API PASSWORD>@<BASE URL TO CLOUDANT.com>/
-COUCHDB_NAME=veteran
-```
-
-**Complete DBaaS URL Example**
-
-```
-const db = new PouchDB(process.env.COUCHDB_URL + process.env.COUCHDB_NAME)
-
-// would produce something such as:
-// const db = new PouchDB(https://arencharlynaturousfeli7:287bb97bafee05f3d2fb7840371182d3d2534red@90629927-b1a9-4251-9b99-f76bd577tedx8-bluemix.cloudant.com/veteran)
+MYSQL_URI=https://root:password@rds.aws.amazon.com:3306/tcvsn
+MYSQL_SSL=Amazon RDS
 ```
 
 ### Installing Dependencies and starting our API
@@ -142,8 +134,8 @@ Date are formatted to the ISO 8601 standard.
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | GET    | Use to retrieve all resources (organizations) and resource categories via `\resources`, `\categories` and a single resource and a single category via `\resources\{id}`, and `\categories\{id}`. |
 | POST   | Used to create a resource (organization) and resource category via `\resources` and `\categories`.                                                                                               |
-| PUT    | Used to update a resource (organization) and resource category via `\resources\{id}` and `\categories\{id}`.                                                                         |
-| DELETE | Used to delete a single resource and a single resource category via `\resources\{id}` and `\categories\{id}`.                                                                                                                                         |
+| PUT    | Used to update a resource (organization) and resource category via `\resources\{id}` and `\categories\{id}`.                                                                                     |
+| DELETE | Used to delete a single resource and a single resource category via `\resources\{id}` and `\categories\{id}`.                                                                                    |
 
 ### Content Types
 

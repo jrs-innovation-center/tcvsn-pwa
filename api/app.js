@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+const pkg = require('./package.json')
 const express = require('express')
 const app = express()
 const {
@@ -409,9 +409,7 @@ app.delete('/categories/:id', checkJwt, async (req, res, next) => {
   } else {
     res.send({
       ok: false,
-      message: `You cannot delete this category because ${
-        resources
-      } resources are assigned to it.`
+      message: `You cannot delete this category because ${resources} resources are assigned to it.`
     })
   }
 })

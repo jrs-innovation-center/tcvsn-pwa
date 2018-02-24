@@ -1,9 +1,9 @@
 require('dotenv').config()
 const PouchDB = require('pouchdb-core')
-PouchDB.plugin(require('pouchdb-adapter-http'))
+PouchDB.plugin(require('pouchdb-adapter-mysql'))
 PouchDB.plugin(require('pouchdb-find'))
 
-const db = new PouchDB(process.env.COUCHDB_URL + process.env.COUCHDB_NAME)
+const db = new PouchDB('data', { adapter: 'mysql' })
 
 // sort the docs by the type property
 db
