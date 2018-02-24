@@ -1,10 +1,10 @@
 require('dotenv').config()
 const PouchDB = require('pouchdb-core')
-PouchDB.plugin(require('pouchdb-adapter-http'))
+PouchDB.plugin(require('pouchdb-adapter-mysql'))
 PouchDB.plugin(require('pouchdb-find'))
 const HTTPError = require('node-http-error')
 
-const db = new PouchDB(process.env.COUCHDB_URL + process.env.COUCHDB_NAME)
+const db = new PouchDB('data', { adapter: 'mysql' })
 const { pluck, map, prop } = require('ramda')
 
 const get = id => db.get(id)

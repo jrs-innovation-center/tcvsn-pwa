@@ -4,32 +4,31 @@
 
 The purpose of the application is to provide a way to veteran support networks to provide resources and support for their local veteran community.
 
-This is the application that provides the front end experience of the Veteran Support Base application. The current focus is the Mobile Look and Feel with a fall back to responsive sizes.  We use React and [Material-UI](https://material-ui-next.com/)
-React components to implement Google's Material Design user experience. 
+This is the application that provides the front end experience of the Veteran Support Base application. The current focus is the Mobile Look and Feel with a fall back to responsive sizes. We use React and [Material-UI](https://material-ui-next.com/)
+React components to implement Google's Material Design user experience.
 
-## Setup 
+## Setup
 
-If you havent already done so, install the yarn cli from npm.  Then use the yarn cli to install the dependecies for the react 
+If you havent already done so, install the yarn cli from npm. Then use the yarn cli to install the dependecies for the react
 
-> NodeJS is required, you can install from https://nodejs.org 
+> NodeJS is required, you can install from https://nodejs.org
 
-``` bash
+```bash
 npm install yarn -g
 yarn
 ```
 
-## Run in Development Mode 
+## Run in Development Mode
 
-> Make sure you have you environment variables setup - `REACT_APP_MAP` and `RREACT_APP_BASE_URL`
+> Make sure you have you environment variables setup - `REACT_APP_MAP` and `REACT_APP_BASE_URL`
 
-
-``` bash
+```bash
 yarn start
 ```
 
 [Docs](../readme.md)
 
-## Create React App Documentation 
+## Create React App Documentation
 
 This project was bootstrapped with
 [Create React App](https://github.com/facebookincubator/create-react-app).
@@ -451,8 +450,7 @@ Next we add a 'lint-staged' field to the `package.json`, for example:
 ```
 
 Now, whenever you make a commit, Prettier will format the changed files
-automatically. You can also run `./node_modules/.bin/prettier --single-quote
---write "src/**/*.{js,jsx}"` to format your entire project for the first time.
+automatically. You can also run `./node_modules/.bin/prettier --single-quote --write "src/**/*.{js,jsx}"` to format your entire project for the first time.
 
 Next you might want to integrate Prettier in your favorite editor. Read the
 section on
@@ -748,8 +746,7 @@ application. You can now edit `src/App.scss`, and `src/App.css` will be
 regenerated.
 
 To share variables between Sass files, you can use Sass imports. For example,
-`src/App.scss` and other component style files could include `@import
-"./shared.scss";` with variable definitions.
+`src/App.scss` and other component style files could include `@import "./shared.scss";` with variable definitions.
 
 To enable importing files without using relative paths, you can add the
 `--include-path` option to the command in `package.json`.
@@ -980,8 +977,7 @@ const $ = window.$
 This makes it obvious you are using a global variable intentionally rather than
 because of a typo.
 
-Alternatively, you can force the linter to ignore any line by adding `//
-eslint-disable-line` after it.
+Alternatively, you can force the linter to ignore any line by adding `// eslint-disable-line` after it.
 
 ## Adding Bootstrap
 
@@ -2464,8 +2460,7 @@ blog post on how to deploy your React app to Microsoft Azure.
 
 ### [Firebase](https://firebase.google.com/)
 
-Install the Firebase CLI if you haven’t already by running `npm install -g
-firebase-tools`. Sign up for a
+Install the Firebase CLI if you haven’t already by running `npm install -g firebase-tools`. Sign up for a
 [Firebase account](https://console.firebase.google.com/) and create a new
 project. Run `firebase login` and login with your previous created Firebase
 account.
@@ -2710,8 +2705,7 @@ Now offers a zero-configuration single-command deployment. You can use `now` to
 deploy your app for free.
 
 1. Install the `now` command-line tool either via the recommended
-   [desktop tool](https://zeit.co/download) or via node with `npm install -g
-   now`.
+   [desktop tool](https://zeit.co/download) or via node with `npm install -g now`.
 
 2. Build your app by running `npm run build`.
 
@@ -2803,8 +2797,7 @@ If none of these solutions help please leave a comment
 
 ### `npm test` hangs on macOS Sierra
 
-If you run `npm test` and the console gets stuck after printing `react-scripts
-test --env=jsdom` to the console there might be a problem with your
+If you run `npm test` and the console gets stuck after printing `react-scripts test --env=jsdom` to the console there might be a problem with your
 [Watchman](https://facebook.github.io/watchman/) installation as described in
 [facebookincubator/create-react-app#713](https://github.com/facebookincubator/create-react-app/issues/713).
 
@@ -2829,8 +2822,7 @@ You can find
 [other installation methods](https://facebook.github.io/watchman/docs/install.html#build-install)
 on the Watchman documentation page.
 
-If this still doesn’t help, try running `launchctl unload -F
-~/Library/LaunchAgents/com.github.facebook.watchman.plist`.
+If this still doesn’t help, try running `launchctl unload -F ~/Library/LaunchAgents/com.github.facebook.watchman.plist`.
 
 There are also reports that _uninstalling_ Watchman fixes the issue. So if
 nothing else helps, remove it from your system and try again.
